@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.12.10 on win32)" generated="2026-01-12T13:50:50.903122" rpa="false" schemaversion="5">
+<suite id="s1" name="Login Suite" source="C:\Users\User\Desktop\Naluephan1\saas\hrplus\tests\test_suites\login_suite.robot">
+<test id="s1-t1" name="Verify Login Page Loads" line="8">
+<kw name="Open HR Plus Application" owner="common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-01-12T13:50:51.563055" level="INFO">Opening browser 'Chrome' to base url 'None'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-01-12T13:50:51.562527" elapsed="2.991019"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-01-12T13:50:54.555060" elapsed="0.120186"/>
+</kw>
+<status status="PASS" start="2026-01-12T13:50:51.561482" elapsed="3.113764"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>tag:body</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-01-12T13:50:54.678954" elapsed="0.114303"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-01-12T13:50:54.795908" level="INFO">Login page loaded successfully.</msg>
+<arg>Login page loaded successfully.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-01-12T13:50:54.794835" elapsed="0.001073"/>
+</kw>
+<kw name="Close Application" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-12T13:50:54.799038" elapsed="3.943085"/>
+</kw>
+<status status="PASS" start="2026-01-12T13:50:54.798010" elapsed="3.945110"/>
+</kw>
+<doc>Verifies that the login page opens successfully.</doc>
+<status status="PASS" start="2026-01-12T13:50:51.560469" elapsed="7.183182"/>
+</test>
+<doc>A test suite for the Login functionality of HR Plus.</doc>
+<status status="PASS" start="2026-01-12T13:50:50.907540" elapsed="7.837663"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Login Suite" id="s1" pass="1" fail="0" skip="0">Login Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

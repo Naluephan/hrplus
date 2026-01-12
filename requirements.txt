@@ -1,0 +1,4 @@
+robotframework
+robotframework-seleniumlibrary
+webdriver-manager
+python-dotenv
