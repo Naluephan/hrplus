@@ -5,7 +5,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="Robot Framework 7.3.2 (Python 3.12.10 on win32)" name="Generator">
+<meta content="Robot Framework 7.4.1 (Python 3.12.10 on win32)" name="Generator">
 <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKcAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAqAAAAAAAAAAAAAAAAAAAALIAAAD/AAAA4AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA4AAAAP8AAACxAAAAAAAAAKYAAAD/AAAAuwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/AAAA/wAAAKkAAAD6AAAAzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN8AAAD/AAAA+gAAAMMAAAAAAAAAAgAAAGsAAABrAAAAawAAAGsAAABrAAAAawAAAGsAAABrAAAADAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAIsAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAANEAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAAAAAAAAMgAAADIAAAAyAAAAMgAAADIAAAAyAAAAMgAAADIAAAAFAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAADwAAAB8AAAAAAAAAGAAAABcAAAAAAAAAH8AAABKAAAAAAAAAAAAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAADCAAAA/wAAACkAAADqAAAA4QAAAAAAAAD7AAAA/wAAALAAAAAGAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAIwAAAP4AAAD/AAAA/wAAAGAAAAAAAAAAAAAAAMkAAAD/AAAAigAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAAAAAAAIAAAAcAAAABkAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAA2gAAAP8AAAD7AAAAywAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN4AAAD/AAAAqwAAAP8AAACvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALIAAAD/AAAAsgAAAAAAAAC5AAAA/wAAAMoAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMkAAAD/AAAAvAAAAAAAAAAAAAAAAAAAAKwAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAArQAAAAAAAAAAwAMAAIABAAAf+AAAP/wAAD/8AAAgBAAAP/wAAD/8AAA//AAAJIwAADHEAAA//AAAP/wAAB/4AACAAQAAwAMAAA==">
 <style media="all">
 :root {
@@ -116,15 +116,16 @@ select {
 #header {
     width: 65em;
     height: 3em;
-    margin: 20px 0 6px 0;
+    margin: 1em 0 0 0;
 }
 h1 {
     float: left;
-    margin: 0 0 0.5em 0;
+    margin: 0 0 1em 0;
     width: 75%;
 }
 h2 {
     clear: left;
+    margin: 1.5em 0 0.5em 0;
 }
 #generated {
     float: right;
@@ -168,7 +169,13 @@ h2 {
     background-color: var(--primary-color);
     border-radius: 3px;
 }
-.label.debug, .label.trace, .label.error, .label.keyword {
+/* https://stackoverflow.com/questions/75238633 */
+@supports (-moz-appearance: none) {
+    .label {
+        padding-top: 4px;
+    }
+}
+.label.debug, .label.trace, .label.error {
     letter-spacing: 0;
 }
 .label.pass, .label.fail, .label.error, .label.skip, .label.warn {
@@ -355,19 +362,6 @@ th.stats-col-graph:hover {
 [data-theme="light"] .dark-mode-icon {
     display: block;
 }
-@keyframes highlight {
-    0% {
-        background: var(--primary-color)
-    }
-    100% {
-        background: var(--target-color);
-    }
-}
-:target {
-    background: var(--target-color);
-    transition: background 0.3s;
-    animation: highlight 4s;
-}
 </style>
 <style media="all">
 /* Icons are from Open Iconic <https://useiconic.com/open/>.
@@ -384,36 +378,43 @@ th.stats-col-graph:hover {
     --elapsed-color: #999;
 }
 /* Containers */
-.suite, .test, #errors {
+.suite, .test, #errors, #errors .messages {
     border-color: #ccc; /* Fallback value */
     border-color: var(--secondary-color);
     border-width: 1px;
     border-style: solid;
-    padding: 0.3em 0.2em;
-    margin: 0.2em 0;
+    padding: 5px;
+    margin-top: 5px;
 }
 .test {
     border-style: dashed;
 }
-#errors, .messages {
+.messages {
     width: 100%;
     border-spacing: 0;
+    padding: 0 5px;
 }
 .children {
     display: none;
-    margin-left: 1.4em;
+    margin-left: 18px;
+    margin-top: 2px;
 }
-.suite, .test, .keyword {
-    margin-left: -0.2em;
+#errors .children {
+    margin-left: 22px;
 }
-#s1, .suite > .children > .keyword {
-    margin-left: 0;
+.suite, .test {
+    margin-left: -5px;
+}
+#s1, #errors {
+    margin: 0;
 }
 /* Suite, test and kw headers */
 .element-header {
+    display: flex;
+    align-items: center;
+    padding: 2px;
     border: 1px solid transparent;
     border-radius: 2px;
-    position: relative;
 }
 .element-header:hover {
     cursor: pointer;
@@ -423,17 +424,15 @@ th.stats-col-graph:hover {
     border-color: var(--secondary-color);
 }
 .element-header-toggle {
-    position: absolute;
-    left: 3px;
-    top: 5px;
+    margin: 0 4px 0 2px;
+    height: 11px;
+    width: 11px;
+    min-width: 11px;
+    background-size: 6px 6px;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAQAAABKxSfDAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfeCR0JChSkZz20AAAAGklEQVQI12NgQAKMDKzInP8IDhOqMk4G7AAANQwBE427PYUAAAAASUVORK5CYII=);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik0wIDB2Mmg4di0yaC04eiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAzKSIgLz4KPC9zdmc+), none;
     filter: var(--icon-filter);
-    height: 10px;
-    width: 10px;
-    background-size: 6px 6px;
     border-color: #ccc; /* Fallback value */
     border-color: var(--icon-highlight);
     border-width: 1px;
@@ -441,67 +440,59 @@ th.stats-col-graph:hover {
     border-radius: 2px;
 }
 .closed > .element-header-toggle {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAQAAABKxSfDAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfeCR0JCDHdVYtxAAAAM0lEQVQI103MMQqAMBQFwVHyITaB3P+W1sKzSBC3mW6hRFw0pUB5DvF1bu9FN0RM3X/wAk98CUnvFTakAAAAAElFTkSuQmCC);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik0zIDB2M2gtM3YyaDN2M2gydi0zaDN2LTJoLTN2LTNoLTJ6IiAvPgo8L3N2Zz4=), none;
 }
 .element-header:hover > .element-header-toggle {
     background-color: #ccc; /* Fallback value */
     background-color: var(--icon-highlight);
 }
-.element-header-right:hover ~ .element-header-toggle {
+.element-header-menu:hover ~ .element-header-toggle {
     background-color: transparent;
 }
-.element-header-left {
-    padding: 3px 80px 3px 20px;
-}
-.element-header-right {
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 3px;
+.element-header-menu {
+    margin: 0 2px 0 4px;
     cursor: default;
 }
-.element-header .label {
-    margin-right: 0.5em;
+.name, .arg, .assign {
+    margin-left: 7px;
+    white-space: pre-wrap;
 }
 .name {
     font-weight: bold;
-    white-space: pre-wrap;
-}
-.arg, .assign {
-    white-space: pre-wrap;
 }
 .elapsed {
-    float: right;
+    margin-left: auto;
+    padding-left: 0.5em;
     color: #666; /* Fallback value */
     color: var(--elapsed-color);
-    padding-left: 1em;
+    font-size: 0.9em;
+}
+/* https://stackoverflow.com/questions/75238633 */
+@supports (-moz-appearance: none) {
+    .name, .arg, .assign, .elapsed {
+        padding-top: 3px;
+    }
 }
 .link {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAHlJREFUGJVtzrEJwmAQBtCn6ASuIKTIBhY2gmghBiJYB1udwk10B8FJbKMBcQFbtbkfJHrVwfu+4/idJR64Y9H7E3higj5O3S8Y44ApLnjhnXCNGhV2yNGggDJwiC02gavUbpDFvscRo4QdXOMKDHBufz3HLYKzNn4AbSkV3fncGQYAAAAASUVORK5CYII=);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik01Ljg4LjAzYy0uMTguMDEtLjM2LjAzLS41My4wOS0uMjcuMS0uNTMuMjUtLjc1LjQ3YS41LjUgMCAxIDAgLjY5LjY5Yy4xMS0uMTEuMjQtLjE3LjM4LS4yMi4zNS0uMTIuNzgtLjA3IDEuMDYuMjIuMzkuMzkuMzkgMS4wNCAwIDEuNDRsLTEuNSAxLjVjLS40NC40NC0uOC40OC0xLjA2LjQ3LS4yNi0uMDEtLjQxLS4xMy0uNDEtLjEzYS41LjUgMCAxIDAtLjUuODhzLjM0LjIyLjg0LjI1Yy41LjAzIDEuMi0uMTYgMS44MS0uNzhsMS41LTEuNWMuNzgtLjc4Ljc4LTIuMDQgMC0yLjgxLS4yOC0uMjgtLjYxLS40NS0uOTctLjUzLS4xOC0uMDQtLjM4LS4wNC0uNTYtLjAzem0tMiAyLjMxYy0uNS0uMDItMS4xOS4xNS0xLjc4Ljc1bC0xLjUgMS41Yy0uNzguNzgtLjc4IDIuMDQgMCAyLjgxLjU2LjU2IDEuMzYuNzIgMi4wNi40Ny4yNy0uMS41My0uMjUuNzUtLjQ3YS41LjUgMCAxIDAtLjY5LS42OWMtLjExLjExLS4yNC4xNy0uMzguMjItLjM1LjEyLS43OC4wNy0xLjA2LS4yMi0uMzktLjM5LS4zOS0xLjA0IDAtMS40NGwxLjUtMS41Yy40LS40Ljc1LS40NSAxLjAzLS40NC4yOC4wMS40Ny4wOS40Ny4wOWEuNS41IDAgMSAwIC40NC0uODhzLS4zNC0uMi0uODQtLjIyeiIKICAvPgo8L3N2Zz4=), none;
-    filter: var(--icon-filter);
 }
 .expand {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAADtJREFUGJVjYCACKDAwMByA0ljFDjAwMPxnYGB4ABVQgLL/Q+VQBB6gseGmIivCkERXhFUSWRFOSawAAEl7E3uv1iMcAAAAAElFTkSuQmCC);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik0xLjUgMGwtMS41IDEuNSA0IDQgNC00LTEuNS0xLjUtMi41IDIuNS0yLjUtMi41eiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAxKSIgLz4KPC9zdmc+), none;
-    filter: var(--icon-filter);
 }
 .collapse {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAC5JREFUGJVjYCARNEAxTsn/UIyhCFkSQxG6ThQ+C5IpjWhG1yNb4YDFTdjEMAEACi8Q++9Y9TAAAAAASUVORK5CYII=);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik00IDBsLTQgNCAxLjUgMS41IDIuNS0yLjUgMi41IDIuNSAxLjUtMS41LTQtNHoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMSkiIC8+Cjwvc3ZnPg==), none;
-    filter: var(--icon-filter);
 }
 .expand, .collapse, .link {
     float: left;
     display: block;
     visibility: hidden;
-    margin: 0 4px;
+    margin: 0 3px;
     height: 14px;
     width: 14px;
     background-size: 8px 8px;
     background-repeat: no-repeat;
     background-position: center;
+    filter: var(--icon-filter);
     border-color: #ccc; /* Fallback value */
     border-color: var(--icon-highlight);
     border-width: 1px;
@@ -519,23 +510,18 @@ th.stats-col-graph:hover {
     background-color: var(--icon-highlight);
 }
 /* Messages and errors */
+.message-row {
+    height: 20px;
+}
 .messages .time, .messages .message {
     font-family: monospace;
     font-size: 1.1em;
 }
-#errors .message {
-    font-family: monospace;
-    font-size: 1.2em;
-}
-.message-row {
-    height: 20px;
-}
-.time {
+.messages .time {
     width: 7.5em;
 }
-.error-time {
-    width: 11em;
-    font-size: 0.9em;
+#errors .time {
+    width: 12.5em;
     white-space: nowrap;
 }
 .level {
@@ -555,7 +541,6 @@ th.stats-col-graph:hover {
     background-position: center;
 }
 .message-row:hover .select-message div {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAQAAAD8fJRsAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfeCR0MOzhWKZQOAAAASUlEQVQY032PsRHAIAwDX9BkicD+W8UMEqegAQJWKZ/+3sLZJhFGQEZzNaIa4ibh66En867VNaIeoP5WppNuIGoAlOm3g5VC1AdYeQv1BZPRSgAAAABJRU5ErkJggg==);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik0wIDB2MWg4di0xaC04em0wIDJ2MWg2di0xaC02em0wIDJ2MWg4di0xaC04em0wIDJ2MWg2di0xaC02eiIgLz4KPC9zdmc+), none;
     filter: var(--icon-filter);
     border-color: #ccc; /* Fallback value */
@@ -577,7 +562,6 @@ th.stats-col-graph:hover {
 .debug-message {
     display: table;
 }
-/* Metadata */
 .metadata {
     width: 100%;
     border-spacing: 0.2em;
@@ -596,6 +580,20 @@ th.stats-col-graph:hover {
 /* Custom styles for statistics */
 #total-stats tr:hover, #tag-stats tr:hover {
     cursor: default;
+}
+/* Target highlight */
+@keyframes highlight {
+    0% {
+        background: var(--primary-color)
+    }
+    100% {
+        background: var(--target-color);
+    }
+}
+:target {
+    background: var(--target-color);
+    transition: background 0.3s;
+    animation: highlight 4s;
 }
 </style>
 <style media="print">
@@ -741,7 +739,8 @@ function toggleElement(elementId, childrenNames) {
     children.toggle(100, '', function () {
         element.children('.element-header').toggleClass('closed');
     });
-    populateChildren(elementId, children, childrenNames);
+    if (childrenNames)
+        populateChildren(elementId, children, childrenNames);
 }
 function populateChildren(elementId, childElement, childrenNames) {
     if (!childElement.hasClass('populated')) {
@@ -1144,7 +1143,7 @@ window.model = (function () {
         kw.type = data.type;
         kw.template = 'keywordTemplate';
         kw.arguments = data.args;
-        kw.assign = data.assign + (data.assign ? ' =  ' : '');
+        kw.assign = data.assign;
         kw.tags = data.tags;
         kw.timeout = data.timeout;
         kw.populateKeywords = createIterablePopulator('Keyword');
@@ -1883,7 +1882,7 @@ function addStatistics() {
         '<th class="stats-col-elapsed">Elapsed</th>' +
         '<th class="stats-col-graph">Pass / Fail / Skip</th>';
     var statTable =
-        '<h2>{Test} Statistics</h2>' +
+        '<h2>Statistics</h2>' +
         '<table class="statistics" id="total-stats"><thead><tr>' +
         '<th class="stats-col-name">Total Statistics</th>' + statHeaders +
         '</tr></thead></table>' +
@@ -1893,7 +1892,7 @@ function addStatistics() {
         '<table class="statistics" id="suite-stats"><thead><tr>' +
         '<th class="stats-col-name">Statistics by Suite</th>' + statHeaders +
         '</tr></thead></table>';
-    $(testOrTask(statTable)).appendTo('#statistics-container');
+    $(statTable).appendTo('#statistics-container');
     util.map(['total', 'tag', 'suite'], addStatTable);
     addTooltipsToElapsedTimes();
     enableStatisticsSorter();
@@ -2074,25 +2073,25 @@ storage = function () {
 window.output = {};
 </script>
 <script type="text/javascript">
-window.output["suite"] = [1,2,3,0,[],[1,0,13023],[],[[4,0,5,[],[1,3152,7680],[[0,6,7,0,8,9,0,0,[1,3153,1203],[[3153,2,10]]],[0,11,12,0,13,14,0,0,[1,4356,2002],[[6358,2,15]]],[0,16,7,0,17,18,0,0,[1,6358,35],[]],[0,19,7,0,20,21,0,0,[1,6393,122],[[6393,2,22]]],[0,19,7,0,20,23,0,0,[1,6516,63],[[6516,2,24]]],[0,25,7,0,26,27,0,0,[1,6581,57],[[6581,2,28]]],[0,29,12,0,30,31,0,0,[1,6639,1256],[[0,32,7,0,33,34,0,0,[1,6639,1256],[]]]],[0,6,7,0,8,35,0,0,[1,7896,2732],[[7897,2,36]]],[0,32,7,0,33,37,0,0,[1,10628,34],[]],[0,38,12,0,39,40,41,0,[1,10662,76],[[0,42,7,0,43,44,0,0,[1,10662,76],[]],[10738,2,45]]],[0,46,12,0,47,48,0,0,[1,10738,0],[]],[0,49,12,0,50,51,0,0,[1,10739,0],[]],[0,52,7,0,53,54,0,0,[1,10739,12],[[10751,2,55]]],[0,56,7,0,57,58,0,0,[1,10751,80],[[10831,2,59]]]]]],[[1,60,61,0,0,0,0,0,[1,165,2987],[[0,62,7,0,63,64,0,0,[1,166,2927],[[166,2,65]]],[0,66,7,0,67,0,0,0,[1,3093,58],[]]]],[2,68,61,0,0,0,0,0,[1,10833,2189],[[0,69,7,0,70,0,0,0,[1,10834,2189],[]]]]],[1,1,0,0]];
+window.output["suite"] = [1,2,3,0,[],[1,0,65776],[[4,5,6,0,[],[1,32,65742],[[7,8,9,10,[],[1,34,16211],[],[[11,0,12,[13],[1,293,4466],[[1,14,15,0,0,0,0,0,[1,293,3821],[[0,16,17,0,18,19,0,20,[1,295,1374],[[297,2,21],[337,2,22],[1669,2,23]]],[0,24,17,0,25,26,0,20,[1,1670,39],[[1673,2,27],[1709,2,28],[1709,2,29]]],[0,30,17,0,31,32,0,33,[1,1710,1],[]],[0,34,17,0,35,36,0,20,[1,1711,2403],[[4113,2,37]]]]],[0,38,17,0,39,40,0,41,[1,4116,97],[[4213,2,42]]],[0,43,44,0,45,46,0,0,[1,4214,2],[[4214,2,46]]],[2,47,15,0,0,0,0,0,[1,4216,542],[[0,48,17,0,49,0,0,20,[1,4217,540],[[4757,2,50]]]]]]],[51,0,0,[52],[1,4769,5835],[[1,14,15,0,0,0,0,0,[1,4775,2810],[[0,16,17,0,18,19,0,20,[1,4776,457],[[4777,2,53],[5233,2,54]]],[0,24,17,0,25,26,0,20,[1,5234,36],[[5238,2,27],[5270,2,28],[5270,2,29]]],[0,30,17,0,31,32,0,33,[1,5271,1],[]],[0,34,17,0,35,36,0,20,[1,5272,2314],[[7585,2,37]]]]],[0,55,17,0,56,57,0,58,[1,7586,141],[[7587,2,59]]],[0,55,17,0,56,60,0,58,[1,7728,43],[[7730,2,61]]],[0,62,17,0,63,64,0,58,[1,7772,176],[[7774,2,65]]],[0,66,17,0,67,68,0,41,[1,7948,2074],[[0,69,17,0,70,71,0,72,[1,7951,2070],[]]]],[0,43,44,0,45,73,0,0,[1,10023,2],[[10024,2,73]]],[2,47,15,0,0,0,0,0,[1,10026,577],[[0,48,17,0,49,0,0,20,[1,10027,576],[[10602,2,50]]]]]]],[74,0,75,[76],[1,10622,5615],[[1,14,15,0,0,0,0,0,[1,10629,2824],[[0,16,17,0,18,19,0,20,[1,10631,381],[[10633,2,77],[11012,2,78]]],[0,24,17,0,25,26,0,20,[1,11012,35],[[11016,2,27],[11047,2,28],[11047,2,29]]],[0,30,17,0,31,32,0,33,[1,11047,1],[]],[0,34,17,0,35,36,0,20,[1,11048,2405],[[13452,2,37]]]]],[0,55,17,0,56,57,0,58,[1,13454,157],[[13456,2,59]]],[0,55,17,0,56,79,0,58,[1,13611,45],[[13612,2,80]]],[0,62,17,0,63,64,0,58,[1,13655,186],[[13657,2,65]]],[0,81,44,0,82,83,0,0,[1,13842,2002],[[15844,2,84]]],[0,66,17,0,67,85,0,41,[1,15844,4],[[0,69,17,0,70,86,0,72,[1,15846,3],[]]]],[0,38,17,0,39,87,0,41,[1,15848,10],[[15858,2,88]]],[2,47,15,0,0,0,0,0,[1,15859,378],[[0,48,17,0,49,0,0,20,[1,15860,376],[[16236,2,50]]]]]]]],[],[3,3,0,0]],[89,90,91,0,[],[1,16253,19775],[],[[92,0,93,[52],[1,16263,11074],[[1,14,15,0,0,0,0,0,[1,16270,2670],[[0,16,17,0,18,19,0,20,[1,16270,347],[[16272,2,94],[16618,2,95]]],[0,24,17,0,25,26,0,20,[1,16619,29],[[16621,2,27],[16647,2,28],[16648,2,29]]],[0,30,17,0,31,32,0,33,[1,16648,1],[]],[0,34,17,0,35,36,0,20,[1,16649,2291],[[18940,2,37]]]]],[0,96,17,0,97,98,0,20,[1,18942,1302],[[20244,2,99]]],[0,81,44,0,82,83,0,0,[1,20245,2001],[[22247,2,84]]],[0,38,17,0,39,100,0,41,[1,22247,30],[[22276,2,101]]],[0,55,17,0,56,57,0,58,[1,22276,24],[[22278,2,59]]],[0,55,17,0,56,60,0,58,[1,22302,19],[[22303,2,61]]],[0,62,17,0,63,64,0,58,[1,22322,49],[[22323,2,65]]],[0,102,44,0,103,104,0,0,[1,22372,1529],[[0,66,17,0,67,68,0,41,[1,22374,1527],[[0,69,17,0,70,71,0,72,[1,22375,1526],[]]]]]],[0,96,17,0,97,105,0,20,[1,23904,2757],[[26660,2,106]]],[0,66,17,0,67,107,0,41,[1,26662,6],[[0,69,17,0,70,108,0,72,[1,26663,5],[]]]],[0,109,44,0,110,111,112,0,[1,26670,73],[[0,38,17,0,39,113,0,41,[1,26671,71],[[26742,2,114]]],[26743,2,115]]],[0,116,44,0,117,118,0,0,[1,26744,1],[]],[0,119,44,0,120,121,0,0,[1,26746,0],[]],[0,122,17,0,123,124,0,125,[1,26747,19],[[26764,2,126]]],[0,122,17,0,123,127,0,125,[1,26766,58],[[26824,2,126]]],[2,47,15,0,0,0,0,0,[1,26825,512],[[0,48,17,0,49,0,0,20,[1,26825,512],[[27338,2,50]]]]]]],[128,0,129,[76],[1,27346,8676],[[1,14,15,0,0,0,0,0,[1,27352,2619],[[0,16,17,0,18,19,0,20,[1,27352,297],[[27353,2,130],[27649,2,131]]],[0,24,17,0,25,26,0,20,[1,27649,21],[[27653,2,27],[27670,2,28],[27670,2,29]]],[0,30,17,0,31,32,0,33,[1,27670,2],[]],[0,34,17,0,35,36,0,20,[1,27673,2297],[[29969,2,37]]]]],[0,132,15,0,0,0,0,0,[1,29972,3124],[[0,96,17,0,97,98,0,20,[1,29973,1518],[[31490,2,99]]],[0,38,17,0,39,133,0,41,[1,31491,63],[[31554,2,101]]],[0,55,17,0,56,57,0,58,[1,31554,50],[[31555,2,59]]],[0,55,17,0,56,60,0,58,[1,31605,25],[[31606,2,61]]],[0,62,17,0,63,64,0,58,[1,31630,44],[[31631,2,65]]],[0,66,17,0,67,134,0,41,[1,31674,1420],[[0,69,17,0,70,71,0,72,[1,31676,1418],[]]]],[0,43,44,0,45,135,0,0,[1,33095,1],[[33096,2,135]]]]],[0,96,17,0,97,105,0,20,[1,33096,2103],[[35199,2,106]]],[0,66,17,0,67,107,0,41,[1,35200,5],[[0,69,17,0,70,108,0,72,[1,35201,4],[]]]],[0,55,17,0,56,136,0,58,[1,35207,145],[[35208,2,137]]],[0,38,17,0,39,138,0,41,[1,35352,348],[[35698,2,139]]],[2,47,15,0,0,0,0,0,[1,35700,322],[[0,48,17,0,49,0,0,20,[1,35701,320],[[36021,2,50]]]]]]]],[],[2,2,0,0]],[140,141,142,143,[],[1,36036,29730],[],[[144,0,145,[],[1,36044,9101],[[1,14,15,0,0,0,0,0,[1,36050,2649],[[0,16,17,0,18,19,0,20,[1,36050,295],[[36051,2,146],[36345,2,147]]],[0,24,17,0,25,26,0,20,[1,36345,26],[[36349,2,27],[36371,2,28],[36371,2,29]]],[0,30,17,0,31,32,0,33,[1,36372,2],[]],[0,34,17,0,35,36,0,20,[1,36374,2325],[[38698,2,37]]]]],[0,132,15,0,0,0,0,0,[1,38700,3446],[[0,96,17,0,97,98,0,20,[1,38701,1649],[[40350,2,99]]],[0,38,17,0,39,133,0,41,[1,40350,73],[[40423,2,101]]],[0,55,17,0,56,57,0,58,[1,40424,73],[[40424,2,59]]],[0,55,17,0,56,60,0,58,[1,40497,40],[[40499,2,61]]],[0,62,17,0,63,64,0,58,[1,40537,71],[[40538,2,65]]],[0,66,17,0,67,134,0,41,[1,40609,1536],[[0,69,17,0,70,71,0,72,[1,40610,1535],[]]]],[0,43,44,0,45,135,0,0,[1,42145,1],[[42146,2,135]]]]],[0,96,17,0,97,148,0,20,[1,42148,2543],[[44690,2,149]]],[0,38,17,0,39,150,0,41,[1,44691,54],[[44744,2,151]]],[0,38,17,0,39,152,0,41,[1,44746,18],[[44764,2,153]]],[0,43,44,0,45,154,0,0,[1,44766,1],[[44767,2,154]]],[2,47,15,0,0,0,0,0,[1,44768,377],[[0,48,17,0,49,0,0,20,[1,44768,377],[[45145,2,50]]]]]]],[155,0,156,[],[1,45152,9925],[[1,14,15,0,0,0,0,0,[1,45154,2559],[[0,16,17,0,18,19,0,20,[1,45155,264],[[45156,2,157],[45420,2,158]]],[0,24,17,0,25,26,0,20,[1,45420,28],[[45423,2,27],[45447,2,28],[45447,2,29]]],[0,30,17,0,31,32,0,33,[1,45449,2],[]],[0,34,17,0,35,36,0,20,[1,45450,2262],[[47712,2,37]]]]],[0,132,15,0,0,0,0,0,[1,47713,3138],[[0,96,17,0,97,98,0,20,[1,47714,1528],[[49243,2,99]]],[0,38,17,0,39,133,0,41,[1,49244,67],[[49311,2,101]]],[0,55,17,0,56,57,0,58,[1,49311,59],[[49312,2,59]]],[0,55,17,0,56,60,0,58,[1,49370,29],[[49372,2,61]]],[0,62,17,0,63,64,0,58,[1,49398,50],[[49400,2,65]]],[0,66,17,0,67,134,0,41,[1,49449,1401],[[0,69,17,0,70,71,0,72,[1,49450,1400],[]]]],[0,43,44,0,45,135,0,0,[1,50850,1],[[50851,2,135]]]]],[0,96,17,0,97,159,0,20,[1,50852,3629],[[54481,2,160]]],[0,38,17,0,39,161,0,41,[1,54483,70],[[54552,2,162]]],[0,38,17,0,39,163,0,41,[1,54553,37],[[54590,2,164]]],[0,43,44,0,45,165,0,0,[1,54591,1],[[54592,2,165]]],[2,47,15,0,0,0,0,0,[1,54594,482],[[0,48,17,0,49,0,0,20,[1,54595,481],[[55076,2,50]]]]]]],[166,0,167,[],[1,55084,10673],[[1,14,15,0,0,0,0,0,[1,55089,2654],[[0,16,17,0,18,19,0,20,[1,55089,365],[[55091,2,168],[55454,2,169]]],[0,24,17,0,25,26,0,20,[1,55454,24],[[55459,2,27],[55479,2,28],[55479,2,29]]],[0,30,17,0,31,32,0,33,[1,55479,2],[]],[0,34,17,0,35,36,0,20,[1,55481,2261],[[57742,2,37]]]]],[0,132,15,0,0,0,0,0,[1,57743,3092],[[0,96,17,0,97,98,0,20,[1,57744,1524],[[59269,2,99]]],[0,38,17,0,39,133,0,41,[1,59270,63],[[59333,2,101]]],[0,55,17,0,56,57,0,58,[1,59334,53],[[59335,2,59]]],[0,55,17,0,56,60,0,58,[1,59387,29],[[59389,2,61]]],[0,62,17,0,63,64,0,58,[1,59417,43],[[59418,2,65]]],[0,66,17,0,67,134,0,41,[1,59461,1373],[[0,69,17,0,70,71,0,72,[1,59462,1372],[]]]],[0,43,44,0,45,135,0,0,[1,60834,0],[[60834,2,135]]]]],[0,96,17,0,97,159,0,20,[1,60835,3129],[[63965,2,160]]],[0,38,17,0,39,161,0,41,[1,63966,54],[[64020,2,162]]],[0,62,17,0,63,170,0,58,[1,64021,184],[[64021,2,171]]],[0,38,17,0,39,172,0,41,[1,64207,917],[[65122,2,173]]],[0,38,17,0,39,174,0,41,[1,65124,37],[[65161,2,175]]],[0,38,17,0,39,176,0,41,[1,65164,32],[[65196,2,177]]],[0,38,17,0,39,178,0,41,[1,65199,30],[[65229,2,179]]],[0,43,44,0,45,180,0,0,[1,65233,2],[[65234,2,180]]],[2,47,15,0,0,0,0,0,[1,65237,521],[[0,48,17,0,49,0,0,20,[1,65240,517],[[65756,2,50]]]]]]]],[],[3,3,0,0]]],[],[],[8,8,0,0]]],[],[],[8,8,0,0]];
 </script>
 <script type="text/javascript">
 window.output["strings"] = [];
 </script>
 <script type="text/javascript">
-window.output["strings"] = window.output["strings"].concat(["*","*News Suite","*C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\tests\\test_suites\\news_suite.robot","*../tests/test_suites/news_suite.robot","*Verify News Page Elements","*<p>Verify that the News page loads and displays key elements.\x3c/p>","*Go To","*SeleniumLibrary","*<p>Navigates the current browser window to the provided <code>url\x3c/code>.\x3c/p>","*${URL}/login","*Opening url '<a href=\"http://localhost:8001/login\">http://localhost:8001/login\x3c/a>'","*Sleep","*BuiltIn","*<p>Pauses the test executed for the given time.\x3c/p>","*2s","*Slept 2 seconds.","*Wait Until Page Contains Element","*<p>Waits until the element <code>locator\x3c/code> appears on the current page.\x3c/p>","*id:login-email    timeout=30s","*Input Text","*<p>Types the given <code>text\x3c/code> into the text field identified by <code>locator\x3c/code>.\x3c/p>","*id:login-email    ${LOGIN_EMAIL}","*Typing text 'ops@central.local' into text field 'id:login-email'.","*id:login-password    ${LOGIN_PASSWORD}","*Typing text 'ChangeMe123!' into text field 'id:login-password'.","*Click Button","*<p>Clicks the button identified by <code>locator\x3c/code>.\x3c/p>","*<a href=\"xpath://button[@type='submit\">xpath://button[@type='submit\x3c/a>']","*Clicking button '<a href=\"xpath://button[@type='submit\">xpath://button[@type='submit\x3c/a>']'.","*Run Keyword And Ignore Error","*<p>Runs the given keyword with the given arguments and ignores possible error.\x3c/p>","*Wait Until Location Contains    /dashboard    timeout=10s","*Wait Until Location Contains","*<p>Waits until the current URL contains <code>expected\x3c/code>.\x3c/p>","*/dashboard    timeout=10s","*${URL}/news","*Opening url '<a href=\"http://localhost:8001/news\">http://localhost:8001/news\x3c/a>'","*/news    timeout=30s","*Run Keyword And Return Status","*<p>Runs the given keyword with given arguments and returns the status as a Boolean value.\x3c/p>","*Wait Until Element Contains    tag:h1    ประกาศ และข่าวสาร    timeout=20s","*${status}","*Wait Until Element Contains","*<p>Waits until the element <code>locator\x3c/code> contains <code>text\x3c/code>.\x3c/p>","*tag:h1    ประกาศ และข่าวสาร    timeout=20s","*${status} = True","*Run Keyword If","*<p>Runs the given keyword with the given arguments, if <code>condition\x3c/code> is true.\x3c/p>","*not ${status}    Log Page Source","*Should Be True","*<p>Fails if the given condition is not true.\x3c/p>","*${status}    msg=Failed to load News page content (Title not found)","*Page Should Contain Element","*<p>Verifies that element <code>locator\x3c/code> is found on the current page.\x3c/p>","*<a href=\"xpath://a[contains(text(\">xpath://a[contains(text(\x3c/a>), 'จัดการประกาศและข่าวสาร')]","*Current page contains element '<a href=\"xpath://a[contains(text(\">xpath://a[contains(text(\x3c/a>), 'จัดการประกาศและข่าวสาร')]'.","*Page Should Contain Button","*<p>Verifies button <code>locator\x3c/code> is found from current page.\x3c/p>","*ค้นหา","*Current page contains button 'ค้นหา'.","*Open HR Plus Application","*common","*Open Browser","*<p>Opens a new browser instance to the optional <code>url\x3c/code>.\x3c/p>","*${URL}    ${BROWSER}","*Opening browser 'Chrome' to base url '<a href=\"http://localhost:8001\">http://localhost:8001\x3c/a>'.","*Maximize Browser Window","*<p>Maximizes current browser window.\x3c/p>","*Close Application","*Close Browser","*<p>Closes the current browser.\x3c/p>"]);
+window.output["strings"] = window.output["strings"].concat(["*","*Tests","*C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\tests","*tests","*Test Suites","*C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\tests\\test_suites","*tests/test_suites","*Login Suite","*C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\tests\\test_suites\\login_suite.robot","*tests/test_suites/login_suite.robot","*<p>A test suite for the Login functionality of HR Plus.\x3c/p>","*Verify Login Page Loads","*<p>Verifies that the login page opens successfully.\x3c/p>","*smoke","*Open HR Plus Application","*common","*New Browser","*Browser","*<p>Create a new playwright Browser with specified options.\x3c/p>","*browser=${BROWSER}    headless=False","*BrowserControl, Setter","eNptj09PwzAMxb/KlPM6pX8GZFeGYIdNiG03X9zGVStSUsUJQ5r23bEo0oaEL0/v52cnPqs6+BNTUKuZarrghz4Naj5THaF1xCy8Rcc0v7b3+GFr/3XTsfQZvXe34U5Cjvab55fjq+AY0h+62R3+oYent+0Vs/OnrRevF1ps7AfyKYovtdTEAjbE6/7n+48rgKOcwpMArInfox8BdugSjfJMDsCIEujC6JLo7/UA0yZRGmSguC9Kqy1mtSnarHowZYa6MVlVtGiq/M6aZa4u39kCZ7E=","*Starting Browser process C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\.venv\\Lib\\site-packages\\Browser\\wrapper\\index.js using at 127.0.0.1:58270","*Successfully created browser with options: {\"browser\":\"chromium\",\"headless\":false,\"chromiumSandbox\":false,\"devtools\":false,\"handleSIGHUP\":true,\"handleSIGINT\":true,\"handleSIGTERM\":true,\"slowMo\":0,\"timeout\":30000,\"tracesDir\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\browser\\\\traces\\\\temp\\\\2723d0da-b92f-4893-a0c9-42fa9416d951\"}","*New Context","*<p>Create a new BrowserContext with specified options.\x3c/p>","*viewport={'width': 1280, 'height': 720}","eNpNjsEKgzAQRO9+hXi2YHtp6dUKvRQKCj3HZKNpQzZsolLEf29sCvU4b2Z2dk7SNGOcg/UXnIxGJlx2Tj0NkK9W+7bMubK+ByiZdpFKJA6iRI20pjODBrKvozqDBNemudcVUbT/vScbWc1JWV8Z1moQ2ymUUqtwZ1sgEENYuqFXaOLSzhJIIDD8N+mARsXhgfSC+A7TGqdojgomi+QDnoMOZFLC90HuD6cij6gH1fVr5HgoAlmS5QMi5lUM","*Successfully created context. ","*{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}","*Set Browser Timeout","*<p>Sets the timeout used by most input and getter keywords.\x3c/p>","*30s","*Config, Setter","*New Page","*<p>Open a new Page.\x3c/p>","*${URL}","*Successfully initialized new page object and opened url: <a href=\"http://localhost:8001\">http://localhost:8001\x3c/a>","*Wait For Elements State","*<p>Waits for the element found by <code>selector\x3c/code> to satisfy state option.\x3c/p>","*css=body    visible    timeout=10s","*PageContent, Wait","*Waited for Element with selector css=body at state visible","*Log","*BuiltIn","*<p>Logs the given message with the given level.\x3c/p>","*Login page loaded successfully.","*Close Application","*Close Browser","*<p>Closes the current browser.\x3c/p>","*Closed browser","*Login With Valid Credentials","*critical","eNptj0FPwzAMhf/KlPOKUhYVbVeGYIdNiG03X9zEUytSXMUJQ0L8dyyKtCHhy9P7/OzEn6ZNfBZKZjUzvks89GUw85npCEMkEeUnjELzS3uPb6Hlj6tOoPfMHK/DnYYi7TePT8dnxTmVP3SzO/xDDw8v2wuWyOctq7c3Vm3uB+KS1S+s1sQSepJ1//P9+xXAUU+RSQDWJK+ZR4AdxkKjPlMDCKIGujTGovp7PcC0SZUGHXCusXehbqsGF65y7tZXaDFUS2ycR7v0dVubr2/VuGfz","*Successfully created browser with options: {\"browser\":\"chromium\",\"headless\":false,\"chromiumSandbox\":false,\"devtools\":false,\"handleSIGHUP\":true,\"handleSIGINT\":true,\"handleSIGTERM\":true,\"slowMo\":0,\"timeout\":30000,\"tracesDir\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\browser\\\\traces\\\\temp\\\\44607d1b-6a34-442c-a0ad-9a64ca09c1b1\"}","*Fill Text","*<p>Clears and fills the given <code>txt\x3c/code> into the text field found by <code>selector\x3c/code>.\x3c/p>","*id=login-email    ${LOGIN_EMAIL}","*PageContent, Setter","*Fills the text 'ops@central.local' in the given field.","*id=login-password    ${LOGIN_PASSWORD}","*Fills the text 'ChangeMe123!' in the given field.","*Click","*<p>Simulates mouse click on the element found by <code>selector\x3c/code>.\x3c/p>","*xpath=//button[@type='submit']","*Clicks the element 'xpath=//button[@type='submit']'.","*Wait For Condition","*<p>Waits for a condition, defined with Browser getter keywords to become True.\x3c/p>","*Url    contains    /dashboard    timeout=10s","*Get Url","*<p>Returns the current URL.\x3c/p>","*contains    /dashboard","*Assertion, Getter, PageContent","*Login successful and dashboard loaded.","*Login With Invalid Credentials","*<p>Verifies that login fails with incorrect credentials.\x3c/p>","*negative","eNptj0FvwjAMhf8KyplOCS3dxhUmxgE0Dbj54rZGrZbiKk7GpGn/fdY6CSbNl6f3+dmJP00V+CIUzGJi6jZw36XeTCemJWw8iSg/oReaXtt7PDcVf9x0GnqPzP423GrI036zfj6+KI4h/aGb3eEfenh63V6xeL5sWb29s2pj1xOnqD63WiMLWJOsup/vLxcARz1FRgFYkbxFHgB26BMN+owDEEQNtGHwSfX3eoBxkyr1OuBmeZlbN8tO9xVmxbxwGRaOsrKak3P24dGWtfn6BskyZzc=","*Successfully created browser with options: {\"browser\":\"chromium\",\"headless\":false,\"chromiumSandbox\":false,\"devtools\":false,\"handleSIGHUP\":true,\"handleSIGINT\":true,\"handleSIGTERM\":true,\"slowMo\":0,\"timeout\":30000,\"tracesDir\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\browser\\\\traces\\\\temp\\\\12363012-f7ba-4541-a41e-6b5e1108906c\"}","*id=login-password    WrongPassword123!","*Fills the text 'WrongPassword123!' in the given field.","*Sleep","*<p>Pauses the test executed for the given time.\x3c/p>","*2s","*Slept 2 seconds.","*Url    contains    /login","*contains    /login","*id=user-menu    detached","*Waited for Element with selector id=user-menu at state detached","*News Suite","*C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\tests\\test_suites\\news_suite.robot","*tests/test_suites/news_suite.robot","*Verify News Page Elements","*<p>Verify that the News page loads and displays key elements.\x3c/p>","eNptj09vwjAMxb8KyplO/TOo4Apo4wCaBtx8cVtHrUjnKk7GpInvjrVOgknz5en9/OzE36byfBHyZjkxdeu572JvphPTEjaORJRbdELTe/uAH03FXw+dhj4Ds3sMtxpydNi+vJ7eFAcf/9Dt/vgPPW7ed3csji87Vp8+pWpD1xPHoL5ItUbmsSZZdz/fXy0BTnqKjAKwJjkHHgD26CIN+kwGIIgaaP3gourv9QDjJlXqdWBRItrSzpLa5vPkOc+zpLJNkSyKcp5mdkaYobneAOQ0aD4=","*Successfully created browser with options: {\"browser\":\"chromium\",\"headless\":false,\"chromiumSandbox\":false,\"devtools\":false,\"handleSIGHUP\":true,\"handleSIGINT\":true,\"handleSIGTERM\":true,\"slowMo\":0,\"timeout\":30000,\"tracesDir\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\browser\\\\traces\\\\temp\\\\97aaf7f5-cf26-4221-bfd3-937601f5ea1a\"}","*Go To","*<p>Navigates to the given <code>url\x3c/code>.\x3c/p>","*${URL}/login","*Successfully opened URL <a href=\"http://localhost:8001/login\">http://localhost:8001/login\x3c/a>","*id=login-email    visible    timeout=30s","*Waited for Element with selector id=login-email at state visible","*Run Keyword And Ignore Error","*<p>Runs the given keyword with the given arguments and ignores possible error.\x3c/p>","*Wait For Condition    Url    contains    /dashboard    timeout=10s","*${URL}/news","*Successfully opened URL <a href=\"http://localhost:8001/news\">http://localhost:8001/news\x3c/a>","*Url    contains    /news    timeout=30s","*contains    /news","*Run Keyword And Return Status","*<p>Runs the specified keyword and returns the status as a Boolean value.\x3c/p>","*Wait For Elements State    text=\"ประกาศ และข่าวสาร\"    visible    timeout=20s","*${status}","*text=\"ประกาศ และข่าวสาร\"    visible    timeout=20s","*Waited for Element with selector text=\"ประกาศ และข่าวสาร\" at state visible","*${status} = True","*Run Keyword If","*<p>Runs the given keyword with the given arguments, if <code>condition\x3c/code> is true.\x3c/p>","*not ${status}    Log Page Source","*Should Be True","*<p>Fails if the given condition is not true.\x3c/p>","*${status}    msg=Failed to load News page content (Title not found)","*Get Element","*<p>Returns a reference to a Playwright <a href=\"https://playwright.dev/docs/api/class-locator\">Locator\x3c/a>.\x3c/p>","*xpath=//a[contains(text(), 'จัดการประกาศและข่าวสาร')]","*Getter, PageContent","*Locator found successfully.","*xpath=//button[contains(text(), 'ค้นหา')]","*Search News With No Results","*<p>Verifies that searching for a non-existent term returns no results.\x3c/p>","eNptj0FPwzAMhf/KlPOK2rFVdFeGYIdNiG03X5L2Va1IcRUnDAnx37Eo0oaEL0/v87MTfxoX+CwIZj0zdRd46NNg5jPTwTYeIspb6wXzS/tg3xrHH1edBu+R2V+HOw15HLaPT6dnxTGkP3S7P/5Djw8vuwsWz+cdq89vcrWxH8Apqr/NtSYWbA3Z9D/fv18TnfQUmYRoA3mNPBLtrU8Y9ZmCSKzVQBdGn1R/ryeaNqli0IEFbOGaElmFssiWblVmVV65rFq2dytgUbdw5usb5rporg==","*Successfully created browser with options: {\"browser\":\"chromium\",\"headless\":false,\"chromiumSandbox\":false,\"devtools\":false,\"handleSIGHUP\":true,\"handleSIGINT\":true,\"handleSIGTERM\":true,\"slowMo\":0,\"timeout\":30000,\"tracesDir\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\browser\\\\traces\\\\temp\\\\2ea1bd6e-9e61-4b56-909b-94f85ee2cfeb\"}","*Login To Application","*id=login-email    visible    timeout=20s","*Url    contains    /dashboard    timeout=20s","*Login successful.","*xpath=//input[@type='search']    NonExistentNews123","*Fills the text 'NonExistentNews123' in the given field.","*text=\"ยังไม่มีประกาศในขณะนี้\"    visible    timeout=10s","*Waited for Element with selector text=\"ยังไม่มีประกาศในขณะนี้\" at state visible","*Settings Suite","*C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\tests\\test_suites\\settings_suite.robot","*tests/test_suites/settings_suite.robot","*<p>A test suite for the Settings functionality of HR Plus.\x3c/p>","*Verify Company Settings Page","*<p>Verifies that the Company Settings page loads correctly.\x3c/p>","eNptj0FPwzAMhf/KlPOKGlpYuuuGYIdNiG03X7zFUytSXMUJQ0L8dyyKtCHhy9P7/OzEn+YQ+SwUzXxijm3kvsu9mU5MS+gDiSg/YRCaXtpbfPMH/rjqeHpPzOE63Goo0Hb1+LR/Vpxi/kNXm90/dPfwsr5gCXxes/ryplSbup44J/VVqTWyiEeSZffz/cUcYK+nyCgAS5LXxAPABkOmQZ+xAIKogTYOIav+Xg8wblKlXgf8fUV1Y13h7k6zoka0hXPNrGhs2djKO39bk/n6BtGEZ2k=","*Successfully created browser with options: {\"browser\":\"chromium\",\"headless\":false,\"chromiumSandbox\":false,\"devtools\":false,\"handleSIGHUP\":true,\"handleSIGINT\":true,\"handleSIGTERM\":true,\"slowMo\":0,\"timeout\":30000,\"tracesDir\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\browser\\\\traces\\\\temp\\\\d63e4918-85f7-4aa1-8897-910913d8d24e\"}","*${URL}/settings/company","*Successfully opened URL <a href=\"http://localhost:8001/settings/company\">http://localhost:8001/settings/company\x3c/a>","*xpath=//h1 &gt;&gt; text=\"ข้อมูลบริษัท/สังกัด\"    visible    timeout=10s","*Waited for Element with selector xpath=//h1 &gt;&gt; text=\"ข้อมูลบริษัท/สังกัด\" at state visible","*xpath=//div[contains(@class, 'rounded-[32px]')]    visible    timeout=5s","*Waited for Element with selector xpath=//div[contains(@class, 'rounded-[32px]')] at state visible","*Company Settings page loaded successfully.","*Verify Departments Settings Page","*<p>Verifies that the Departments Settings page loads and the Add button is visible.\x3c/p>","eNptj0FvwjAMhf8KyplOqVaUleuYgAMIDbj54rZGrUhxFScwadp/n7VOgknz5el9fnbiT1MFvgkFM5+Yug3cd6k304lpCRtPIspP6IWm9/YeL03FHw+dhq6R2T+GWw152q+Xq+NOcQzpD11vD//Qw9v75o7F823D6u2TVRu7njhF9c9Wa2QBa5JF9/P91znAUU+RUQAWJOfIA8AWfaJBn8kBBFEDbRh8Uv29HmDcpEq9DqCl0uYzl5VEL1nh7CyrirrIcueKpnYl4smZr2/WjGfr","*Successfully created browser with options: {\"browser\":\"chromium\",\"headless\":false,\"chromiumSandbox\":false,\"devtools\":false,\"handleSIGHUP\":true,\"handleSIGINT\":true,\"handleSIGTERM\":true,\"slowMo\":0,\"timeout\":30000,\"tracesDir\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\browser\\\\traces\\\\temp\\\\a0e90157-9ee8-4705-b4c4-1774dc79aaf7\"}","*${URL}/settings/departments","*Successfully opened URL <a href=\"http://localhost:8001/settings/departments\">http://localhost:8001/settings/departments\x3c/a>","*xpath=//h1 &gt;&gt; text=\"แผนก\"    visible    timeout=10s","*Waited for Element with selector xpath=//h1 &gt;&gt; text=\"แผนก\" at state visible","*xpath=//button[contains(., 'เพิ่มรายการ')]    visible    timeout=5s","*Waited for Element with selector xpath=//button[contains(., 'เพิ่มรายการ')] at state visible","*Departments Settings page loaded successfully.","*Verify Add Department Form Opens","*<p>Verifies that the Add Department form opens correctly.\x3c/p>","eNptj09PwzAMxb/KlPOK+o+S7coQ22ETYtvNF6911Yp0ruKEISG+OxZF2pDw5en9/OzEn+bk+SLkzXJm6s7z0MfBzGemI2wciShv0QnNr+09npsTf9x0GnoPzO423GnI0X7zvD6+KA4+/qGb3eEfenh63V6xOL5sWX16l6oN/UAcg/oi1ZqYx5pk1f98/3EJcNRTZBKAFclb4BFghy7SqM9kAIKogc6PLqr+Xg8wbVKlQQcWZZ7ZsiqSh5yypGzTKrFlYZMWcXFf55W1VWa+vgHETmcB","*Successfully created browser with options: {\"browser\":\"chromium\",\"headless\":false,\"chromiumSandbox\":false,\"devtools\":false,\"handleSIGHUP\":true,\"handleSIGINT\":true,\"handleSIGTERM\":true,\"slowMo\":0,\"timeout\":30000,\"tracesDir\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\browser\\\\traces\\\\temp\\\\94218463-72e1-4f06-8438-faa95c268861\"}","*xpath=//button[contains(., 'เพิ่มรายการ')]","*Clicks the element 'xpath=//button[contains(., 'เพิ่มรายการ')]'.","*xpath=//h2 &gt;&gt; text=\"เพิ่มข้อมูล\"    visible    timeout=5s","*Waited for Element with selector xpath=//h2 &gt;&gt; text=\"เพิ่มข้อมูล\" at state visible","*xpath=//label[contains(text(), 'ชื่อแผนก (TH)')]    visible","*Waited for Element with selector xpath=//label[contains(text(), 'ชื่อแผนก (TH)')] at state visible","*xpath=//label[contains(text(), 'ชื่อแผนก (ENG)')]    visible","*Waited for Element with selector xpath=//label[contains(text(), 'ชื่อแผนก (ENG)')] at state visible","*xpath=//label[contains(text(), 'รหัสย่อ (2 อักษร)')]    visible","*Waited for Element with selector xpath=//label[contains(text(), 'รหัสย่อ (2 อักษร)')] at state visible","*Add Department form opened successfully."]);
 </script>
 <script type="text/javascript">
-window.output["stats"] = [[{"elapsed":"00:00:08","fail":0,"label":"All Tests","pass":1,"skip":0}],[],[{"elapsed":"00:00:13","fail":0,"id":"s1","label":"News Suite","name":"News Suite","pass":1,"skip":0}]];
+window.output["stats"] = [[{"elapsed":"00:01:05","fail":0,"label":"All Tests","pass":8,"skip":0}],[{"elapsed":"00:00:17","fail":0,"label":"critical","pass":2,"skip":0},{"elapsed":"00:00:14","fail":0,"label":"negative","pass":2,"skip":0},{"elapsed":"00:00:04","fail":0,"label":"smoke","pass":1,"skip":0}],[{"elapsed":"00:01:06","fail":0,"id":"s1","label":"Tests","name":"Tests","pass":8,"skip":0},{"elapsed":"00:01:06","fail":0,"id":"s1-s1","label":"Tests.Test Suites","name":"Test Suites","pass":8,"skip":0},{"elapsed":"00:00:16","fail":0,"id":"s1-s1-s1","label":"Tests.Test Suites.Login Suite","name":"Login Suite","pass":3,"skip":0},{"elapsed":"00:00:20","fail":0,"id":"s1-s1-s2","label":"Tests.Test Suites.News Suite","name":"News Suite","pass":2,"skip":0},{"elapsed":"00:00:30","fail":0,"id":"s1-s1-s3","label":"Tests.Test Suites.Settings Suite","name":"Settings Suite","pass":3,"skip":0}]];
 </script>
 <script type="text/javascript">
 window.output["errors"] = [];
 </script>
 <script type="text/javascript">
-window.output["baseMillis"] = 1769142236200;
+window.output["baseMillis"] = 1769153138456;
 </script>
 <script type="text/javascript">
-window.output["generated"] = 13026;
+window.output["generated"] = 65803;
 </script>
 <script type="text/javascript">
 window.output["expand_keywords"] = null;
@@ -2154,8 +2153,9 @@ function addErrors() {
     var errors = window.testdata.errorIterator();
     if (errors.hasNext()) {
         $.tmpl('errorHeaderTemplate').appendTo($('body'));
-        drawErrorsRecursively(errors, $('#errors'));
+        drawErrorsRecursively(errors, $('#errors .messages'));
     }
+    toggleElement('errors');
 }
 
 function drawErrorsRecursively(errors, target) {
@@ -2189,7 +2189,7 @@ function makeElementVisible(id) {
 }
 
 function addExecutionLog(main) {
-    $('body').append($(testOrTask('<h2>{Test} Execution Log</h2>')),
+    $('body').append('<h2>Execution Log</h2>',
                      $.tmpl('suiteTemplate', main));
 }
 </script>
@@ -2234,20 +2234,31 @@ function addExecutionLog(main) {
 </script>
 
 <script type="text/x-jquery-tmpl" id="errorHeaderTemplate">
-  <h2>{{= testOrTask('{Test}')}} Execution Errors</h2>
-  <table id="errors"></table>
+  <h2>Execution Errors</h2>
+  <div id="errors">
+    <div class="element-header closed" onclick="toggleElement('errors')">
+      <div class="element-header-toggle" title="Toggle visibility"></div>
+      <div class="label error">ERRORS</div>
+      <div class="name">Errors and warnings during execution</div>
+    </div>
+    <div class="children">
+      <table class="messages"></table>
+    </div>
+  </div>
 </script>
 
 <script type="text/x-jquery-tmpl" id="errorTemplate">
   <tr id="${id}" class="message-row">
-    <td class="error-time">
+    <td class="time">
       {{if link}}
       <a onclick="makeElementVisible('${link}')" href="#${link}" title="Link to details">${date} ${time}</a>
       {{else}}
       ${date} ${time}
       {{/if}}
     </td>
-    <td class="${level.toLowerCase()} level"><span class="label ${level.toLowerCase()}">${level}</span></td>
+    <td class="${level.toLowerCase()} level">
+      <span class="label ${level.toLowerCase()}">${level}</span>
+    </td>
     <td class="message">{{html text}}</td>
     <td class="select-message" onclick="javascript:selectMessage('${id}')" title="Select message text">
       <div></div>
@@ -2257,18 +2268,18 @@ function addExecutionLog(main) {
 
 <script type="text/x-jquery-tmpl" id="suiteTemplate">
   <div id="${id}" class="suite">
-    <div class="element-header closed" onclick="toggleSuite('${id}')">
-      <div class="element-header-left" title="SUITE  {{html name}}  [${status}]">
-        <span class="elapsed" title="Elapsed time">${times.elapsedTime}</span>
-        <span class="label ${status.toLowerCase()}">SUITE</span>
-        <span class="name">{{html name}}</span>
-      </div>
-      <div class="element-header-right" onclick="stopPropagation(event)" title="">
+    <div class="element-header closed" onclick="toggleSuite('${id}')"
+         title="SUITE  {{html name}}  [${status}]">
+      <div class="element-header-toggle" title="Toggle visibility"></div>
+      <div class="label ${status.toLowerCase()}">SUITE</div>
+      <div class="name">{{html name}}</div>
+      <div class="elapsed" title="Elapsed time">${times.elapsedTime}</div>
+      <div class="element-header-menu" onclick="stopPropagation(event)" title="">
         <a class="expand" title="Expand all" href="javascript:expandAll('${id}')"></a>
         <a class="collapse" title="Collapse all" href="javascript:collapseAll('${id}')"></a>
-        <a class="link" title="Link to this suite" href="#${id}" onclick="makeElementVisible('${id}')"></a>
+        <a class="link" onclick="makeElementVisible('${id}')"
+           title="Link to this suite" href="#${id}"></a>
       </div>
-      <div class="element-header-toggle" title="Toggle visibility"></div>
     </div>
     <div class="children">
       <table class="metadata">
@@ -2319,18 +2330,18 @@ function addExecutionLog(main) {
 
 <script type="text/x-jquery-tmpl" id="testTemplate">
   <div id="${id}" class="test">
-    <div class="element-header closed" onclick="toggleTest('${id}')">
-      <div class="element-header-left" title="{{= testOrTask('{TEST}')}}  {{html name}}  [${status}]">
-        <span class="elapsed" title="Elapsed time">${times.elapsedTime}</span>
-        <span class="label ${status.toLowerCase()}">{{= testOrTask('{TEST}')}}</span>
-        <span class="name">{{html name}}</span>
-      </div>
-      <div class="element-header-right" onclick="stopPropagation(event)" title="">
+    <div class="element-header closed" onclick="toggleTest('${id}')"
+         title="{{= testOrTask('{TEST}')}}  {{html name}}  [${status}]">
+      <div class="element-header-toggle" title="Toggle visibility"></div>
+      <div class="label ${status.toLowerCase()}">{{= testOrTask('{TEST}')}}</div>
+      <div class="name">{{html name}}</div>
+      <div class="elapsed" title="Elapsed time">${times.elapsedTime}</div>
+      <div class="element-header-menu" onclick="stopPropagation(event)" title="">
         <a class="expand" title="Expand all" href="javascript:expandAll('${id}')"></a>
         <a class="collapse" title="Collapse all" href="javascript:collapseAll('${id}')"></a>
-        <a class="link" title="Link to this {{= testOrTask('{test}')}}" href="#${id}" onclick="makeElementVisible('${id}')"></a>
+        <a class="link" href="#${id}" onclick="makeElementVisible('${id}')"
+           title="Link to this {{= testOrTask('{test}')}}"></a>
       </div>
-      <div class="element-header-toggle" title="Toggle visibility"></div>
     </div>
     <div class="children">
       <table class="metadata">
@@ -2377,21 +2388,20 @@ function addExecutionLog(main) {
 
 <script type="text/x-jquery-tmpl" id="keywordTemplate">
   <div id="${id}" class="keyword">
-    <div class="element-header closed" onclick="toggleKeyword('${id}')">
-      <div class="element-header-left" title="${type}  {{if name}}{{html fullName}}  {{/if}}[${status}]">
-        <span class="elapsed" title="Elapsed time">${times.elapsedTime}</span>
-        <span class="label ${status.toLowerCase()}">${type}</span>
-        <span class="assign">{{html assign}}</span>
-        <span class="name"><span class="parent-name">{{html libname}}{{if libname}} . {{/if}}</span>{{html name}}</span>
-        &nbsp;
-        <span class="arg">{{html arguments}}</span>
-      </div>
-      <div class="element-header-right" onclick="stopPropagation(event)">
+    <div class="element-header closed" onclick="toggleKeyword('${id}')"
+         title="${type}  {{if name}}{{html fullName}}  {{/if}}[${status}]">
+      <div class="element-header-toggle" title="Toggle visibility"></div>
+      <div class="label ${status.toLowerCase()}">${type}</div>
+      {{if assign}}<div class="assign">{{html assign}}&nbsp;=</div>{{/if}}
+      <div class="name">{{if libname}}<span class="parent-name">{{html libname}} . </span>{{/if}}{{html name}}</div>
+      <div class="arg">{{html arguments}}</div>
+      <div class="elapsed" title="Elapsed time">${times.elapsedTime}</div>
+      <div class="element-header-menu" onclick="stopPropagation(event)">
         <a class="expand" title="Expand all" href="javascript:expandAll('${id}')"></a>
         <a class="collapse" title="Collapse all" href="javascript:collapseAll('${id}')"></a>
-        <a class="link" title="Link to this item" href="#${id}" onclick="makeElementVisible('${id}')"></a>
+        <a class="link" onclick="makeElementVisible('${id}')"
+           title="Link to this item" href="#${id}"></a>
       </div>
-      <div class="element-header-toggle" title="Toggle visibility"></div>
     </div>
     <div class="children">
       <table class="metadata keyword-metadata">

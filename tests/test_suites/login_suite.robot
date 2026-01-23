@@ -7,13 +7,26 @@ Test Teardown     Close Application
 *** Test Cases ***
 Verify Login Page Loads
     [Documentation]    Verifies that the login page opens successfully.
-    Wait Until Page Contains Element    tag:body    timeout=10s
+    [Tags]    smoke
+    Wait For Elements State    css=body    visible    timeout=10s
     Log    Login page loaded successfully.
 
 # Valid Login Test
 Login With Valid Credentials
-    Input Text    id:login-email    ${USERNAME}
-    Input Text    id:login-password    ${PASSWORD}
-    Click Button    xpath://button[@type='submit']
-    Wait Until Location Contains    /dashboard    timeout=10s
+    [Tags]    critical
+    Fill Text    id=login-email    ${LOGIN_EMAIL}
+    Fill Text    id=login-password    ${LOGIN_PASSWORD}
+    Click    xpath=//button[@type='submit']
+    Wait For Condition    Url    contains    /dashboard    timeout=10s
     Log    Login successful and dashboard loaded.
+
+Login With Invalid Credentials
+    [Documentation]    Verifies that login fails with incorrect credentials.
+    [Tags]    negative
+    Fill Text    id=login-email    ${LOGIN_EMAIL}
+    Fill Text    id=login-password    WrongPassword123!
+    Click    xpath=//button[@type='submit']
+    # Check for error message or lack of redirect
+    Sleep    2s
+    Wait For Condition    Url    contains    /login
+    Wait For Elements State    id=user-menu    detached

@@ -1,0 +1,1314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.12.10 on win32)" generated="2026-01-23T14:25:38.454573" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\Users\User\Desktop\Naluephan1\saas\hrplus\tests">
+<suite id="s1-s1" name="Test Suites" source="C:\Users\User\Desktop\Naluephan1\saas\hrplus\tests\test_suites">
+<suite id="s1-s1-s1" name="Login Suite" source="C:\Users\User\Desktop\Naluephan1\saas\hrplus\tests\test_suites\login_suite.robot">
+<test id="s1-s1-s1-t1" name="Verify Login Page Loads" line="8">
+<kw name="Open HR Plus Application" owner="common" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-01-23T14:25:38.752817" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\browser\\traces\\temp\\2723d0da-b92f-4893-a0c9-42fa9416d951"}</msg>
+<msg time="2026-01-23T14:25:38.792890" level="INFO">Starting Browser process C:\Users\User\Desktop\Naluephan1\saas\hrplus\.venv\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:58270</msg>
+<msg time="2026-01-23T14:25:40.125008" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\browser\\traces\\temp\\2723d0da-b92f-4893-a0c9-42fa9416d951"}</msg>
+<arg>browser=${BROWSER}</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-01-23T14:25:38.750751" elapsed="1.374257"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-01-23T14:25:40.129377" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-01-23T14:25:40.164992" level="INFO">Successfully created context. </msg>
+<msg time="2026-01-23T14:25:40.164992" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<arg>viewport={'width': 1280, 'height': 720}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-01-23T14:25:40.126006" elapsed="0.038986"/>
+</kw>
+<kw name="Set Browser Timeout" owner="Browser">
+<arg>30s</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="PASS" start="2026-01-23T14:25:40.166054" elapsed="0.000997"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-01-23T14:25:42.569163" level="INFO">Successfully initialized new page object and opened url: http://localhost:8001</msg>
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-01-23T14:25:40.167051" elapsed="2.403163"/>
+</kw>
+<status status="PASS" start="2026-01-23T14:25:38.749332" elapsed="3.820882"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-01-23T14:25:42.669182" level="INFO">Waited for Element with selector css=body at state visible</msg>
+<arg>css=body</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-01-23T14:25:42.571720" elapsed="0.097462"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-01-23T14:25:42.670239" level="INFO">Login page loaded successfully.</msg>
+<arg>Login page loaded successfully.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-01-23T14:25:42.670239" elapsed="0.001511"/>
+</kw>
+<kw name="Close Application" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-01-23T14:25:43.213294" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-23T14:25:42.672882" elapsed="0.540412"/>
+</kw>
+<status status="PASS" start="2026-01-23T14:25:42.671750" elapsed="0.541544"/>
+</kw>
+<doc>Verifies that the login page opens successfully.</doc>
+<tag>smoke</tag>
+<status status="PASS" start="2026-01-23T14:25:38.748682" elapsed="4.465608"/>
+</test>
+<test id="s1-s1-s1-t2" name="Login With Valid Credentials" line="15">
+<kw name="Open HR Plus Application" owner="common" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-01-23T14:25:43.232712" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\browser\\traces\\temp\\44607d1b-6a34-442c-a0ad-9a64ca09c1b1"}</msg>
+<msg time="2026-01-23T14:25:43.688758" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\browser\\traces\\temp\\44607d1b-6a34-442c-a0ad-9a64ca09c1b1"}</msg>
+<arg>browser=${BROWSER}</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-01-23T14:25:43.231710" elapsed="0.457048"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-01-23T14:25:43.693575" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-01-23T14:25:43.726114" level="INFO">Successfully created context. </msg>
+<msg time="2026-01-23T14:25:43.726114" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<arg>viewport={'width': 1280, 'height': 720}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-01-23T14:25:43.689755" elapsed="0.036359"/>
+</kw>
+<kw name="Set Browser Timeout" owner="Browser">
+<arg>30s</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="PASS" start="2026-01-23T14:25:43.726623" elapsed="0.001204"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-01-23T14:25:46.040628" level="INFO">Successfully initialized new page object and opened url: http://localhost:8001</msg>
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-01-23T14:25:43.727827" elapsed="2.313847"/>
+</kw>
+<status status="PASS" start="2026-01-23T14:25:43.231204" elapsed="2.810470"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-01-23T14:25:46.043498" level="INFO">Fills the text 'ops@central.local' in the given field.</msg>
+<arg>id=login-email</arg>
+<arg>${LOGIN_EMAIL}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-01-23T14:25:46.042231" elapsed="0.140788"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-01-23T14:25:46.186154" level="INFO">Fills the text 'ChangeMe123!' in the given field.</msg>
+<arg>id=login-password</arg>
+<arg>${LOGIN_PASSWORD}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-01-23T14:25:46.184079" elapsed="0.043388"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-01-23T14:25:46.229985" level="INFO">Clicks the element 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-01-23T14:25:46.228484" elapsed="0.175971"/>
+</kw>
+<kw name="Wait For Condition" owner="Browser">
+<kw name="Get Url" owner="Browser">
+<arg>contains</arg>
+<arg>/dashboard</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-01-23T14:25:46.407073" elapsed="2.070304"/>
+</kw>
+<arg>Url</arg>
+<arg>contains</arg>
+<arg>/dashboard</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for a condition, defined with Browser getter keywords to become True.</doc>
+<status status="PASS" start="2026-01-23T14:25:46.404455" elapsed="2.073919"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-01-23T14:25:48.480148" level="INFO">Login successful and dashboard loaded.</msg>
+<arg>Login successful and dashboard loaded.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-01-23T14:25:48.479419" elapsed="0.001732"/>
+</kw>
+<kw name="Close Application" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-01-23T14:25:49.058474" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-23T14:25:48.482659" elapsed="0.576400"/>
+</kw>
+<status status="PASS" start="2026-01-23T14:25:48.481657" elapsed="0.577402"/>
+</kw>
+<tag>critical</tag>
+<status status="PASS" start="2026-01-23T14:25:43.224562" elapsed="5.835057"/>
+</test>
+<test id="s1-s1-s1-t3" name="Login With Invalid Credentials" line="23">
+<kw name="Open HR Plus Application" owner="common" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-01-23T14:25:49.088852" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\browser\\traces\\temp\\12363012-f7ba-4541-a41e-6b5e1108906c"}</msg>
+<msg time="2026-01-23T14:25:49.467836" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\browser\\traces\\temp\\12363012-f7ba-4541-a41e-6b5e1108906c"}</msg>
+<arg>browser=${BROWSER}</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-01-23T14:25:49.086583" elapsed="0.381253"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-01-23T14:25:49.472357" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-01-23T14:25:49.502824" level="INFO">Successfully created context. </msg>
+<msg time="2026-01-23T14:25:49.502824" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<arg>viewport={'width': 1280, 'height': 720}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-01-23T14:25:49.467836" elapsed="0.034988"/>
+</kw>
+<kw name="Set Browser Timeout" owner="Browser">
+<arg>30s</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="PASS" start="2026-01-23T14:25:49.503391" elapsed="0.000707"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-01-23T14:25:51.908483" level="INFO">Successfully initialized new page object and opened url: http://localhost:8001</msg>
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-01-23T14:25:49.504098" elapsed="2.405046"/>
+</kw>
+<status status="PASS" start="2026-01-23T14:25:49.085073" elapsed="2.824071"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-01-23T14:25:51.912007" level="INFO">Fills the text 'ops@central.local' in the given field.</msg>
+<arg>id=login-email</arg>
+<arg>${LOGIN_EMAIL}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-01-23T14:25:51.909791" elapsed="0.156528"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-01-23T14:25:52.068012" level="INFO">Fills the text 'WrongPassword123!' in the given field.</msg>
+<arg>id=login-password</arg>
+<arg>WrongPassword123!</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-01-23T14:25:52.066831" elapsed="0.044561"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-01-23T14:25:52.112894" level="INFO">Clicks the element 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-01-23T14:25:52.111392" elapsed="0.185806"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-01-23T14:25:54.300251" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-01-23T14:25:52.298193" elapsed="2.002058"/>
+</kw>
+<kw name="Wait For Condition" owner="Browser">
+<kw name="Get Url" owner="Browser">
+<arg>contains</arg>
+<arg>/login</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-01-23T14:25:54.301708" elapsed="0.002747"/>
+</kw>
+<arg>Url</arg>
+<arg>contains</arg>
+<arg>/login</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for a condition, defined with Browser getter keywords to become True.</doc>
+<status status="PASS" start="2026-01-23T14:25:54.300251" elapsed="0.004204"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-01-23T14:25:54.314301" level="INFO">Waited for Element with selector id=user-menu at state detached</msg>
+<arg>id=user-menu</arg>
+<arg>detached</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-01-23T14:25:54.304455" elapsed="0.009846"/>
+</kw>
+<kw name="Close Application" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-01-23T14:25:54.692325" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-23T14:25:54.316195" elapsed="0.376130"/>
+</kw>
+<status status="PASS" start="2026-01-23T14:25:54.315311" elapsed="0.377521"/>
+</kw>
+<doc>Verifies that login fails with incorrect credentials.</doc>
+<tag>negative</tag>
+<status status="PASS" start="2026-01-23T14:25:49.077666" elapsed="5.615166"/>
+</test>
+<doc>A test suite for the Login functionality of HR Plus.</doc>
+<status status="PASS" start="2026-01-23T14:25:38.489757" elapsed="16.211019"/>
+</suite>
+<suite id="s1-s1-s2" name="News Suite" source="C:\Users\User\Desktop\Naluephan1\saas\hrplus\tests\test_suites\news_suite.robot">
+<test id="s1-s1-s2-t1" name="Verify News Page Elements" line="7">
+<kw name="Open HR Plus Application" owner="common" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-01-23T14:25:54.727869" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\browser\\traces\\temp\\97aaf7f5-cf26-4221-bfd3-937601f5ea1a"}</msg>
+<msg time="2026-01-23T14:25:55.073822" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\browser\\traces\\temp\\97aaf7f5-cf26-4221-bfd3-937601f5ea1a"}</msg>
+<arg>browser=${BROWSER}</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-01-23T14:25:54.726363" elapsed="0.347459"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-01-23T14:25:55.077349" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-01-23T14:25:55.103188" level="INFO">Successfully created context. </msg>
+<msg time="2026-01-23T14:25:55.103799" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<arg>viewport={'width': 1280, 'height': 720}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-01-23T14:25:55.074818" elapsed="0.028981"/>
+</kw>
+<kw name="Set Browser Timeout" owner="Browser">
+<arg>30s</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="PASS" start="2026-01-23T14:25:55.104323" elapsed="0.000815"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-01-23T14:25:57.396096" level="INFO">Successfully initialized new page object and opened url: http://localhost:8001</msg>
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-01-23T14:25:55.105138" elapsed="2.291467"/>
+</kw>
+<status status="PASS" start="2026-01-23T14:25:54.726363" elapsed="2.670242"/>
+</kw>
+<kw name="Go To" owner="Browser">
+<msg time="2026-01-23T14:25:58.699743" level="INFO">Successfully opened URL http://localhost:8001/login</msg>
+<arg>${URL}/login</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-01-23T14:25:57.397633" elapsed="1.302110"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-01-23T14:26:00.702521" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-01-23T14:25:58.701209" elapsed="2.001312"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-01-23T14:26:00.732253" level="INFO">Waited for Element with selector id=login-email at state visible</msg>
+<arg>id=login-email</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-01-23T14:26:00.702521" elapsed="0.029732"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-01-23T14:26:00.733757" level="INFO">Fills the text 'ops@central.local' in the given field.</msg>
+<arg>id=login-email</arg>
+<arg>${LOGIN_EMAIL}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-01-23T14:26:00.732253" elapsed="0.023872"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-01-23T14:26:00.759465" level="INFO">Fills the text 'ChangeMe123!' in the given field.</msg>
+<arg>id=login-password</arg>
+<arg>${LOGIN_PASSWORD}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-01-23T14:26:00.757940" elapsed="0.019137"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-01-23T14:26:00.778898" level="INFO">Clicks the element 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-01-23T14:26:00.778394" elapsed="0.049312"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Wait For Condition" owner="Browser">
+<kw name="Get Url" owner="Browser">
+<arg>contains</arg>
+<arg>/dashboard</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-01-23T14:26:00.831393" elapsed="1.525809"/>
+</kw>
+<arg>Url</arg>
+<arg>contains</arg>
+<arg>/dashboard</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for a condition, defined with Browser getter keywords to become True.</doc>
+<status status="PASS" start="2026-01-23T14:26:00.830338" elapsed="1.526864"/>
+</kw>
+<arg>Wait For Condition</arg>
+<arg>Url</arg>
+<arg>contains</arg>
+<arg>/dashboard</arg>
+<arg>timeout=10s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-01-23T14:26:00.827706" elapsed="1.529496"/>
+</kw>
+<kw name="Go To" owner="Browser">
+<msg time="2026-01-23T14:26:05.115985" level="INFO">Successfully opened URL http://localhost:8001/news</msg>
+<arg>${URL}/news</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-01-23T14:26:02.359731" elapsed="2.757259"/>
+</kw>
+<kw name="Wait For Condition" owner="Browser">
+<kw name="Get Url" owner="Browser">
+<arg>contains</arg>
+<arg>/news</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-01-23T14:26:05.119410" elapsed="0.005125"/>
+</kw>
+<arg>Url</arg>
+<arg>contains</arg>
+<arg>/news</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for a condition, defined with Browser getter keywords to become True.</doc>
+<status status="PASS" start="2026-01-23T14:26:05.118392" elapsed="0.006143"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-01-23T14:26:05.198449" level="INFO">Waited for Element with selector text="ประกาศ และข่าวสาร" at state visible</msg>
+<arg>text="ประกาศ และข่าวสาร"</arg>
+<arg>visible</arg>
+<arg>timeout=20s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-01-23T14:26:05.127208" elapsed="0.071241"/>
+</kw>
+<msg time="2026-01-23T14:26:05.198953" level="INFO">${status} = True</msg>
+<var>${status}</var>
+<arg>Wait For Elements State</arg>
+<arg>text="ประกาศ และข่าวสาร"</arg>
+<arg>visible</arg>
+<arg>timeout=20s</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-01-23T14:26:05.126057" elapsed="0.072896"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>not ${status}</arg>
+<arg>Log Page Source</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-01-23T14:26:05.199596" elapsed="0.001038"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${status}</arg>
+<arg>msg=Failed to load News page content (Title not found)</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-01-23T14:26:05.201630" elapsed="0.000000"/>
+</kw>
+<kw name="Get Element" owner="Browser">
+<msg time="2026-01-23T14:26:05.220474" level="INFO">Locator found successfully.</msg>
+<arg>xpath=//a[contains(text(), 'จัดการประกาศและข่าวสาร')]</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns a reference to a Playwright [https://playwright.dev/docs/api/class-locator|Locator].</doc>
+<status status="PASS" start="2026-01-23T14:26:05.202626" elapsed="0.019359"/>
+</kw>
+<kw name="Get Element" owner="Browser">
+<msg time="2026-01-23T14:26:05.279878" level="INFO">Locator found successfully.</msg>
+<arg>xpath=//button[contains(text(), 'ค้นหา')]</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns a reference to a Playwright [https://playwright.dev/docs/api/class-locator|Locator].</doc>
+<status status="PASS" start="2026-01-23T14:26:05.221985" elapsed="0.057893"/>
+</kw>
+<kw name="Close Application" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-01-23T14:26:05.793694" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-23T14:26:05.281444" elapsed="0.512250"/>
+</kw>
+<status status="PASS" start="2026-01-23T14:26:05.281444" elapsed="0.512250"/>
+</kw>
+<doc>Verify that the News page loads and displays key elements.</doc>
+<tag>critical</tag>
+<status status="PASS" start="2026-01-23T14:25:54.719331" elapsed="11.074363"/>
+</test>
+<test id="s1-s1-s2-t2" name="Search News With No Results" line="45">
+<kw name="Open HR Plus Application" owner="common" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-01-23T14:26:05.809337" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\browser\\traces\\temp\\2ea1bd6e-9e61-4b56-909b-94f85ee2cfeb"}</msg>
+<msg time="2026-01-23T14:26:06.104753" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\browser\\traces\\temp\\2ea1bd6e-9e61-4b56-909b-94f85ee2cfeb"}</msg>
+<arg>browser=${BROWSER}</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-01-23T14:26:05.808144" elapsed="0.296609"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-01-23T14:26:06.108797" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-01-23T14:26:06.126231" level="INFO">Successfully created context. </msg>
+<msg time="2026-01-23T14:26:06.126231" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<arg>viewport={'width': 1280, 'height': 720}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-01-23T14:26:06.104753" elapsed="0.021478"/>
+</kw>
+<kw name="Set Browser Timeout" owner="Browser">
+<arg>30s</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="PASS" start="2026-01-23T14:26:06.126231" elapsed="0.002386"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-01-23T14:26:08.424566" level="INFO">Successfully initialized new page object and opened url: http://localhost:8001</msg>
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-01-23T14:26:06.129121" elapsed="2.297496"/>
+</kw>
+<status status="PASS" start="2026-01-23T14:26:05.807640" elapsed="2.618977"/>
+</kw>
+<kw name="Login To Application" owner="common">
+<kw name="Go To" owner="Browser">
+<msg time="2026-01-23T14:26:09.945838" level="INFO">Successfully opened URL http://localhost:8001/login</msg>
+<arg>${URL}/login</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-01-23T14:26:08.429235" elapsed="1.517948"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-01-23T14:26:10.009771" level="INFO">Waited for Element with selector id=login-email at state visible</msg>
+<arg>id=login-email</arg>
+<arg>visible</arg>
+<arg>timeout=20s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-01-23T14:26:09.947183" elapsed="0.062588"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-01-23T14:26:10.011055" level="INFO">Fills the text 'ops@central.local' in the given field.</msg>
+<arg>id=login-email</arg>
+<arg>${LOGIN_EMAIL}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-01-23T14:26:10.009771" elapsed="0.049554"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-01-23T14:26:10.062125" level="INFO">Fills the text 'ChangeMe123!' in the given field.</msg>
+<arg>id=login-password</arg>
+<arg>${LOGIN_PASSWORD}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-01-23T14:26:10.060826" elapsed="0.025303"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-01-23T14:26:10.087318" level="INFO">Clicks the element 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-01-23T14:26:10.086129" elapsed="0.043814"/>
+</kw>
+<kw name="Wait For Condition" owner="Browser">
+<kw name="Get Url" owner="Browser">
+<arg>contains</arg>
+<arg>/dashboard</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-01-23T14:26:10.131832" elapsed="1.418048"/>
+</kw>
+<arg>Url</arg>
+<arg>contains</arg>
+<arg>/dashboard</arg>
+<arg>timeout=20s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for a condition, defined with Browser getter keywords to become True.</doc>
+<status status="PASS" start="2026-01-23T14:26:10.129943" elapsed="1.419937"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-01-23T14:26:11.551921" level="INFO">Login successful.</msg>
+<arg>Login successful.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-01-23T14:26:11.550905" elapsed="0.001016"/>
+</kw>
+<status status="PASS" start="2026-01-23T14:26:08.427728" elapsed="3.124193"/>
+</kw>
+<kw name="Go To" owner="Browser">
+<msg time="2026-01-23T14:26:13.654567" level="INFO">Successfully opened URL http://localhost:8001/news</msg>
+<arg>${URL}/news</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-01-23T14:26:11.551921" elapsed="2.102646"/>
+</kw>
+<kw name="Wait For Condition" owner="Browser">
+<kw name="Get Url" owner="Browser">
+<arg>contains</arg>
+<arg>/news</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-01-23T14:26:13.657182" elapsed="0.003943"/>
+</kw>
+<arg>Url</arg>
+<arg>contains</arg>
+<arg>/news</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for a condition, defined with Browser getter keywords to become True.</doc>
+<status status="PASS" start="2026-01-23T14:26:13.656074" elapsed="0.005051"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-01-23T14:26:13.663657" level="INFO">Fills the text 'NonExistentNews123' in the given field.</msg>
+<arg>xpath=//input[@type='search']</arg>
+<arg>NonExistentNews123</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-01-23T14:26:13.662552" elapsed="0.145113"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-01-23T14:26:14.154332" level="INFO">Waited for Element with selector text="ยังไม่มีประกาศในขณะนี้" at state visible</msg>
+<arg>text="ยังไม่มีประกาศในขณะนี้"</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-01-23T14:26:13.807665" elapsed="0.348170"/>
+</kw>
+<kw name="Close Application" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-01-23T14:26:14.477382" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-23T14:26:14.156912" elapsed="0.320470"/>
+</kw>
+<status status="PASS" start="2026-01-23T14:26:14.155835" elapsed="0.321547"/>
+</kw>
+<doc>Verifies that searching for a non-existent term returns no results.</doc>
+<tag>negative</tag>
+<status status="PASS" start="2026-01-23T14:26:05.801569" elapsed="8.675813"/>
+</test>
+<status status="PASS" start="2026-01-23T14:25:54.708887" elapsed="19.774962"/>
+</suite>
+<suite id="s1-s1-s3" name="Settings Suite" source="C:\Users\User\Desktop\Naluephan1\saas\hrplus\tests\test_suites\settings_suite.robot">
+<test id="s1-s1-s3-t1" name="Verify Company Settings Page" line="8">
+<kw name="Open HR Plus Application" owner="common" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-01-23T14:26:14.506934" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\browser\\traces\\temp\\d63e4918-85f7-4aa1-8897-910913d8d24e"}</msg>
+<msg time="2026-01-23T14:26:14.801222" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\browser\\traces\\temp\\d63e4918-85f7-4aa1-8897-910913d8d24e"}</msg>
+<arg>browser=${BROWSER}</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-01-23T14:26:14.505812" elapsed="0.295410"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-01-23T14:26:14.804868" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-01-23T14:26:14.827326" level="INFO">Successfully created context. </msg>
+<msg time="2026-01-23T14:26:14.827326" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<arg>viewport={'width': 1280, 'height': 720}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-01-23T14:26:14.801222" elapsed="0.026104"/>
+</kw>
+<kw name="Set Browser Timeout" owner="Browser">
+<arg>30s</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="PASS" start="2026-01-23T14:26:14.828318" elapsed="0.001505"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-01-23T14:26:17.153697" level="INFO">Successfully initialized new page object and opened url: http://localhost:8001</msg>
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-01-23T14:26:14.829823" elapsed="2.324915"/>
+</kw>
+<status status="PASS" start="2026-01-23T14:26:14.505812" elapsed="2.648926"/>
+</kw>
+<kw name="Login To Application" owner="common">
+<kw name="Go To" owner="Browser">
+<msg time="2026-01-23T14:26:18.805710" level="INFO">Successfully opened URL http://localhost:8001/login</msg>
+<arg>${URL}/login</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-01-23T14:26:17.156843" elapsed="1.649422"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-01-23T14:26:18.879281" level="INFO">Waited for Element with selector id=login-email at state visible</msg>
+<arg>id=login-email</arg>
+<arg>visible</arg>
+<arg>timeout=20s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-01-23T14:26:18.806265" elapsed="0.073016"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-01-23T14:26:18.880008" level="INFO">Fills the text 'ops@central.local' in the given field.</msg>
+<arg>id=login-email</arg>
+<arg>${LOGIN_EMAIL}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-01-23T14:26:18.880008" elapsed="0.073303"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-01-23T14:26:18.954503" level="INFO">Fills the text 'ChangeMe123!' in the given field.</msg>
+<arg>id=login-password</arg>
+<arg>${LOGIN_PASSWORD}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-01-23T14:26:18.953311" elapsed="0.039604"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-01-23T14:26:18.993920" level="INFO">Clicks the element 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-01-23T14:26:18.992915" elapsed="0.071377"/>
+</kw>
+<kw name="Wait For Condition" owner="Browser">
+<kw name="Get Url" owner="Browser">
+<arg>contains</arg>
+<arg>/dashboard</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-01-23T14:26:19.066154" elapsed="1.534518"/>
+</kw>
+<arg>Url</arg>
+<arg>contains</arg>
+<arg>/dashboard</arg>
+<arg>timeout=20s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for a condition, defined with Browser getter keywords to become True.</doc>
+<status status="PASS" start="2026-01-23T14:26:19.065124" elapsed="1.535548"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-01-23T14:26:20.601691" level="INFO">Login successful.</msg>
+<arg>Login successful.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-01-23T14:26:20.600672" elapsed="0.001019"/>
+</kw>
+<status status="PASS" start="2026-01-23T14:26:17.155746" elapsed="3.445945"/>
+</kw>
+<kw name="Go To" owner="Browser">
+<msg time="2026-01-23T14:26:23.146267" level="INFO">Successfully opened URL http://localhost:8001/settings/company</msg>
+<arg>${URL}/settings/company</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-01-23T14:26:20.603732" elapsed="2.542535"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-01-23T14:26:23.199853" level="INFO">Waited for Element with selector xpath=//h1 &gt;&gt; text="ข้อมูลบริษัท/สังกัด" at state visible</msg>
+<arg>xpath=//h1 &gt;&gt; text="ข้อมูลบริษัท/สังกัด"</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-01-23T14:26:23.147285" elapsed="0.053580"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-01-23T14:26:23.220340" level="INFO">Waited for Element with selector xpath=//div[contains(@class, 'rounded-[32px]')] at state visible</msg>
+<arg>xpath=//div[contains(@class, 'rounded-[32px]')]</arg>
+<arg>visible</arg>
+<arg>timeout=5s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-01-23T14:26:23.201886" elapsed="0.018454"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-01-23T14:26:23.222505" level="INFO">Company Settings page loaded successfully.</msg>
+<arg>Company Settings page loaded successfully.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-01-23T14:26:23.221854" elapsed="0.000651"/>
+</kw>
+<kw name="Close Application" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-01-23T14:26:23.601105" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-23T14:26:23.223719" elapsed="0.377386"/>
+</kw>
+<status status="PASS" start="2026-01-23T14:26:23.223719" elapsed="0.377386"/>
+</kw>
+<doc>Verifies that the Company Settings page loads correctly.</doc>
+<status status="PASS" start="2026-01-23T14:26:14.500190" elapsed="9.100915"/>
+</test>
+<test id="s1-s1-s3-t2" name="Verify Departments Settings Page" line="16">
+<kw name="Open HR Plus Application" owner="common" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-01-23T14:26:23.612467" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\browser\\traces\\temp\\a0e90157-9ee8-4705-b4c4-1774dc79aaf7"}</msg>
+<msg time="2026-01-23T14:26:23.875733" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\browser\\traces\\temp\\a0e90157-9ee8-4705-b4c4-1774dc79aaf7"}</msg>
+<arg>browser=${BROWSER}</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-01-23T14:26:23.611455" elapsed="0.264278"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-01-23T14:26:23.879222" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-01-23T14:26:23.903440" level="INFO">Successfully created context. </msg>
+<msg time="2026-01-23T14:26:23.903440" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<arg>viewport={'width': 1280, 'height': 720}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-01-23T14:26:23.876241" elapsed="0.028309"/>
+</kw>
+<kw name="Set Browser Timeout" owner="Browser">
+<arg>30s</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="PASS" start="2026-01-23T14:26:23.904550" elapsed="0.001508"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-01-23T14:26:26.168079" level="INFO">Successfully initialized new page object and opened url: http://localhost:8001</msg>
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-01-23T14:26:23.906058" elapsed="2.262021"/>
+</kw>
+<status status="PASS" start="2026-01-23T14:26:23.610424" elapsed="2.558737"/>
+</kw>
+<kw name="Login To Application" owner="common">
+<kw name="Go To" owner="Browser">
+<msg time="2026-01-23T14:26:27.698502" level="INFO">Successfully opened URL http://localhost:8001/login</msg>
+<arg>${URL}/login</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-01-23T14:26:26.170173" elapsed="1.528329"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-01-23T14:26:27.766555" level="INFO">Waited for Element with selector id=login-email at state visible</msg>
+<arg>id=login-email</arg>
+<arg>visible</arg>
+<arg>timeout=20s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-01-23T14:26:27.700024" elapsed="0.066531"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-01-23T14:26:27.767580" level="INFO">Fills the text 'ops@central.local' in the given field.</msg>
+<arg>id=login-email</arg>
+<arg>${LOGIN_EMAIL}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-01-23T14:26:27.766555" elapsed="0.059361"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-01-23T14:26:27.828392" level="INFO">Fills the text 'ChangeMe123!' in the given field.</msg>
+<arg>id=login-password</arg>
+<arg>${LOGIN_PASSWORD}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-01-23T14:26:27.825916" elapsed="0.028567"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-01-23T14:26:27.855999" level="INFO">Clicks the element 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-01-23T14:26:27.854483" elapsed="0.050157"/>
+</kw>
+<kw name="Wait For Condition" owner="Browser">
+<kw name="Get Url" owner="Browser">
+<arg>contains</arg>
+<arg>/dashboard</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-01-23T14:26:27.906328" elapsed="1.399556"/>
+</kw>
+<arg>Url</arg>
+<arg>contains</arg>
+<arg>/dashboard</arg>
+<arg>timeout=20s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for a condition, defined with Browser getter keywords to become True.</doc>
+<status status="PASS" start="2026-01-23T14:26:27.904640" elapsed="1.401244"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-01-23T14:26:29.307162" level="INFO">Login successful.</msg>
+<arg>Login successful.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-01-23T14:26:29.305884" elapsed="0.001278"/>
+</kw>
+<status status="PASS" start="2026-01-23T14:26:26.169161" elapsed="3.138001"/>
+</kw>
+<kw name="Go To" owner="Browser">
+<msg time="2026-01-23T14:26:32.937076" level="INFO">Successfully opened URL http://localhost:8001/settings/departments</msg>
+<arg>${URL}/settings/departments</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-01-23T14:26:29.308158" elapsed="3.628918"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-01-23T14:26:33.008153" level="INFO">Waited for Element with selector xpath=//h1 &gt;&gt; text="แผนก" at state visible</msg>
+<arg>xpath=//h1 &gt;&gt; text="แผนก"</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-01-23T14:26:32.938546" elapsed="0.070114"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-01-23T14:26:33.046366" level="INFO">Waited for Element with selector xpath=//button[contains(., 'เพิ่มรายการ')] at state visible</msg>
+<arg>xpath=//button[contains(., 'เพิ่มรายการ')]</arg>
+<arg>visible</arg>
+<arg>timeout=5s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-01-23T14:26:33.009250" elapsed="0.037116"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-01-23T14:26:33.048462" level="INFO">Departments Settings page loaded successfully.</msg>
+<arg>Departments Settings page loaded successfully.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-01-23T14:26:33.047464" elapsed="0.000998"/>
+</kw>
+<kw name="Close Application" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-01-23T14:26:33.532094" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-23T14:26:33.050617" elapsed="0.481477"/>
+</kw>
+<status status="PASS" start="2026-01-23T14:26:33.049610" elapsed="0.482484"/>
+</kw>
+<doc>Verifies that the Departments Settings page loads and the Add button is visible.</doc>
+<status status="PASS" start="2026-01-23T14:26:23.607993" elapsed="9.925125"/>
+</test>
+<test id="s1-s1-s3-t3" name="Verify Add Department Form Opens" line="24">
+<kw name="Open HR Plus Application" owner="common" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-01-23T14:26:33.547302" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\browser\\traces\\temp\\94218463-72e1-4f06-8438-faa95c268861"}</msg>
+<msg time="2026-01-23T14:26:33.910417" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\browser\\traces\\temp\\94218463-72e1-4f06-8438-faa95c268861"}</msg>
+<arg>browser=${BROWSER}</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-01-23T14:26:33.545026" elapsed="0.365391"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-01-23T14:26:33.915070" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-01-23T14:26:33.934857" level="INFO">Successfully created context. </msg>
+<msg time="2026-01-23T14:26:33.934857" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<arg>viewport={'width': 1280, 'height': 720}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-01-23T14:26:33.910417" elapsed="0.024440"/>
+</kw>
+<kw name="Set Browser Timeout" owner="Browser">
+<arg>30s</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="PASS" start="2026-01-23T14:26:33.934857" elapsed="0.001510"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-01-23T14:26:36.198301" level="INFO">Successfully initialized new page object and opened url: http://localhost:8001</msg>
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-01-23T14:26:33.937373" elapsed="2.260928"/>
+</kw>
+<status status="PASS" start="2026-01-23T14:26:33.544518" elapsed="2.653783"/>
+</kw>
+<kw name="Login To Application" owner="common">
+<kw name="Go To" owner="Browser">
+<msg time="2026-01-23T14:26:37.724701" level="INFO">Successfully opened URL http://localhost:8001/login</msg>
+<arg>${URL}/login</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-01-23T14:26:36.200460" elapsed="1.524241"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-01-23T14:26:37.788524" level="INFO">Waited for Element with selector id=login-email at state visible</msg>
+<arg>id=login-email</arg>
+<arg>visible</arg>
+<arg>timeout=20s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-01-23T14:26:37.726246" elapsed="0.063273"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-01-23T14:26:37.790517" level="INFO">Fills the text 'ops@central.local' in the given field.</msg>
+<arg>id=login-email</arg>
+<arg>${LOGIN_EMAIL}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-01-23T14:26:37.789519" elapsed="0.053489"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-01-23T14:26:37.845432" level="INFO">Fills the text 'ChangeMe123!' in the given field.</msg>
+<arg>id=login-password</arg>
+<arg>${LOGIN_PASSWORD}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-01-23T14:26:37.843008" elapsed="0.028817"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-01-23T14:26:37.873927" level="INFO">Clicks the element 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-01-23T14:26:37.872932" elapsed="0.043447"/>
+</kw>
+<kw name="Wait For Condition" owner="Browser">
+<kw name="Get Url" owner="Browser">
+<arg>contains</arg>
+<arg>/dashboard</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-01-23T14:26:37.918371" elapsed="1.371574"/>
+</kw>
+<arg>Url</arg>
+<arg>contains</arg>
+<arg>/dashboard</arg>
+<arg>timeout=20s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for a condition, defined with Browser getter keywords to become True.</doc>
+<status status="PASS" start="2026-01-23T14:26:37.917374" elapsed="1.372571"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-01-23T14:26:39.289945" level="INFO">Login successful.</msg>
+<arg>Login successful.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-01-23T14:26:39.289945" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2026-01-23T14:26:36.199463" elapsed="3.092003"/>
+</kw>
+<kw name="Go To" owner="Browser">
+<msg time="2026-01-23T14:26:42.420501" level="INFO">Successfully opened URL http://localhost:8001/settings/departments</msg>
+<arg>${URL}/settings/departments</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-01-23T14:26:39.291466" elapsed="3.129035"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-01-23T14:26:42.476394" level="INFO">Waited for Element with selector xpath=//h1 &gt;&gt; text="แผนก" at state visible</msg>
+<arg>xpath=//h1 &gt;&gt; text="แผนก"</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-01-23T14:26:42.422007" elapsed="0.054387"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-01-23T14:26:42.477394" level="INFO">Clicks the element 'xpath=//button[contains(., 'เพิ่มรายการ')]'.</msg>
+<arg>xpath=//button[contains(., 'เพิ่มรายการ')]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-01-23T14:26:42.477394" elapsed="0.184283"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-01-23T14:26:43.578249" level="INFO">Waited for Element with selector xpath=//h2 &gt;&gt; text="เพิ่มข้อมูล" at state visible</msg>
+<arg>xpath=//h2 &gt;&gt; text="เพิ่มข้อมูล"</arg>
+<arg>visible</arg>
+<arg>timeout=5s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-01-23T14:26:42.662721" elapsed="0.916532"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-01-23T14:26:43.616635" level="INFO">Waited for Element with selector xpath=//label[contains(text(), 'ชื่อแผนก (TH)')] at state visible</msg>
+<arg>xpath=//label[contains(text(), 'ชื่อแผนก (TH)')]</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-01-23T14:26:43.580302" elapsed="0.037327"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-01-23T14:26:43.652296" level="INFO">Waited for Element with selector xpath=//label[contains(text(), 'ชื่อแผนก (ENG)')] at state visible</msg>
+<arg>xpath=//label[contains(text(), 'ชื่อแผนก (ENG)')]</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-01-23T14:26:43.620026" elapsed="0.032270"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-01-23T14:26:43.684965" level="INFO">Waited for Element with selector xpath=//label[contains(text(), 'รหัสย่อ (2 อักษร)')] at state visible</msg>
+<arg>xpath=//label[contains(text(), 'รหัสย่อ (2 อักษร)')]</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-01-23T14:26:43.654870" elapsed="0.030095"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-01-23T14:26:43.690312" level="INFO">Add Department form opened successfully.</msg>
+<arg>Add Department form opened successfully.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-01-23T14:26:43.688570" elapsed="0.001742"/>
+</kw>
+<kw name="Close Application" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-01-23T14:26:44.212497" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-23T14:26:43.695839" elapsed="0.516658"/>
+</kw>
+<status status="PASS" start="2026-01-23T14:26:43.692969" elapsed="0.520909"/>
+</kw>
+<doc>Verifies that the Add Department form opens correctly.</doc>
+<status status="PASS" start="2026-01-23T14:26:33.540433" elapsed="10.673445"/>
+</test>
+<doc>A test suite for the Settings functionality of HR Plus.</doc>
+<status status="PASS" start="2026-01-23T14:26:14.491528" elapsed="29.730331"/>
+</suite>
+<status status="PASS" start="2026-01-23T14:25:38.487715" elapsed="65.742193"/>
+</suite>
+<status status="PASS" start="2026-01-23T14:25:38.456076" elapsed="65.776177"/>
+</suite>
+<statistics>
+<total>
+<stat pass="8" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">critical</stat>
+<stat pass="2" fail="0" skip="0">negative</stat>
+<stat pass="1" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="8" fail="0" skip="0">Tests</stat>
+<stat name="Test Suites" id="s1-s1" pass="8" fail="0" skip="0">Tests.Test Suites</stat>
+<stat name="Login Suite" id="s1-s1-s1" pass="3" fail="0" skip="0">Tests.Test Suites.Login Suite</stat>
+<stat name="News Suite" id="s1-s1-s2" pass="2" fail="0" skip="0">Tests.Test Suites.News Suite</stat>
+<stat name="Settings Suite" id="s1-s1-s3" pass="3" fail="0" skip="0">Tests.Test Suites.Settings Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

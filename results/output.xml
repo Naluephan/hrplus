@@ -1,45 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.1 (Python 3.12.10 on win32)" generated="2026-01-12T13:50:50.903122" rpa="false" schemaversion="5">
-<suite id="s1" name="Login Suite" source="C:\Users\User\Desktop\Naluephan1\saas\hrplus\tests\test_suites\login_suite.robot">
-<test id="s1-t1" name="Verify Login Page Loads" line="8">
+<robot generator="Robot 7.3.2 (Python 3.12.10 on win32)" generated="2026-01-23T11:23:56.198217" rpa="false" schemaversion="5">
+<suite id="s1" name="News Suite" source="C:\Users\User\Desktop\Naluephan1\saas\hrplus\tests\test_suites\news_suite.robot">
 <kw name="Open HR Plus Application" owner="common" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-01-12T13:50:51.563055" level="INFO">Opening browser 'Chrome' to base url 'None'.</msg>
+<msg time="2026-01-23T11:23:56.365758" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:8001'.</msg>
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-01-12T13:50:51.562527" elapsed="2.991019"/>
+<status status="PASS" start="2026-01-23T11:23:56.365758" elapsed="2.927298"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2026-01-12T13:50:54.555060" elapsed="0.120186"/>
+<status status="PASS" start="2026-01-23T11:23:59.293056" elapsed="0.058035"/>
 </kw>
-<status status="PASS" start="2026-01-12T13:50:51.561482" elapsed="3.113764"/>
+<status status="PASS" start="2026-01-23T11:23:56.364938" elapsed="2.986921"/>
+</kw>
+<test id="s1-t1" name="Verify News Page Elements" line="7">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-01-23T11:23:59.353016" level="INFO">Opening url 'http://localhost:8001/login'</msg>
+<arg>${URL}/login</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-01-23T11:23:59.353016" elapsed="1.202749"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-01-23T11:24:02.557697" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-01-23T11:24:00.556181" elapsed="2.001516"/>
 </kw>
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>tag:body</arg>
-<arg>timeout=10s</arg>
+<arg>id:login-email</arg>
+<arg>timeout=30s</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2026-01-12T13:50:54.678954" elapsed="0.114303"/>
+<status status="PASS" start="2026-01-23T11:24:02.557697" elapsed="0.034562"/>
 </kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2026-01-12T13:50:54.795908" level="INFO">Login page loaded successfully.</msg>
-<arg>Login page loaded successfully.</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-01-12T13:50:54.794835" elapsed="0.001073"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-23T11:24:02.593314" level="INFO">Typing text 'ops@central.local' into text field 'id:login-email'.</msg>
+<arg>id:login-email</arg>
+<arg>${LOGIN_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-23T11:24:02.593314" elapsed="0.121760"/>
 </kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-23T11:24:02.716452" level="INFO">Typing text 'ChangeMe123!' into text field 'id:login-password'.</msg>
+<arg>id:login-password</arg>
+<arg>${LOGIN_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-23T11:24:02.716452" elapsed="0.063446"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-01-23T11:24:02.780996" level="INFO">Clicking button 'xpath://button[@type='submit']'.</msg>
+<arg>xpath://button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-23T11:24:02.780996" elapsed="0.056990"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/dashboard</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-01-23T11:24:02.839492" elapsed="1.256239"/>
+</kw>
+<arg>Wait Until Location Contains</arg>
+<arg>/dashboard</arg>
+<arg>timeout=10s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-01-23T11:24:02.839492" elapsed="1.256239"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-01-23T11:24:04.096758" level="INFO">Opening url 'http://localhost:8001/news'</msg>
+<arg>${URL}/news</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-01-23T11:24:04.095731" elapsed="2.732461"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/news</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-01-23T11:24:06.828192" elapsed="0.033822"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>tag:h1</arg>
+<arg>ประกาศ และข่าวสาร</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2026-01-23T11:24:06.862014" elapsed="0.075750"/>
+</kw>
+<msg time="2026-01-23T11:24:06.937764" level="INFO">${status} = True</msg>
+<var>${status}</var>
+<arg>Wait Until Element Contains</arg>
+<arg>tag:h1</arg>
+<arg>ประกาศ และข่าวสาร</arg>
+<arg>timeout=20s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-01-23T11:24:06.862014" elapsed="0.075750"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>not ${status}</arg>
+<arg>Log Page Source</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-01-23T11:24:06.937764" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${status}</arg>
+<arg>msg=Failed to load News page content (Title not found)</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-01-23T11:24:06.938761" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-01-23T11:24:06.951095" level="INFO">Current page contains element 'xpath://a[contains(text(), 'จัดการประกาศและข่าวสาร')]'.</msg>
+<arg>xpath://a[contains(text(), 'จัดการประกาศและข่าวสาร')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-01-23T11:24:06.939264" elapsed="0.011831"/>
+</kw>
+<kw name="Page Should Contain Button" owner="SeleniumLibrary">
+<msg time="2026-01-23T11:24:07.031379" level="INFO">Current page contains button 'ค้นหา'.</msg>
+<arg>ค้นหา</arg>
+<doc>Verifies button ``locator`` is found from current page.</doc>
+<status status="PASS" start="2026-01-23T11:24:06.951095" elapsed="0.080284"/>
+</kw>
+<doc>Verify that the News page loads and displays key elements.</doc>
+<status status="PASS" start="2026-01-23T11:23:59.351859" elapsed="7.679520"/>
+</test>
 <kw name="Close Application" owner="common" type="TEARDOWN">
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2026-01-12T13:50:54.799038" elapsed="3.943085"/>
+<status status="PASS" start="2026-01-23T11:24:07.033842" elapsed="2.188733"/>
 </kw>
-<status status="PASS" start="2026-01-12T13:50:54.798010" elapsed="3.945110"/>
+<status status="PASS" start="2026-01-23T11:24:07.033314" elapsed="2.189261"/>
 </kw>
-<doc>Verifies that the login page opens successfully.</doc>
-<status status="PASS" start="2026-01-12T13:50:51.560469" elapsed="7.183182"/>
-</test>
-<doc>A test suite for the Login functionality of HR Plus.</doc>
-<status status="PASS" start="2026-01-12T13:50:50.907540" elapsed="7.837663"/>
+<status status="PASS" start="2026-01-23T11:23:56.200079" elapsed="13.023005"/>
 </suite>
 <statistics>
 <total>
@@ -48,7 +139,7 @@
 <tag>
 </tag>
 <suite>
-<stat name="Login Suite" id="s1" pass="1" fail="0" skip="0">Login Suite</stat>
+<stat name="News Suite" id="s1" pass="1" fail="0" skip="0">News Suite</stat>
 </suite>
 </statistics>
 <errors>
