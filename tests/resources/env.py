@@ -14,3 +14,13 @@ BROWSER = os.getenv("BROWSER", "chromium")
 # Use specific names to avoid conflict with system USERNAME
 LOGIN_EMAIL = os.getenv("USERNAME", "ops@central.local")
 LOGIN_PASSWORD = os.getenv("PASSWORD", "ChangeMe123!")
+
+SESSION_PATH = os.getenv("SESSION_PATH", os.path.join(current_dir, "../../.auth/admin_state.json"))
+
+# Legacy variable support for 'users' dict expected by some tests
+users = {
+    "admin": {
+        "username": LOGIN_EMAIL,
+        "password": LOGIN_PASSWORD
+    }
+}

@@ -1,0 +1,10 @@
+users:
+  admin:
+    username: "ops@central.local"
+    password: "ChangeMe123!"
+  hr:
+    username: "hr@central.local"
+    password: "ChangeMe123!"
+  user:
+    username: "user@central.local"
+    password: "ChangeMe123!"

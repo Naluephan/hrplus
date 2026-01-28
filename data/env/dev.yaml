@@ -1,0 +1,4 @@
+base_url: "http://localhost:8001"
+browser: "chromium"
+headless: false
+timeout: "30s"
