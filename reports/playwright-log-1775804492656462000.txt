@@ -1,0 +1,428 @@
+{"level":30,"time":"2026-04-10T07:01:47.339Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Listening on 127.0.0.1:58449"}
+{"level":30,"time":"2026-04-10T07:01:47.536Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-04-10T07:01:48.448Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Adding browser to stack: chromium, version: 143.0.7499.4"}
+{"level":30,"time":"2026-04-10T07:01:48.449Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-04-10T07:01:48.450Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-04-10T07:01:48.482Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method newContext"}
+{"level":30,"time":"2026-04-10T07:01:48.483Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Creating new context with options: {\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":false,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"storageState\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\tests\\\\resources\\\\../../.auth/admin_state.json\",\"viewport\":{\"width\":1280,\"height\":720}}"}
+{"level":30,"time":"2026-04-10T07:01:48.483Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@23e258c34c1721981e4cd0758128c442\"},\"headless\":false,\"_contextStack\":[],\"id\":\"browser=f8079a07-76fa-44b3-a2b6-e71d2c61f7f6\"}"}
+{"level":30,"time":"2026-04-10T07:01:48.483Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Trace file: "}
+{"level":30,"time":"2026-04-10T07:01:50.804Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Setting default timeout for context context=b047435f-593b-4ee7-8356-fd6777d498ec to 120000"}
+{"level":30,"time":"2026-04-10T07:01:50.806Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Changed active context: context=b047435f-593b-4ee7-8356-fd6777d498ec"}
+{"level":30,"time":"2026-04-10T07:01:50.807Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method newContext"}
+{"level":30,"time":"2026-04-10T07:01:50.851Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-04-10T07:01:50.853Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@23e258c34c1721981e4cd0758128c442\"},\"headless\":false,\"_contextStack\":[{\"id\":\"context=b047435f-593b-4ee7-8356-fd6777d498ec\",\"c\":{\"_type\":\"BrowserContext\",\"_guid\":\"browser-context@3563702bda8b266a2640f2511cdd768a\"},\"pageStack\":[],\"options\":{\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":false,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"storageState\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\tests\\\\resources\\\\../../.auth/admin_state.json\",\"viewport\":{\"width\":1280,\"height\":720}},\"traceFile\":\"\"}],\"id\":\"browser=f8079a07-76fa-44b3-a2b6-e71d2c61f7f6\"}"}
+{"level":30,"time":"2026-04-10T07:01:51.981Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Video path: undefined"}
+{"level":30,"time":"2026-04-10T07:01:51.982Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Changed active page"}
+{"level":30,"time":"2026-04-10T07:02:50.516Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method newPage"}
+{"level":30,"time":"2026-04-10T07:02:50.566Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method goTo"}
+{"level":30,"time":"2026-04-10T07:03:38.567Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method goTo"}
+{"level":30,"time":"2026-04-10T07:03:38.925Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:03:38.926Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"global-loading\"] in page."}
+{"level":30,"time":"2026-04-10T07:03:39.941Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Error of node method  waitForElementState"}
+================= Original suppressed error =================
+locator.waitFor: Timeout 1000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-testid="global-loading"]') to be visible[22m
+
+    at waitForElementState (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:11721:19)
+    at async PlaywrightServer.waitForElementsState (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:13635:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-04-10T07:03:39.959Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T07:03:39.960Z","pid":26420,"hostname":"DESKTOP-B25KPJK","Take screenshot with options: ":{"path":"C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\reports\\browser\\screenshot\\fail-screenshot-1.png","fileType":"png","fullPage":false,"timeout":60000,"omitBackground":false}}
+{"level":30,"time":"2026-04-10T07:03:40.423Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T07:03:40.445Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:03:40.446Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=body in page."}
+{"level":30,"time":"2026-04-10T07:03:40.464Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:03:40.681Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:03:40.682Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"sidebar.item.sidebar.people.list\"] in page."}
+{"level":30,"time":"2026-04-10T07:03:40.695Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:03:40.706Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method click"}
+{"level":30,"time":"2026-04-10T07:03:40.706Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"sidebar.item.sidebar.people.list\"] in page."}
+{"level":30,"time":"2026-04-10T07:03:40.970Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method click"}
+{"level":30,"time":"2026-04-10T07:03:41.302Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:03:41.303Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"global-loading\"] in page."}
+{"level":30,"time":"2026-04-10T07:03:41.336Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:03:41.361Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:03:41.362Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"global-loading\"] in page."}
+{"level":30,"time":"2026-04-10T07:05:41.542Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Error of node method  waitForElementState"}
+================= Original suppressed error =================
+locator.waitFor: Timeout 120000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-testid="global-loading"]') to be detached[22m
+[2m    182 × locator resolved to visible <div data-testid="global-loading" class="fixed inset-0 z-[9999] flex items-center justify-center">…</div>[22m
+
+    at waitForElementState (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:11721:19)
+    at async PlaywrightServer.waitForElementsState (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:13635:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-04-10T07:05:41.586Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T07:05:41.595Z","pid":26420,"hostname":"DESKTOP-B25KPJK","Take screenshot with options: ":{"path":"C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\reports\\browser\\screenshot\\fail-screenshot-2.png","fileType":"png","fullPage":false,"timeout":60000,"omitBackground":false}}
+{"level":30,"time":"2026-04-10T07:05:42.610Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T07:05:43.692Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method closeBrowser"}
+{"level":30,"time":"2026-04-10T07:05:43.761Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Removed page=29cc8242-bde7-4162-a047-f505e2228176 from context=b047435f-593b-4ee7-8356-fd6777d498ec page stack"}
+{"level":30,"time":"2026-04-10T07:05:53.764Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method closeBrowser"}
+{"level":30,"time":"2026-04-10T07:05:53.775Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-10T07:05:53.776Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-10T07:05:53.785Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-10T07:05:53.785Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-10T07:05:53.799Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-04-10T07:05:55.716Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Adding browser to stack: chromium, version: 143.0.7499.4"}
+{"level":30,"time":"2026-04-10T07:05:55.716Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-04-10T07:05:55.717Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-04-10T07:05:55.799Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method newContext"}
+{"level":30,"time":"2026-04-10T07:05:55.800Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Creating new context with options: {\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":false,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"storageState\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\tests\\\\resources\\\\../../.auth/admin_state.json\",\"viewport\":{\"width\":1280,\"height\":720}}"}
+{"level":30,"time":"2026-04-10T07:05:55.800Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@82b2d3a5868e3b4c7831fd70e964c9dc\"},\"headless\":false,\"_contextStack\":[],\"id\":\"browser=55126c6e-f042-4d7a-aa89-73ead68eb896\"}"}
+{"level":30,"time":"2026-04-10T07:05:55.800Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Trace file: "}
+{"level":30,"time":"2026-04-10T07:05:59.671Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Setting default timeout for context context=9f45e54e-3ce6-45af-b3d9-3cb51b81426c to 60000"}
+{"level":30,"time":"2026-04-10T07:05:59.672Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Changed active context: context=9f45e54e-3ce6-45af-b3d9-3cb51b81426c"}
+{"level":30,"time":"2026-04-10T07:05:59.672Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method newContext"}
+{"level":30,"time":"2026-04-10T07:05:59.695Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-04-10T07:05:59.695Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@82b2d3a5868e3b4c7831fd70e964c9dc\"},\"headless\":false,\"_contextStack\":[{\"id\":\"context=9f45e54e-3ce6-45af-b3d9-3cb51b81426c\",\"c\":{\"_type\":\"BrowserContext\",\"_guid\":\"browser-context@adf96d603db583d095180f4ea4c37edf\"},\"pageStack\":[],\"options\":{\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":false,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"storageState\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\tests\\\\resources\\\\../../.auth/admin_state.json\",\"viewport\":{\"width\":1280,\"height\":720}},\"traceFile\":\"\"}],\"id\":\"browser=55126c6e-f042-4d7a-aa89-73ead68eb896\"}"}
+{"level":30,"time":"2026-04-10T07:06:00.236Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Video path: undefined"}
+{"level":30,"time":"2026-04-10T07:06:00.236Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Changed active page"}
+{"level":30,"time":"2026-04-10T07:06:49.883Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method newPage"}
+{"level":30,"time":"2026-04-10T07:06:49.907Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method goTo"}
+{"level":30,"time":"2026-04-10T07:07:49.926Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Error of node method goTo"}
+================= Original suppressed error =================
+page.goto: Timeout 60000ms exceeded.
+Call log:
+[2m  - navigating to "http://localhost:8001/login", waiting until "load"[22m
+
+    at goTo (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:11143:31)
+    at PlaywrightServer.goTo (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:13663:34)
+    at Object.onReceiveHalfClose (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1464:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:595:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:635:14)
+    at ServerHttp2Stream.<anonymous> (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:394:18) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-04-10T07:07:49.974Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T07:07:49.974Z","pid":26420,"hostname":"DESKTOP-B25KPJK","Take screenshot with options: ":{"path":"C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\reports\\browser\\screenshot\\fail-screenshot-3.png","fileType":"png","fullPage":false,"timeout":60000,"omitBackground":false}}
+{"level":30,"time":"2026-04-10T07:08:49.990Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Error of node method  takeScreenshot"}
+================= Original suppressed error =================
+page.screenshot: Timeout 60000ms exceeded.
+Call log:
+[2m  - taking page screenshot[22m
+[2m  - waiting for fonts to load...[22m
+[2m  - fonts loaded[22m
+
+    at takeScreenshot (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:11166:16)
+    at PlaywrightServer.takeScreenshot (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:13635:34)
+    at Object.onReceiveHalfClose (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1464:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:595:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:635:14)
+    at ServerHttp2Stream.<anonymous> (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:394:18) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-04-10T07:08:50.030Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method closeBrowser"}
+{"level":30,"time":"2026-04-10T07:08:50.060Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Removed page=f886168c-9c55-4a3f-aa0b-bd68c25d6d49 from context=9f45e54e-3ce6-45af-b3d9-3cb51b81426c page stack"}
+{"level":30,"time":"2026-04-10T07:08:52.335Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method closeBrowser"}
+{"level":30,"time":"2026-04-10T07:08:52.342Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-10T07:08:52.343Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-10T07:08:52.349Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-10T07:08:52.349Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-10T07:08:52.363Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-04-10T07:08:53.556Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Adding browser to stack: chromium, version: 143.0.7499.4"}
+{"level":30,"time":"2026-04-10T07:08:53.556Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-04-10T07:08:53.557Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-04-10T07:08:53.577Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method newContext"}
+{"level":30,"time":"2026-04-10T07:08:53.584Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Creating new context with options: {\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":false,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"storageState\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\tests\\\\resources\\\\../../.auth/admin_state.json\",\"viewport\":{\"width\":1280,\"height\":720}}"}
+{"level":30,"time":"2026-04-10T07:08:53.584Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@d3cf2134d00ed144f973607cc1f60feb\"},\"headless\":false,\"_contextStack\":[],\"id\":\"browser=93655c5b-fd53-4263-95a7-84d2e1b60adb\"}"}
+{"level":30,"time":"2026-04-10T07:08:53.584Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Trace file: "}
+{"level":30,"time":"2026-04-10T07:08:54.825Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Setting default timeout for context context=933e0679-0384-46f6-822c-217788040c47 to 60000"}
+{"level":30,"time":"2026-04-10T07:08:54.825Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Changed active context: context=933e0679-0384-46f6-822c-217788040c47"}
+{"level":30,"time":"2026-04-10T07:08:54.825Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method newContext"}
+{"level":30,"time":"2026-04-10T07:08:54.850Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-04-10T07:08:54.850Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@d3cf2134d00ed144f973607cc1f60feb\"},\"headless\":false,\"_contextStack\":[{\"id\":\"context=933e0679-0384-46f6-822c-217788040c47\",\"c\":{\"_type\":\"BrowserContext\",\"_guid\":\"browser-context@17e8a23059f734e2b8382b3520b35fab\"},\"pageStack\":[],\"options\":{\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":false,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"storageState\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\tests\\\\resources\\\\../../.auth/admin_state.json\",\"viewport\":{\"width\":1280,\"height\":720}},\"traceFile\":\"\"}],\"id\":\"browser=93655c5b-fd53-4263-95a7-84d2e1b60adb\"}"}
+{"level":30,"time":"2026-04-10T07:08:55.383Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Video path: undefined"}
+{"level":30,"time":"2026-04-10T07:08:55.384Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Changed active page"}
+{"level":30,"time":"2026-04-10T07:09:18.286Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method newPage"}
+{"level":30,"time":"2026-04-10T07:09:18.306Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method goTo"}
+{"level":30,"time":"2026-04-10T07:09:49.289Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method goTo"}
+{"level":30,"time":"2026-04-10T07:09:50.714Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:09:50.714Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"global-loading\"] in page."}
+================= Original suppressed error =================
+locator.waitFor: Timeout 1000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-testid="global-loading"]') to be visible[22m
+
+    at waitForElementState (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:11721:19)
+    at async PlaywrightServer.waitForElementsState (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:13635:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-04-10T07:09:51.722Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Error of node method  waitForElementState"}
+{"level":30,"time":"2026-04-10T07:09:51.890Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T07:09:51.891Z","pid":26420,"hostname":"DESKTOP-B25KPJK","Take screenshot with options: ":{"path":"C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\reports\\browser\\screenshot\\fail-screenshot-3.png","fileType":"png","fullPage":false,"timeout":60000,"omitBackground":false}}
+{"level":30,"time":"2026-04-10T07:09:52.338Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T07:09:52.362Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:09:52.362Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=body in page."}
+{"level":30,"time":"2026-04-10T07:09:52.395Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:09:52.621Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:09:52.621Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"sidebar.item.sidebar.people.list\"] in page."}
+{"level":30,"time":"2026-04-10T07:09:52.655Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:09:52.665Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method click"}
+{"level":30,"time":"2026-04-10T07:09:52.665Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"sidebar.item.sidebar.people.list\"] in page."}
+{"level":30,"time":"2026-04-10T07:09:52.931Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method click"}
+{"level":30,"time":"2026-04-10T07:09:53.282Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:09:53.283Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"global-loading\"] in page."}
+{"level":30,"time":"2026-04-10T07:09:53.839Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:09:53.883Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"global-loading\"] in page."}
+{"level":30,"time":"2026-04-10T07:09:53.883Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:10:18.791Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:10:18.804Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:10:18.805Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=body in page."}
+{"level":30,"time":"2026-04-10T07:10:18.824Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:10:19.357Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:10:19.362Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"global-loading\"] in page."}
+{"level":30,"time":"2026-04-10T07:10:20.449Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Error of node method  waitForElementState"}
+================= Original suppressed error =================
+locator.waitFor: Timeout 1000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-testid="global-loading"]') to be visible[22m
+
+    at waitForElementState (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:11721:19)
+    at async PlaywrightServer.waitForElementsState (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:13635:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-04-10T07:10:20.828Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T07:10:20.834Z","pid":26420,"hostname":"DESKTOP-B25KPJK","Take screenshot with options: ":{"path":"C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\reports\\browser\\screenshot\\fail-screenshot-4.png","fileType":"png","fullPage":false,"timeout":60000,"omitBackground":false}}
+{"level":30,"time":"2026-04-10T07:10:22.163Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T07:10:22.193Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:10:22.194Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=body in page."}
+{"level":30,"time":"2026-04-10T07:10:22.223Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:10:22.798Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:10:22.799Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"global-loading\"] in page."}
+{"level":30,"time":"2026-04-10T07:10:23.814Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Error of node method  waitForElementState"}
+================= Original suppressed error =================
+locator.waitFor: Timeout 1000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-testid="global-loading"]') to be visible[22m
+
+    at waitForElementState (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:11721:19)
+    at async PlaywrightServer.waitForElementsState (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:13635:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-04-10T07:10:23.827Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T07:10:23.828Z","pid":26420,"hostname":"DESKTOP-B25KPJK","Take screenshot with options: ":{"path":"C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\reports\\browser\\screenshot\\fail-screenshot-5.png","fileType":"png","fullPage":false,"timeout":60000,"omitBackground":false}}
+{"level":30,"time":"2026-04-10T07:10:24.099Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T07:10:24.115Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:10:24.115Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=body in page."}
+{"level":30,"time":"2026-04-10T07:10:24.170Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:10:24.385Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:10:24.385Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"employees.toolbar.add\"] in page."}
+{"level":30,"time":"2026-04-10T07:10:42.858Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:10:42.870Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:10:42.870Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"employees.filter.search\"] in page."}
+{"level":30,"time":"2026-04-10T07:10:42.887Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:10:42.898Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-04-10T07:10:42.898Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"employees.filter.search\"] in page."}
+{"level":30,"time":"2026-04-10T07:10:43.034Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method fillText"}
+{"level":30,"time":"2026-04-10T07:10:43.047Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method press"}
+{"level":30,"time":"2026-04-10T07:10:43.048Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"employees.filter.search\"] in page."}
+{"level":30,"time":"2026-04-10T07:10:43.180Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method press"}
+{"level":30,"time":"2026-04-10T07:10:46.194Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method getElementCount"}
+{"level":30,"time":"2026-04-10T07:10:46.194Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is disabled, return Locator: css=tr[data-testid^=\"employees.table.row\"] in page."}
+{"level":30,"time":"2026-04-10T07:10:46.201Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method getElementCount"}
+{"level":30,"time":"2026-04-10T07:10:46.210Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:10:46.210Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=tr[data-testid^=\"employees.table.row\"] >> nth=0 in page."}
+{"level":30,"time":"2026-04-10T07:10:59.217Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:10:59.225Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method getElementCount"}
+{"level":30,"time":"2026-04-10T07:10:59.225Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is disabled, return Locator: css=tr[data-testid^=\"employees.table.row\"] in page."}
+{"level":30,"time":"2026-04-10T07:10:59.240Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method getElementCount"}
+{"level":30,"time":"2026-04-10T07:10:59.254Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method closeBrowser"}
+{"level":30,"time":"2026-04-10T07:10:59.294Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Removed page=0087a24c-c2c2-459a-9e15-1fc68e4a6f4d from context=933e0679-0384-46f6-822c-217788040c47 page stack"}
+{"level":30,"time":"2026-04-10T07:11:01.346Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method closeBrowser"}
+{"level":30,"time":"2026-04-10T07:11:01.353Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-10T07:11:01.353Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-10T07:11:01.360Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-10T07:11:01.361Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-10T07:11:01.371Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-04-10T07:11:02.664Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Adding browser to stack: chromium, version: 143.0.7499.4"}
+{"level":30,"time":"2026-04-10T07:11:02.664Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-04-10T07:11:02.664Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-04-10T07:11:02.681Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method newContext"}
+{"level":30,"time":"2026-04-10T07:11:02.682Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Creating new context with options: {\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":false,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"storageState\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\tests\\\\resources\\\\../../.auth/admin_state.json\",\"viewport\":{\"width\":1280,\"height\":720}}"}
+{"level":30,"time":"2026-04-10T07:11:02.682Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@4cb272979abd8d7e20542bd0a9e31f47\"},\"headless\":false,\"_contextStack\":[],\"id\":\"browser=19be6c92-d50d-44bb-a1b0-a69377cdd205\"}"}
+{"level":30,"time":"2026-04-10T07:11:02.682Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Trace file: "}
+{"level":30,"time":"2026-04-10T07:11:03.829Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Setting default timeout for context context=d8272416-33ad-4539-ac19-d6d547b74b7a to 60000"}
+{"level":30,"time":"2026-04-10T07:11:03.832Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Changed active context: context=d8272416-33ad-4539-ac19-d6d547b74b7a"}
+{"level":30,"time":"2026-04-10T07:11:03.833Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method newContext"}
+{"level":30,"time":"2026-04-10T07:11:03.860Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-04-10T07:11:03.861Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@4cb272979abd8d7e20542bd0a9e31f47\"},\"headless\":false,\"_contextStack\":[{\"id\":\"context=d8272416-33ad-4539-ac19-d6d547b74b7a\",\"c\":{\"_type\":\"BrowserContext\",\"_guid\":\"browser-context@ccc64b00c8f1349da62a34d408f59c64\"},\"pageStack\":[],\"options\":{\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":false,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"storageState\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\tests\\\\resources\\\\../../.auth/admin_state.json\",\"viewport\":{\"width\":1280,\"height\":720}},\"traceFile\":\"\"}],\"id\":\"browser=19be6c92-d50d-44bb-a1b0-a69377cdd205\"}"}
+{"level":30,"time":"2026-04-10T07:11:04.168Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Video path: undefined"}
+{"level":30,"time":"2026-04-10T07:11:04.168Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Changed active page"}
+{"level":30,"time":"2026-04-10T07:11:13.137Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method newPage"}
+{"level":30,"time":"2026-04-10T07:11:13.148Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method goTo"}
+{"level":30,"time":"2026-04-10T07:11:19.222Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method goTo"}
+{"level":30,"time":"2026-04-10T07:11:19.572Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:19.572Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"global-loading\"] in page."}
+{"level":30,"time":"2026-04-10T07:11:20.584Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Error of node method  waitForElementState"}
+================= Original suppressed error =================
+locator.waitFor: Timeout 1000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-testid="global-loading"]') to be visible[22m
+
+    at waitForElementState (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:11721:19)
+    at async PlaywrightServer.waitForElementsState (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:13635:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-04-10T07:11:20.595Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T07:11:20.595Z","pid":26420,"hostname":"DESKTOP-B25KPJK","Take screenshot with options: ":{"path":"C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\reports\\browser\\screenshot\\fail-screenshot-6.png","fileType":"png","fullPage":false,"timeout":60000,"omitBackground":false}}
+{"level":30,"time":"2026-04-10T07:11:20.880Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T07:11:20.893Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:20.893Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=body in page."}
+{"level":30,"time":"2026-04-10T07:11:20.905Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:21.121Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:21.121Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"sidebar.item.sidebar.people.list\"] in page."}
+{"level":30,"time":"2026-04-10T07:11:21.130Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:21.139Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method click"}
+{"level":30,"time":"2026-04-10T07:11:21.139Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"sidebar.item.sidebar.people.list\"] in page."}
+{"level":30,"time":"2026-04-10T07:11:21.315Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method click"}
+{"level":30,"time":"2026-04-10T07:11:21.644Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:21.644Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"global-loading\"] in page."}
+{"level":30,"time":"2026-04-10T07:11:21.707Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:21.720Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:21.720Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"global-loading\"] in page."}
+{"level":30,"time":"2026-04-10T07:11:24.029Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:24.039Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:24.039Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=body in page."}
+{"level":30,"time":"2026-04-10T07:11:24.063Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:24.591Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:24.592Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"global-loading\"] in page."}
+{"level":30,"time":"2026-04-10T07:11:25.610Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Error of node method  waitForElementState"}
+================= Original suppressed error =================
+locator.waitFor: Timeout 1000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-testid="global-loading"]') to be visible[22m
+
+    at waitForElementState (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:11721:19)
+    at async PlaywrightServer.waitForElementsState (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:13635:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-04-10T07:11:25.620Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T07:11:25.620Z","pid":26420,"hostname":"DESKTOP-B25KPJK","Take screenshot with options: ":{"path":"C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\reports\\browser\\screenshot\\fail-screenshot-7.png","fileType":"png","fullPage":false,"timeout":60000,"omitBackground":false}}
+{"level":30,"time":"2026-04-10T07:11:25.939Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T07:11:25.957Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:25.958Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=body in page."}
+{"level":30,"time":"2026-04-10T07:11:25.964Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:26.487Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:26.487Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"global-loading\"] in page."}
+{"level":30,"time":"2026-04-10T07:11:27.491Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Error of node method  waitForElementState"}
+================= Original suppressed error =================
+locator.waitFor: Timeout 1000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-testid="global-loading"]') to be visible[22m
+
+    at waitForElementState (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:11721:19)
+    at async PlaywrightServer.waitForElementsState (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:13635:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-04-10T07:11:27.504Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T07:11:27.505Z","pid":26420,"hostname":"DESKTOP-B25KPJK","Take screenshot with options: ":{"path":"C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\reports\\browser\\screenshot\\fail-screenshot-8.png","fileType":"png","fullPage":false,"timeout":60000,"omitBackground":false}}
+{"level":30,"time":"2026-04-10T07:11:27.804Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T07:11:27.821Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:27.821Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=body in page."}
+{"level":30,"time":"2026-04-10T07:11:27.830Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:28.042Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:28.042Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"employees.toolbar.add\"] in page."}
+{"level":30,"time":"2026-04-10T07:11:28.051Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:28.061Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:28.061Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"employees.filter.search\"] in page."}
+{"level":30,"time":"2026-04-10T07:11:28.071Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:28.079Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-04-10T07:11:28.079Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"employees.filter.search\"] in page."}
+{"level":30,"time":"2026-04-10T07:11:28.168Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method fillText"}
+{"level":30,"time":"2026-04-10T07:11:28.176Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method press"}
+{"level":30,"time":"2026-04-10T07:11:28.176Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"employees.filter.search\"] in page."}
+{"level":30,"time":"2026-04-10T07:11:28.255Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method press"}
+{"level":30,"time":"2026-04-10T07:11:31.263Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method getElementCount"}
+{"level":30,"time":"2026-04-10T07:11:31.263Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is disabled, return Locator: css=tr[data-testid^=\"employees.table.row\"] in page."}
+{"level":30,"time":"2026-04-10T07:11:31.269Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method getElementCount"}
+{"level":30,"time":"2026-04-10T07:11:31.283Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:31.284Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=tr[data-testid^=\"employees.table.row\"] >> nth=0 in page."}
+{"level":30,"time":"2026-04-10T07:11:51.662Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:51.670Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method getElementCount"}
+{"level":30,"time":"2026-04-10T07:11:51.670Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is disabled, return Locator: css=tr[data-testid^=\"employees.table.row\"] in page."}
+{"level":30,"time":"2026-04-10T07:11:51.730Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method getElementCount"}
+{"level":30,"time":"2026-04-10T07:11:52.045Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:52.045Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"global-loading\"] in page."}
+{"level":30,"time":"2026-04-10T07:11:53.057Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Error of node method  waitForElementState"}
+================= Original suppressed error =================
+locator.waitFor: Timeout 1000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-testid="global-loading"]') to be visible[22m
+
+    at waitForElementState (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:11721:19)
+    at async PlaywrightServer.waitForElementsState (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:13635:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-04-10T07:11:53.063Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T07:11:53.063Z","pid":26420,"hostname":"DESKTOP-B25KPJK","Take screenshot with options: ":{"path":"C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\reports\\browser\\screenshot\\fail-screenshot-9.png","fileType":"png","fullPage":false,"timeout":60000,"omitBackground":false}}
+{"level":30,"time":"2026-04-10T07:11:53.171Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T07:11:53.183Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:53.183Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=body in page."}
+{"level":30,"time":"2026-04-10T07:11:53.188Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:56.395Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:56.395Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=tr[data-testid^=\"employees.table.row\"] >> nth=0 in page."}
+{"level":30,"time":"2026-04-10T07:11:56.400Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:56.407Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:56.407Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"employees.table.row.0.action.view\"] in page."}
+{"level":30,"time":"2026-04-10T07:11:56.414Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:57.419Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method click"}
+{"level":30,"time":"2026-04-10T07:11:57.420Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"employees.table.row.0.action.view\"] in page."}
+{"level":30,"time":"2026-04-10T07:11:57.486Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method click"}
+{"level":30,"time":"2026-04-10T07:11:57.810Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:57.811Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"global-loading\"] in page."}
+{"level":30,"time":"2026-04-10T07:11:57.842Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:57.874Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T07:11:57.875Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"global-loading\"] in page."}
+{"level":30,"time":"2026-04-10T07:13:58.316Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Error of node method  waitForElementState"}
+================= Original suppressed error =================
+locator.waitFor: Timeout 120000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-testid="global-loading"]') to be detached[22m
+[2m    202 × locator resolved to visible <div data-testid="global-loading" class="fixed inset-0 z-[9999] flex items-center justify-center">…</div>[22m
+
+    at waitForElementState (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:11721:19)
+    at async PlaywrightServer.waitForElementsState (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:13635:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-04-10T07:13:58.333Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T07:13:58.333Z","pid":26420,"hostname":"DESKTOP-B25KPJK","Take screenshot with options: ":{"path":"C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\reports\\browser\\screenshot\\fail-screenshot-10.png","fileType":"png","fullPage":false,"timeout":60000,"omitBackground":false}}
+{"level":30,"time":"2026-04-10T07:13:58.891Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T07:13:59.308Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method closeBrowser"}
+{"level":30,"time":"2026-04-10T07:13:59.394Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Removed page=16fca9c2-cfa0-4b53-8b03-798d6fc7e05a from context=d8272416-33ad-4539-ac19-d6d547b74b7a page stack"}
+{"level":30,"time":"2026-04-10T07:14:01.678Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method closeBrowser"}
+{"level":30,"time":"2026-04-10T07:14:01.685Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-10T07:14:01.685Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method getBrowserCatalog"}
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:12672:15)
+    at PlaywrightServer.getActiveBrowser (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:13622:59)
+    at PlaywrightServer.setTimeout (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:13873:57)
+    at Object.onReceiveHalfClose (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1464:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:595:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:635:14)
+    at ServerHttp2Stream.<anonymous> (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:394:18)
+    at ServerHttp2Stream.emit (node:events:536:35)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+=============================================================
+{"level":30,"time":"2026-04-10T07:14:01.698Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-10T07:14:01.699Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-10T07:14:01.752Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method closeAllBrowsers"}
+{"level":30,"time":"2026-04-10T07:14:01.753Z","pid":26420,"hostname":"DESKTOP-B25KPJK","msg":"End of node method closeAllBrowsers"}

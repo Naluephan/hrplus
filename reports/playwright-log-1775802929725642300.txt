@@ -1,0 +1,18 @@
+{"level":30,"time":"2026-04-10T06:35:36.552Z","pid":19628,"hostname":"DESKTOP-B25KPJK","msg":"Listening on 127.0.0.1:64072"}
+{"level":30,"time":"2026-04-10T06:35:37.112Z","pid":19628,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-04-10T06:35:38.377Z","pid":19628,"hostname":"DESKTOP-B25KPJK","msg":"Adding browser to stack: chromium, version: 143.0.7499.4"}
+{"level":30,"time":"2026-04-10T06:35:38.379Z","pid":19628,"hostname":"DESKTOP-B25KPJK","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-04-10T06:35:38.380Z","pid":19628,"hostname":"DESKTOP-B25KPJK","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-04-10T06:35:38.422Z","pid":19628,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method newContext"}
+{"level":30,"time":"2026-04-10T06:35:38.423Z","pid":19628,"hostname":"DESKTOP-B25KPJK","msg":"Creating new context with options: {\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":false,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"storageState\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\tests\\\\resources\\\\../../.auth/admin_state.json\",\"viewport\":{\"width\":1280,\"height\":720}}"}
+{"level":30,"time":"2026-04-10T06:35:38.424Z","pid":19628,"hostname":"DESKTOP-B25KPJK","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@cc71d782cce9a2b48f0739fbb1bfce3a\"},\"headless\":false,\"_contextStack\":[],\"id\":\"browser=8b54eed1-1fb0-4a9a-8b0b-7801519acb7c\"}"}
+{"level":30,"time":"2026-04-10T06:35:38.424Z","pid":19628,"hostname":"DESKTOP-B25KPJK","msg":"Trace file: "}
+{"level":30,"time":"2026-04-10T06:35:39.749Z","pid":19628,"hostname":"DESKTOP-B25KPJK","msg":"Setting default timeout for context context=77293193-e89b-4f28-866e-a289478b792e to 60000"}
+{"level":30,"time":"2026-04-10T06:35:39.750Z","pid":19628,"hostname":"DESKTOP-B25KPJK","msg":"Changed active context: context=77293193-e89b-4f28-866e-a289478b792e"}
+{"level":30,"time":"2026-04-10T06:35:39.750Z","pid":19628,"hostname":"DESKTOP-B25KPJK","msg":"End of node method newContext"}
+{"level":30,"time":"2026-04-10T06:35:39.813Z","pid":19628,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-04-10T06:35:39.816Z","pid":19628,"hostname":"DESKTOP-B25KPJK","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@cc71d782cce9a2b48f0739fbb1bfce3a\"},\"headless\":false,\"_contextStack\":[{\"id\":\"context=77293193-e89b-4f28-866e-a289478b792e\",\"c\":{\"_type\":\"BrowserContext\",\"_guid\":\"browser-context@dfcc2ba80757bf7a3de02ae56231a008\"},\"pageStack\":[],\"options\":{\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":false,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"storageState\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\tests\\\\resources\\\\../../.auth/admin_state.json\",\"viewport\":{\"width\":1280,\"height\":720}},\"traceFile\":\"\"}],\"id\":\"browser=8b54eed1-1fb0-4a9a-8b0b-7801519acb7c\"}"}
+{"level":30,"time":"2026-04-10T06:35:40.330Z","pid":19628,"hostname":"DESKTOP-B25KPJK","msg":"Video path: undefined"}
+{"level":30,"time":"2026-04-10T06:35:40.333Z","pid":19628,"hostname":"DESKTOP-B25KPJK","msg":"Changed active page"}
+{"level":30,"time":"2026-04-10T06:36:09.643Z","pid":19628,"hostname":"DESKTOP-B25KPJK","msg":"End of node method newPage"}
+{"level":30,"time":"2026-04-10T06:36:09.692Z","pid":19628,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method goTo"}

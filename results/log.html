@@ -5,7 +5,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="Robot Framework 7.3.2 (Python 3.12.10 on win32)" name="Generator">
+<meta content="Robot Framework 7.4.1 (Python 3.12.10 on win32)" name="Generator">
 <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKcAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAqAAAAAAAAAAAAAAAAAAAALIAAAD/AAAA4AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA4AAAAP8AAACxAAAAAAAAAKYAAAD/AAAAuwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/AAAA/wAAAKkAAAD6AAAAzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN8AAAD/AAAA+gAAAMMAAAAAAAAAAgAAAGsAAABrAAAAawAAAGsAAABrAAAAawAAAGsAAABrAAAADAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAIsAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAANEAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAAAAAAAAMgAAADIAAAAyAAAAMgAAADIAAAAyAAAAMgAAADIAAAAFAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAADwAAAB8AAAAAAAAAGAAAABcAAAAAAAAAH8AAABKAAAAAAAAAAAAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAADCAAAA/wAAACkAAADqAAAA4QAAAAAAAAD7AAAA/wAAALAAAAAGAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAIwAAAP4AAAD/AAAA/wAAAGAAAAAAAAAAAAAAAMkAAAD/AAAAigAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAAAAAAAIAAAAcAAAABkAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAA2gAAAP8AAAD7AAAAywAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN4AAAD/AAAAqwAAAP8AAACvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALIAAAD/AAAAsgAAAAAAAAC5AAAA/wAAAMoAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMkAAAD/AAAAvAAAAAAAAAAAAAAAAAAAAKwAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAArQAAAAAAAAAAwAMAAIABAAAf+AAAP/wAAD/8AAAgBAAAP/wAAD/8AAA//AAAJIwAADHEAAA//AAAP/wAAB/4AACAAQAAwAMAAA==">
 <style media="all">
 :root {
@@ -116,15 +116,16 @@ select {
 #header {
     width: 65em;
     height: 3em;
-    margin: 20px 0 6px 0;
+    margin: 1em 0 0 0;
 }
 h1 {
     float: left;
-    margin: 0 0 0.5em 0;
+    margin: 0 0 1em 0;
     width: 75%;
 }
 h2 {
     clear: left;
+    margin: 1.5em 0 0.5em 0;
 }
 #generated {
     float: right;
@@ -168,7 +169,13 @@ h2 {
     background-color: var(--primary-color);
     border-radius: 3px;
 }
-.label.debug, .label.trace, .label.error, .label.keyword {
+/* https://stackoverflow.com/questions/75238633 */
+@supports (-moz-appearance: none) {
+    .label {
+        padding-top: 4px;
+    }
+}
+.label.debug, .label.trace, .label.error {
     letter-spacing: 0;
 }
 .label.pass, .label.fail, .label.error, .label.skip, .label.warn {
@@ -355,19 +362,6 @@ th.stats-col-graph:hover {
 [data-theme="light"] .dark-mode-icon {
     display: block;
 }
-@keyframes highlight {
-    0% {
-        background: var(--primary-color)
-    }
-    100% {
-        background: var(--target-color);
-    }
-}
-:target {
-    background: var(--target-color);
-    transition: background 0.3s;
-    animation: highlight 4s;
-}
 </style>
 <style media="all">
 /* Icons are from Open Iconic <https://useiconic.com/open/>.
@@ -384,36 +378,43 @@ th.stats-col-graph:hover {
     --elapsed-color: #999;
 }
 /* Containers */
-.suite, .test, #errors {
+.suite, .test, #errors, #errors .messages {
     border-color: #ccc; /* Fallback value */
     border-color: var(--secondary-color);
     border-width: 1px;
     border-style: solid;
-    padding: 0.3em 0.2em;
-    margin: 0.2em 0;
+    padding: 5px;
+    margin-top: 5px;
 }
 .test {
     border-style: dashed;
 }
-#errors, .messages {
+.messages {
     width: 100%;
     border-spacing: 0;
+    padding: 0 5px;
 }
 .children {
     display: none;
-    margin-left: 1.4em;
+    margin-left: 18px;
+    margin-top: 2px;
 }
-.suite, .test, .keyword {
-    margin-left: -0.2em;
+#errors .children {
+    margin-left: 22px;
 }
-#s1, .suite > .children > .keyword {
-    margin-left: 0;
+.suite, .test {
+    margin-left: -5px;
+}
+#s1, #errors {
+    margin: 0;
 }
 /* Suite, test and kw headers */
 .element-header {
+    display: flex;
+    align-items: center;
+    padding: 2px;
     border: 1px solid transparent;
     border-radius: 2px;
-    position: relative;
 }
 .element-header:hover {
     cursor: pointer;
@@ -423,17 +424,15 @@ th.stats-col-graph:hover {
     border-color: var(--secondary-color);
 }
 .element-header-toggle {
-    position: absolute;
-    left: 3px;
-    top: 5px;
+    margin: 0 4px 0 2px;
+    height: 11px;
+    width: 11px;
+    min-width: 11px;
+    background-size: 6px 6px;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAQAAABKxSfDAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfeCR0JChSkZz20AAAAGklEQVQI12NgQAKMDKzInP8IDhOqMk4G7AAANQwBE427PYUAAAAASUVORK5CYII=);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik0wIDB2Mmg4di0yaC04eiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAzKSIgLz4KPC9zdmc+), none;
     filter: var(--icon-filter);
-    height: 10px;
-    width: 10px;
-    background-size: 6px 6px;
     border-color: #ccc; /* Fallback value */
     border-color: var(--icon-highlight);
     border-width: 1px;
@@ -441,67 +440,59 @@ th.stats-col-graph:hover {
     border-radius: 2px;
 }
 .closed > .element-header-toggle {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAQAAABKxSfDAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfeCR0JCDHdVYtxAAAAM0lEQVQI103MMQqAMBQFwVHyITaB3P+W1sKzSBC3mW6hRFw0pUB5DvF1bu9FN0RM3X/wAk98CUnvFTakAAAAAElFTkSuQmCC);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik0zIDB2M2gtM3YyaDN2M2gydi0zaDN2LTJoLTN2LTNoLTJ6IiAvPgo8L3N2Zz4=), none;
 }
 .element-header:hover > .element-header-toggle {
     background-color: #ccc; /* Fallback value */
     background-color: var(--icon-highlight);
 }
-.element-header-right:hover ~ .element-header-toggle {
+.element-header-menu:hover ~ .element-header-toggle {
     background-color: transparent;
 }
-.element-header-left {
-    padding: 3px 80px 3px 20px;
-}
-.element-header-right {
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 3px;
+.element-header-menu {
+    margin: 0 2px 0 4px;
     cursor: default;
 }
-.element-header .label {
-    margin-right: 0.5em;
+.name, .arg, .assign {
+    margin-left: 7px;
+    white-space: pre-wrap;
 }
 .name {
     font-weight: bold;
-    white-space: pre-wrap;
-}
-.arg, .assign {
-    white-space: pre-wrap;
 }
 .elapsed {
-    float: right;
+    margin-left: auto;
+    padding-left: 0.5em;
     color: #666; /* Fallback value */
     color: var(--elapsed-color);
-    padding-left: 1em;
+    font-size: 0.9em;
+}
+/* https://stackoverflow.com/questions/75238633 */
+@supports (-moz-appearance: none) {
+    .name, .arg, .assign, .elapsed {
+        padding-top: 3px;
+    }
 }
 .link {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAHlJREFUGJVtzrEJwmAQBtCn6ASuIKTIBhY2gmghBiJYB1udwk10B8FJbKMBcQFbtbkfJHrVwfu+4/idJR64Y9H7E3higj5O3S8Y44ApLnjhnXCNGhV2yNGggDJwiC02gavUbpDFvscRo4QdXOMKDHBufz3HLYKzNn4AbSkV3fncGQYAAAAASUVORK5CYII=);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik01Ljg4LjAzYy0uMTguMDEtLjM2LjAzLS41My4wOS0uMjcuMS0uNTMuMjUtLjc1LjQ3YS41LjUgMCAxIDAgLjY5LjY5Yy4xMS0uMTEuMjQtLjE3LjM4LS4yMi4zNS0uMTIuNzgtLjA3IDEuMDYuMjIuMzkuMzkuMzkgMS4wNCAwIDEuNDRsLTEuNSAxLjVjLS40NC40NC0uOC40OC0xLjA2LjQ3LS4yNi0uMDEtLjQxLS4xMy0uNDEtLjEzYS41LjUgMCAxIDAtLjUuODhzLjM0LjIyLjg0LjI1Yy41LjAzIDEuMi0uMTYgMS44MS0uNzhsMS41LTEuNWMuNzgtLjc4Ljc4LTIuMDQgMC0yLjgxLS4yOC0uMjgtLjYxLS40NS0uOTctLjUzLS4xOC0uMDQtLjM4LS4wNC0uNTYtLjAzem0tMiAyLjMxYy0uNS0uMDItMS4xOS4xNS0xLjc4Ljc1bC0xLjUgMS41Yy0uNzguNzgtLjc4IDIuMDQgMCAyLjgxLjU2LjU2IDEuMzYuNzIgMi4wNi40Ny4yNy0uMS41My0uMjUuNzUtLjQ3YS41LjUgMCAxIDAtLjY5LS42OWMtLjExLjExLS4yNC4xNy0uMzguMjItLjM1LjEyLS43OC4wNy0xLjA2LS4yMi0uMzktLjM5LS4zOS0xLjA0IDAtMS40NGwxLjUtMS41Yy40LS40Ljc1LS40NSAxLjAzLS40NC4yOC4wMS40Ny4wOS40Ny4wOWEuNS41IDAgMSAwIC40NC0uODhzLS4zNC0uMi0uODQtLjIyeiIKICAvPgo8L3N2Zz4=), none;
-    filter: var(--icon-filter);
 }
 .expand {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAADtJREFUGJVjYCACKDAwMByA0ljFDjAwMPxnYGB4ABVQgLL/Q+VQBB6gseGmIivCkERXhFUSWRFOSawAAEl7E3uv1iMcAAAAAElFTkSuQmCC);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik0xLjUgMGwtMS41IDEuNSA0IDQgNC00LTEuNS0xLjUtMi41IDIuNS0yLjUtMi41eiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAxKSIgLz4KPC9zdmc+), none;
-    filter: var(--icon-filter);
 }
 .collapse {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAC5JREFUGJVjYCARNEAxTsn/UIyhCFkSQxG6ThQ+C5IpjWhG1yNb4YDFTdjEMAEACi8Q++9Y9TAAAAAASUVORK5CYII=);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik00IDBsLTQgNCAxLjUgMS41IDIuNS0yLjUgMi41IDIuNSAxLjUtMS41LTQtNHoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMSkiIC8+Cjwvc3ZnPg==), none;
-    filter: var(--icon-filter);
 }
 .expand, .collapse, .link {
     float: left;
     display: block;
     visibility: hidden;
-    margin: 0 4px;
+    margin: 0 3px;
     height: 14px;
     width: 14px;
     background-size: 8px 8px;
     background-repeat: no-repeat;
     background-position: center;
+    filter: var(--icon-filter);
     border-color: #ccc; /* Fallback value */
     border-color: var(--icon-highlight);
     border-width: 1px;
@@ -519,23 +510,18 @@ th.stats-col-graph:hover {
     background-color: var(--icon-highlight);
 }
 /* Messages and errors */
+.message-row {
+    height: 20px;
+}
 .messages .time, .messages .message {
     font-family: monospace;
     font-size: 1.1em;
 }
-#errors .message {
-    font-family: monospace;
-    font-size: 1.2em;
-}
-.message-row {
-    height: 20px;
-}
-.time {
+.messages .time {
     width: 7.5em;
 }
-.error-time {
-    width: 11em;
-    font-size: 0.9em;
+#errors .time {
+    width: 12.5em;
     white-space: nowrap;
 }
 .level {
@@ -555,7 +541,6 @@ th.stats-col-graph:hover {
     background-position: center;
 }
 .message-row:hover .select-message div {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAQAAAD8fJRsAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfeCR0MOzhWKZQOAAAASUlEQVQY032PsRHAIAwDX9BkicD+W8UMEqegAQJWKZ/+3sLZJhFGQEZzNaIa4ibh66En867VNaIeoP5WppNuIGoAlOm3g5VC1AdYeQv1BZPRSgAAAABJRU5ErkJggg==);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik0wIDB2MWg4di0xaC04em0wIDJ2MWg2di0xaC02em0wIDJ2MWg4di0xaC04em0wIDJ2MWg2di0xaC02eiIgLz4KPC9zdmc+), none;
     filter: var(--icon-filter);
     border-color: #ccc; /* Fallback value */
@@ -577,7 +562,6 @@ th.stats-col-graph:hover {
 .debug-message {
     display: table;
 }
-/* Metadata */
 .metadata {
     width: 100%;
     border-spacing: 0.2em;
@@ -596,6 +580,20 @@ th.stats-col-graph:hover {
 /* Custom styles for statistics */
 #total-stats tr:hover, #tag-stats tr:hover {
     cursor: default;
+}
+/* Target highlight */
+@keyframes highlight {
+    0% {
+        background: var(--primary-color)
+    }
+    100% {
+        background: var(--target-color);
+    }
+}
+:target {
+    background: var(--target-color);
+    transition: background 0.3s;
+    animation: highlight 4s;
 }
 </style>
 <style media="print">
@@ -741,7 +739,8 @@ function toggleElement(elementId, childrenNames) {
     children.toggle(100, '', function () {
         element.children('.element-header').toggleClass('closed');
     });
-    populateChildren(elementId, children, childrenNames);
+    if (childrenNames)
+        populateChildren(elementId, children, childrenNames);
 }
 function populateChildren(elementId, childElement, childrenNames) {
     if (!childElement.hasClass('populated')) {
@@ -1144,7 +1143,7 @@ window.model = (function () {
         kw.type = data.type;
         kw.template = 'keywordTemplate';
         kw.arguments = data.args;
-        kw.assign = data.assign + (data.assign ? ' =  ' : '');
+        kw.assign = data.assign;
         kw.tags = data.tags;
         kw.timeout = data.timeout;
         kw.populateKeywords = createIterablePopulator('Keyword');
@@ -1883,7 +1882,7 @@ function addStatistics() {
         '<th class="stats-col-elapsed">Elapsed</th>' +
         '<th class="stats-col-graph">Pass / Fail / Skip</th>';
     var statTable =
-        '<h2>{Test} Statistics</h2>' +
+        '<h2>Statistics</h2>' +
         '<table class="statistics" id="total-stats"><thead><tr>' +
         '<th class="stats-col-name">Total Statistics</th>' + statHeaders +
         '</tr></thead></table>' +
@@ -1893,7 +1892,7 @@ function addStatistics() {
         '<table class="statistics" id="suite-stats"><thead><tr>' +
         '<th class="stats-col-name">Statistics by Suite</th>' + statHeaders +
         '</tr></thead></table>';
-    $(testOrTask(statTable)).appendTo('#statistics-container');
+    $(statTable).appendTo('#statistics-container');
     util.map(['total', 'tag', 'suite'], addStatTable);
     addTooltipsToElapsedTimes();
     enableStatisticsSorter();
@@ -2074,25 +2073,25 @@ storage = function () {
 window.output = {};
 </script>
 <script type="text/javascript">
-window.output["suite"] = [1,2,3,0,[],[1,0,13023],[],[[4,0,5,[],[1,3152,7680],[[0,6,7,0,8,9,0,0,[1,3153,1203],[[3153,2,10]]],[0,11,12,0,13,14,0,0,[1,4356,2002],[[6358,2,15]]],[0,16,7,0,17,18,0,0,[1,6358,35],[]],[0,19,7,0,20,21,0,0,[1,6393,122],[[6393,2,22]]],[0,19,7,0,20,23,0,0,[1,6516,63],[[6516,2,24]]],[0,25,7,0,26,27,0,0,[1,6581,57],[[6581,2,28]]],[0,29,12,0,30,31,0,0,[1,6639,1256],[[0,32,7,0,33,34,0,0,[1,6639,1256],[]]]],[0,6,7,0,8,35,0,0,[1,7896,2732],[[7897,2,36]]],[0,32,7,0,33,37,0,0,[1,10628,34],[]],[0,38,12,0,39,40,41,0,[1,10662,76],[[0,42,7,0,43,44,0,0,[1,10662,76],[]],[10738,2,45]]],[0,46,12,0,47,48,0,0,[1,10738,0],[]],[0,49,12,0,50,51,0,0,[1,10739,0],[]],[0,52,7,0,53,54,0,0,[1,10739,12],[[10751,2,55]]],[0,56,7,0,57,58,0,0,[1,10751,80],[[10831,2,59]]]]]],[[1,60,61,0,0,0,0,0,[1,165,2987],[[0,62,7,0,63,64,0,0,[1,166,2927],[[166,2,65]]],[0,66,7,0,67,0,0,0,[1,3093,58],[]]]],[2,68,61,0,0,0,0,0,[1,10833,2189],[[0,69,7,0,70,0,0,0,[1,10834,2189],[]]]]],[1,1,0,0]];
+window.output["suite"] = [1,2,3,0,[],[1,0,156710],[[4,5,6,0,[],[1,33,156658],[[7,8,9,0,[],[1,65,156514],[[10,11,12,13,[],[1,70,156487],[],[[14,0,15,[16,17,18],[1,443,155931],[[1,19,20,0,21,22,0,0,[1,450,43529],[[0,23,24,0,0,0,0,0,[1,451,19718],[[0,25,26,0,0,27,0,0,[1,452,19717],[[0,28,29,0,30,31,0,32,[1,452,1669],[[454,2,33],[486,2,34],[2120,2,35]]],[0,36,20,0,37,38,39,0,[1,2121,3],[[2123,2,40]]],[0,41,42,0,43,39,0,0,[1,2125,2],[[2126,2,44]]],[0,45,20,0,46,47,48,0,[1,2127,6],[[0,49,42,0,50,51,0,0,[1,2130,2],[[2130,2,52]]],[2132,2,53]]],[5,54,0,0,0,0,0,0,[1,2132,728],[[0,55,29,0,56,57,0,32,[1,2135,718],[[2139,2,58],[2851,2,59],[2853,2,60]]],[0,61,20,0,62,63,0,0,[1,2855,5],[[2858,2,64]]]]],[7,0,0,0,0,0,0,0,[3,2860,7],[[0,55,29,0,56,65,0,32,[3,2860,3],[]],[0,61,20,0,62,66,0,0,[3,2865,2],[]]]],[0,67,29,0,68,69,0,32,[1,2869,17298],[[20168,2,70]]]]]]],[0,71,24,0,0,0,0,0,[1,20170,23810],[[0,72,29,0,73,74,0,32,[1,20170,23789],[[43958,2,75]]],[0,76,29,0,77,0,69,78,[1,43960,9],[[43968,2,79]]],[0,45,20,0,46,80,81,0,[1,43969,3],[[0,82,20,0,83,84,0,0,[1,43970,1],[]],[43971,2,85]]],[5,86,0,0,0,0,0,0,[3,43972,6],[[0,87,29,0,88,89,0,90,[3,43974,0],[]],[0,91,29,0,92,93,0,94,[3,43974,1],[]],[0,91,29,0,92,95,0,94,[3,43975,1],[]],[0,87,29,0,88,96,0,90,[3,43976,1],[]],[0,97,29,0,98,99,0,94,[3,43977,0],[]],[0,100,20,0,101,102,0,0,[3,43977,0],[]],[0,103,26,0,104,0,0,0,[3,43978,1],[]]]],[7,0,0,0,0,0,0,0,[1,43979,1],[[0,61,20,0,62,105,0,0,[1,43979,1],[[43980,2,105]]]]]]]]],[0,106,107,0,0,0,0,0,[1,43982,2944],[[0,72,29,0,73,108,0,32,[1,43985,2854],[[46838,2,109]]],[0,87,29,0,88,110,0,90,[1,46839,73],[[46912,2,111]]],[0,100,20,0,101,112,0,0,[1,46912,14],[[0,113,24,0,0,114,0,0,[1,46914,12],[[0,76,29,0,77,0,69,78,[1,46914,9],[[46923,2,115]]],[0,82,20,0,83,116,0,0,[1,46923,3],[]]]]]]]],[0,117,107,0,0,118,0,0,[1,46928,3249],[[0,87,29,0,88,119,0,90,[1,46929,73],[[47001,2,120]]],[0,91,29,0,92,121,0,94,[1,47003,108],[[47004,2,122]]],[0,123,29,0,124,125,0,94,[1,47111,49],[]],[0,126,20,0,127,128,0,0,[1,47160,3002],[[50162,2,129]]],[0,130,29,0,131,132,133,78,[1,50162,7],[[50167,2,134]]],[0,61,20,0,62,135,0,0,[1,50169,1],[[50170,2,136]]],[0,87,29,0,88,137,0,90,[1,50170,6],[[50176,2,138]]]]],[0,130,29,0,131,132,139,78,[1,50177,3],[[50180,2,140]]],[0,141,20,0,142,143,0,0,[1,50180,2],[]],[0,144,107,0,0,118,0,0,[1,50182,2098],[[0,87,29,0,88,137,0,90,[1,50183,5],[[50186,2,138]]],[0,87,29,0,88,145,0,90,[1,50188,6],[[50193,2,146]]],[0,126,20,0,127,147,0,0,[1,50194,1001],[[51195,2,148]]],[0,97,29,0,98,149,0,94,[1,51195,52],[[51195,2,150]]],[0,100,20,0,101,151,0,0,[1,51248,1032],[[0,152,107,0,0,0,0,0,[0,51249,14],[[0,76,29,0,77,0,69,78,[1,51250,6],[[51255,2,115]]],[0,61,20,0,62,153,0,0,[1,51256,1],[[51257,2,154]]],[0,155,20,0,156,157,0,0,[0,51257,7],[[51259,5,158]]]]],[0,152,107,0,0,0,0,0,[1,52264,16],[[0,76,29,0,77,0,69,78,[1,52266,7],[[52273,2,159]]],[0,61,20,0,62,153,0,0,[1,52275,2],[[52276,2,160]]],[0,155,20,0,156,157,0,0,[1,52277,2],[]]]]]]]],[0,161,162,0,163,164,165,0,[1,52282,3],[[52284,2,166]]],[0,161,162,0,163,167,168,0,[1,52285,2],[[52287,2,169]]],[0,161,162,0,163,170,171,0,[1,52288,1],[[52288,2,172]]],[0,161,162,0,163,173,174,0,[1,52291,2],[[52292,2,175]]],[0,161,162,0,163,176,177,0,[1,52294,2],[[52296,2,178]]],[0,161,162,0,163,176,179,0,[1,52298,2],[[52298,2,180]]],[0,161,162,0,163,176,181,0,[1,52301,2],[[52301,2,182]]],[0,161,162,0,163,173,183,0,[1,52303,2],[[52305,2,184]]],[0,185,107,0,186,165,0,0,[1,52306,5680],[[0,187,20,0,188,189,0,0,[1,52308,5],[]],[0,190,107,0,191,192,0,0,[1,52315,2205],[[0,87,29,0,88,193,0,90,[1,52317,21],[[52336,2,194]]],[0,195,29,0,196,197,0,94,[1,52338,79],[]],[0,97,29,0,98,197,0,94,[1,52418,74],[[52419,2,198]]],[0,126,20,0,127,199,0,0,[1,52493,2003],[[54495,2,200]]],[0,130,29,0,131,201,202,78,[1,54496,17],[[54512,2,203]]],[5,204,0,0,0,0,0,0,[3,54514,5],[[0,187,20,0,188,205,0,0,[3,54515,0],[]],[0,87,29,0,88,206,0,90,[3,54518,0],[]]]]]],[0,87,29,0,88,207,0,90,[1,54520,20],[[54538,2,208]]],[0,91,29,0,92,209,0,94,[1,54540,82],[[54543,2,210]]],[0,211,107,0,212,0,0,0,[1,54622,3361],[[0,87,29,0,88,213,0,90,[1,54626,19],[[54645,2,214]]],[0,195,29,0,196,215,0,94,[1,54646,50],[]],[0,97,29,0,98,215,0,94,[1,54698,149],[[54699,2,216]]],[0,126,20,0,127,147,0,0,[1,54846,1004],[[55848,2,148]]],[0,87,29,0,88,217,0,90,[1,55852,128],[[55978,2,218]]],[0,126,20,0,127,199,0,0,[1,55980,2002],[[57982,2,200]]]]],[0,187,20,0,188,219,0,0,[1,57983,3],[]]]],[0,220,107,0,221,168,0,0,[1,57988,28098],[[0,187,20,0,188,222,0,0,[1,57989,4],[]],[0,190,107,0,191,223,0,0,[1,57995,21677],[[0,87,29,0,88,193,0,90,[1,57996,26],[[58020,2,224]]],[0,195,29,0,196,197,0,94,[1,58023,59],[]],[0,97,29,0,98,197,0,94,[1,58084,93],[[58086,2,225]]],[0,126,20,0,127,199,0,0,[1,58177,2003],[[60179,2,200]]],[0,130,29,0,131,201,202,78,[1,60180,12],[[60190,2,226]]],[5,204,0,0,0,0,0,0,[1,60192,19480],[[0,187,20,0,188,205,0,0,[1,60193,2],[]],[0,87,29,0,88,206,0,90,[1,60194,19477],[[79670,2,227]]]]]]],[0,126,20,0,127,128,0,0,[1,79671,3004],[[82674,2,129]]],[0,228,29,0,229,230,231,78,[1,82676,29],[[82704,2,232],[82705,2,233]]],[5,234,0,0,0,0,0,0,[1,82705,103],[[0,187,20,0,188,235,0,0,[1,82706,2],[]],[0,97,29,0,98,236,0,94,[1,82709,98],[[82710,2,237]]]]],[0,87,29,0,88,238,0,90,[1,82808,23],[[82828,2,239]]],[0,91,29,0,92,240,0,94,[1,82832,55],[[82835,2,241]]],[0,211,107,0,212,0,0,0,[1,82888,3197],[[0,87,29,0,88,213,0,90,[1,82890,30],[[82920,2,214]]],[0,195,29,0,196,215,0,94,[1,82921,52],[]],[0,97,29,0,98,215,0,94,[1,82975,80],[[82977,2,216]]],[0,126,20,0,127,147,0,0,[1,83055,1003],[[84057,2,148]]],[0,87,29,0,88,217,0,90,[1,84060,20],[[84080,2,218]]],[0,126,20,0,127,199,0,0,[1,84082,2003],[[86085,2,200]]]]],[0,187,20,0,188,242,0,0,[1,86085,1],[]]]],[0,243,107,0,244,245,0,0,[1,86086,10080],[[0,187,20,0,188,246,0,0,[1,86086,2],[]],[0,190,107,0,191,247,0,0,[1,86088,2095],[[0,87,29,0,88,193,0,90,[1,86088,8],[[86095,2,248]]],[0,195,29,0,196,197,0,94,[1,86096,32],[]],[0,97,29,0,98,197,0,94,[1,86128,43],[[86129,2,249]]],[0,126,20,0,127,199,0,0,[1,86171,2002],[[88173,2,200]]],[0,130,29,0,131,201,202,78,[1,88174,6],[[88180,2,203]]],[5,204,0,0,0,0,0,0,[3,88180,2],[[0,187,20,0,188,205,0,0,[3,88180,0],[]],[0,87,29,0,88,206,0,90,[3,88181,1],[]]]]]],[0,126,20,0,127,128,0,0,[1,88183,3001],[[91184,2,129]]],[0,130,29,0,131,250,139,78,[1,91184,4],[[91188,2,251]]],[5,252,0,0,0,0,0,0,[3,91188,1],[[0,187,20,0,188,253,0,0,[3,91188,1],[]],[0,97,29,0,98,254,0,94,[3,91189,0],[]]]],[0,87,29,0,88,255,0,90,[1,91189,6],[[91195,2,256]]],[0,91,29,0,92,257,0,94,[1,91196,13],[[91196,2,258]]],[0,91,29,0,92,259,0,94,[1,91210,22],[[91211,2,260]]],[0,211,107,0,212,0,0,0,[1,91231,4932],[[0,87,29,0,88,213,0,90,[1,91233,6],[[91238,2,214]]],[0,195,29,0,196,215,0,94,[1,91239,21],[]],[0,97,29,0,98,215,0,94,[1,91260,40],[[91260,2,216]]],[0,126,20,0,127,147,0,0,[1,91300,1001],[[92301,2,148]]],[0,87,29,0,88,217,0,90,[1,92301,1861],[[94162,2,218]]],[0,126,20,0,127,199,0,0,[1,94162,2002],[[96164,2,200]]]]],[0,187,20,0,188,261,0,0,[1,96164,2],[]]]],[0,262,107,0,263,177,0,0,[1,96167,10135],[[0,187,20,0,188,264,0,0,[1,96168,1],[]],[0,190,107,0,191,265,0,0,[1,96169,2080],[[0,87,29,0,88,193,0,90,[1,96169,7],[[96176,2,266]]],[0,195,29,0,196,197,0,94,[1,96176,25],[]],[0,97,29,0,98,197,0,94,[1,96201,38],[[96202,2,267]]],[0,126,20,0,127,199,0,0,[1,96239,2002],[[98242,2,200]]],[0,130,29,0,131,201,202,78,[1,98242,5],[[98246,2,203]]],[5,204,0,0,0,0,0,0,[3,98247,2],[[0,187,20,0,188,205,0,0,[3,98247,0],[]],[0,87,29,0,88,206,0,90,[3,98247,2],[]]]]]],[0,126,20,0,127,128,0,0,[1,98250,3001],[[101251,2,129]]],[0,130,29,0,131,268,139,78,[1,101251,9],[[101260,2,269]]],[5,252,0,0,0,0,0,0,[1,101260,43],[[0,187,20,0,188,270,0,0,[1,101262,1],[]],[0,97,29,0,98,271,0,94,[1,101263,38],[[101263,2,272]]]]],[0,87,29,0,88,273,0,90,[1,101303,12],[[101314,2,274]]],[0,91,29,0,92,275,0,94,[1,101315,26],[[101317,2,276]]],[0,211,107,0,212,0,0,0,[1,101342,4959],[[0,87,29,0,88,213,0,90,[1,101343,19],[[101361,2,214]]],[0,195,29,0,196,215,0,94,[1,101363,32],[]],[0,97,29,0,98,215,0,94,[1,101395,54],[[101396,2,216]]],[0,126,20,0,127,147,0,0,[1,101450,1002],[[102452,2,148]]],[0,87,29,0,88,217,0,90,[1,102453,1848],[[104299,2,218]]],[0,126,20,0,127,199,0,0,[1,104300,2001],[[106302,2,200]]]]],[0,187,20,0,188,277,0,0,[1,106302,1],[]]]],[0,278,107,0,279,179,0,0,[1,106303,13507],[[0,187,20,0,188,280,0,0,[1,106303,1],[]],[0,190,107,0,191,281,0,0,[1,106305,6023],[[0,87,29,0,88,193,0,90,[1,106305,5],[[106310,2,282]]],[0,195,29,0,196,197,0,94,[1,106311,25],[]],[0,97,29,0,98,197,0,94,[1,106336,41],[[106337,2,283]]],[0,126,20,0,127,199,0,0,[1,106377,2002],[[108378,2,200]]],[0,130,29,0,131,201,202,78,[1,108379,14],[[108393,2,226]]],[5,204,0,0,0,0,0,0,[1,108394,3933],[[0,187,20,0,188,205,0,0,[1,108395,1],[]],[0,87,29,0,88,206,0,90,[1,108396,3932],[[112327,2,227]]]]]]],[0,126,20,0,127,128,0,0,[1,112329,3003],[[115331,2,129]]],[0,130,29,0,131,284,139,78,[1,115332,5],[[115336,2,251]]],[5,252,0,0,0,0,0,0,[3,115337,1],[[0,187,20,0,188,285,0,0,[3,115338,0],[]],[0,97,29,0,98,286,0,94,[3,115338,1],[]]]],[0,87,29,0,88,287,0,90,[1,115338,7],[[115343,2,288]]],[0,91,29,0,92,289,0,94,[1,115345,22],[[115345,2,290]]],[0,211,107,0,212,0,0,0,[1,115367,4442],[[0,87,29,0,88,213,0,90,[1,115368,9],[[115376,2,214]]],[0,195,29,0,196,215,0,94,[1,115376,32],[]],[0,97,29,0,98,215,0,94,[1,115409,44],[[115410,2,216]]],[0,126,20,0,127,147,0,0,[1,115453,1002],[[116455,2,148]]],[0,87,29,0,88,217,0,90,[1,116455,1351],[[117806,2,218]]],[0,126,20,0,127,199,0,0,[1,117807,2002],[[119809,2,200]]]]],[0,187,20,0,188,291,0,0,[1,119810,0],[]]]],[0,292,107,0,293,181,0,0,[1,119810,16837],[[0,187,20,0,188,294,0,0,[1,119812,0],[]],[0,190,107,0,191,295,0,0,[1,119813,12683],[[0,87,29,0,88,193,0,90,[1,119813,11],[[119824,2,296]]],[0,195,29,0,196,197,0,94,[1,119825,27],[]],[0,97,29,0,98,197,0,94,[1,119851,45],[[119853,2,297]]],[0,126,20,0,127,199,0,0,[1,119897,2002],[[121899,2,200]]],[0,130,29,0,131,201,202,78,[1,121900,10],[[121910,2,226]]],[5,204,0,0,0,0,0,0,[1,121910,10586],[[0,187,20,0,188,205,0,0,[1,121910,2],[]],[0,87,29,0,88,206,0,90,[1,121912,10584],[[132495,2,227]]]]]]],[0,187,20,0,188,298,0,0,[1,132496,3],[]],[0,87,29,0,88,299,0,90,[1,132499,13],[[132512,2,300]]],[0,91,29,0,92,301,0,94,[1,132512,37],[[132515,2,302]]],[0,211,107,0,212,0,0,0,[1,132550,4094],[[0,87,29,0,88,213,0,90,[1,132552,18],[[132570,2,214]]],[0,195,29,0,196,215,0,94,[1,132572,52],[]],[0,97,29,0,98,215,0,94,[1,132625,84],[[132627,2,216]]],[0,126,20,0,127,147,0,0,[1,132710,1001],[[133710,2,148]]],[0,87,29,0,88,217,0,90,[1,133712,928],[[134638,2,218]]],[0,126,20,0,127,199,0,0,[1,134642,2002],[[136643,2,200]]]]],[0,187,20,0,188,303,0,0,[1,136645,2],[]]]],[0,304,107,0,305,183,0,0,[1,136648,18039],[[0,187,20,0,188,306,0,0,[1,136651,1],[]],[0,190,107,0,191,307,0,0,[1,136654,10434],[[0,87,29,0,88,193,0,90,[1,136655,23],[[136676,2,308]]],[0,195,29,0,196,197,0,94,[1,136678,51],[]],[0,97,29,0,98,197,0,94,[1,136731,82],[[136734,2,309]]],[0,126,20,0,127,199,0,0,[1,136814,2002],[[138816,2,200]]],[0,130,29,0,131,201,202,78,[1,138817,15],[[138831,2,226]]],[5,204,0,0,0,0,0,0,[1,138834,8252],[[0,187,20,0,188,205,0,0,[1,138835,2],[]],[0,87,29,0,88,206,0,90,[1,138838,8248],[[147085,2,227]]]]]]],[0,126,20,0,127,128,0,0,[1,147088,3002],[[150090,2,129]]],[0,87,29,0,88,310,0,90,[1,150091,17],[[150107,2,311]]],[0,91,29,0,92,312,0,94,[1,150109,34],[[150110,2,313]]],[0,211,107,0,212,0,0,0,[1,150144,4536],[[0,87,29,0,88,213,0,90,[1,150145,19],[[150162,2,214]]],[0,195,29,0,196,215,0,94,[1,150165,45],[]],[0,97,29,0,98,215,0,94,[1,150211,79],[[150213,2,216]]],[0,126,20,0,127,147,0,0,[1,150290,1002],[[151293,2,148]]],[0,87,29,0,88,217,0,90,[1,151294,1381],[[152673,2,218]]],[0,126,20,0,127,199,0,0,[1,152676,2004],[[154677,2,200]]]]],[0,187,20,0,188,314,0,0,[1,154681,6],[]]]],[0,61,20,0,62,315,0,0,[1,154690,2],[[154690,2,315]]],[2,316,26,0,0,0,0,0,[1,154694,1679],[[0,317,29,0,318,0,0,32,[1,154694,1678],[[156370,2,319]]]]]]]],[],[1,1,0,0]]],[],[],[1,1,0,0]]],[],[],[1,1,0,0]]],[],[],[1,1,0,0]];
 </script>
 <script type="text/javascript">
 window.output["strings"] = [];
 </script>
 <script type="text/javascript">
-window.output["strings"] = window.output["strings"].concat(["*","*News Suite","*C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\tests\\test_suites\\news_suite.robot","*../tests/test_suites/news_suite.robot","*Verify News Page Elements","*<p>Verify that the News page loads and displays key elements.\x3c/p>","*Go To","*SeleniumLibrary","*<p>Navigates the current browser window to the provided <code>url\x3c/code>.\x3c/p>","*${URL}/login","*Opening url '<a href=\"http://localhost:8001/login\">http://localhost:8001/login\x3c/a>'","*Sleep","*BuiltIn","*<p>Pauses the test executed for the given time.\x3c/p>","*2s","*Slept 2 seconds.","*Wait Until Page Contains Element","*<p>Waits until the element <code>locator\x3c/code> appears on the current page.\x3c/p>","*id:login-email    timeout=30s","*Input Text","*<p>Types the given <code>text\x3c/code> into the text field identified by <code>locator\x3c/code>.\x3c/p>","*id:login-email    ${LOGIN_EMAIL}","*Typing text 'ops@central.local' into text field 'id:login-email'.","*id:login-password    ${LOGIN_PASSWORD}","*Typing text 'ChangeMe123!' into text field 'id:login-password'.","*Click Button","*<p>Clicks the button identified by <code>locator\x3c/code>.\x3c/p>","*<a href=\"xpath://button[@type='submit\">xpath://button[@type='submit\x3c/a>']","*Clicking button '<a href=\"xpath://button[@type='submit\">xpath://button[@type='submit\x3c/a>']'.","*Run Keyword And Ignore Error","*<p>Runs the given keyword with the given arguments and ignores possible error.\x3c/p>","*Wait Until Location Contains    /dashboard    timeout=10s","*Wait Until Location Contains","*<p>Waits until the current URL contains <code>expected\x3c/code>.\x3c/p>","*/dashboard    timeout=10s","*${URL}/news","*Opening url '<a href=\"http://localhost:8001/news\">http://localhost:8001/news\x3c/a>'","*/news    timeout=30s","*Run Keyword And Return Status","*<p>Runs the given keyword with given arguments and returns the status as a Boolean value.\x3c/p>","*Wait Until Element Contains    tag:h1    ประกาศ และข่าวสาร    timeout=20s","*${status}","*Wait Until Element Contains","*<p>Waits until the element <code>locator\x3c/code> contains <code>text\x3c/code>.\x3c/p>","*tag:h1    ประกาศ และข่าวสาร    timeout=20s","*${status} = True","*Run Keyword If","*<p>Runs the given keyword with the given arguments, if <code>condition\x3c/code> is true.\x3c/p>","*not ${status}    Log Page Source","*Should Be True","*<p>Fails if the given condition is not true.\x3c/p>","*${status}    msg=Failed to load News page content (Title not found)","*Page Should Contain Element","*<p>Verifies that element <code>locator\x3c/code> is found on the current page.\x3c/p>","*<a href=\"xpath://a[contains(text(\">xpath://a[contains(text(\x3c/a>), 'จัดการประกาศและข่าวสาร')]","*Current page contains element '<a href=\"xpath://a[contains(text(\">xpath://a[contains(text(\x3c/a>), 'จัดการประกาศและข่าวสาร')]'.","*Page Should Contain Button","*<p>Verifies button <code>locator\x3c/code> is found from current page.\x3c/p>","*ค้นหา","*Current page contains button 'ค้นหา'.","*Open HR Plus Application","*common","*Open Browser","*<p>Opens a new browser instance to the optional <code>url\x3c/code>.\x3c/p>","*${URL}    ${BROWSER}","*Opening browser 'Chrome' to base url '<a href=\"http://localhost:8001\">http://localhost:8001\x3c/a>'.","*Maximize Browser Window","*<p>Maximizes current browser window.\x3c/p>","*Close Application","*Close Browser","*<p>Closes the current browser.\x3c/p>"]);
+window.output["strings"] = window.output["strings"].concat(["*","*Hrplus","*C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus","*..","*Tests","*C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\tests","*../tests","*Test Suites","*C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\tests\\test_suites","*../tests/test_suites","*Employees Suite","*C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\tests\\test_suites\\employees_suite.robot","*../tests/test_suites/employees_suite.robot","*<p>A test suite for the Employees module.\x3c/p>","*Edit Employee","*<p>Verify editing an employee across all sections.\x3c/p>","*crud","*edit","*employees","*Run Keywords","*BuiltIn","*<p>Executes all the given keywords in a sequence.\x3c/p>","*Open HR Plus Application    AND    Login To Application","*Open HR Plus Application","*common","*Start Browser","*browser","*${URL}    load_session=${load_session}","*New Browser","*Browser","*<p>Create a new playwright Browser with specified options.\x3c/p>","*browser=${BROWSER}    headless=${headless}","*BrowserControl, Setter","eNptkE9rAjEQxb+K5OyWmF1o8apiPbhI1dtcks3ILs06SybpFkq/e4duQQvmkJf3mzf596VcpJExquVMNW2kvsu9ms9Ui9YHZBZ+sYFxfisf7dU7+ryrePxIROE+3Eoo4HG3fT0fBKeY/9FdfXpAT5u3/Q1zoHFP4vWTFpu6Hikn8aWWMbFoG+R193v91RLgLE/hSQDWyO+JBoDahoyDHLMAYGsl0MYhZNGInEOSxd83AExbimIvnaZx1lWVLir0pUymKV5MVRYejVm4Z6fdBdX3D9nibE8=","*Starting Browser process C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\.venv\\Lib\\site-packages\\Browser\\wrapper\\index.js using at 127.0.0.1:57989","*Successfully created browser with options: {\"browser\":\"chromium\",\"headless\":false,\"chromiumSandbox\":false,\"devtools\":false,\"handleSIGHUP\":true,\"handleSIGINT\":true,\"handleSIGTERM\":true,\"slowMo\":0,\"timeout\":30000,\"tracesDir\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\results\\\\browser\\\\traces\\\\temp\\\\2cbab440-4ed3-4e2c-8243-de221b7b0bfe\"}","*Evaluate","*<p>Evaluates the given expression in Python and returns the result.\x3c/p>","*os.path.dirname(r\"${SESSION_PATH}\")    modules=os","*${session_dir}","*${session_dir} = C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\tests\\resources\\../../.auth","*Create Directory","*OperatingSystem","*<p>Creates the specified directory.\x3c/p>","*Directory '<a href=\"file://C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\.auth\">C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\.auth\x3c/a>' already exists.","*Run Keyword And Return Status","*<p>Runs the specified keyword and returns the status as a Boolean value.\x3c/p>","*File Should Exist    ${SESSION_PATH}","*${session_exists}","*File Should Exist","*<p>Fails unless the given <code>path\x3c/code> points to an existing file.\x3c/p>","*${SESSION_PATH}","eNpzy8xJVVC3SVTIKEpNs1VKA3Kt9PWdrWJCi1OLisFkjEtqcXZJfkGMX2JOaWpBRmKeYUxxYmJxTEZRQU5pcYxeYmlJRkxiSm5mXnxxSWJJql5WcX6ekh0VDLHRT7RTV0ityCwuKdYDABxrP9g=","*${session_exists} = True","*${load_session} and ${session_exists}","*New Context","*<p>Create a new BrowserContext with specified options.\x3c/p>","*viewport={'width': 1280, 'height': 720}    storageState=${SESSION_PATH}","eNpNj01rwzAMhu/9FSHnLv24bPSaFnrZKKRjF8NQEyVx61lGVhJG6X+f0hRWMMh6X0mPdJ0lSQpliUG2NHhHUMV0kwh3OB+t02+AGPPioGINLk5qTVxilZMjHqtTTx7Tu2MbT4z74/FQ7Jgn+7/vDD0UJdsgOw8nh9UziuraWZ3z3MBYdUp6J7HkJ9JLYKyR0ZcPZETubYlfxBec1gHnaHiYQgwNFgIyTk7zjTGf2hGnYMwW40UoGPMBrsPQgl8ZEwG0oOXgOo2CUTQwRur0bv1m2WJ80Em7gOrH+u84ArJz1C3v3N7iEIhFmVfNVRlsJa2mq/Xbcj5JLdqmHUte10tVbrPbH0pegJE=","*Successfully created context. ","*{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'storageState': 'C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\tests\\\\resources\\\\../../.auth/admin_state.json', 'viewport': {'width': 1280, 'height': 720}}","*Log","*<p>Logs the given message with the given level.\x3c/p>","*Loaded session from ${SESSION_PATH}","*Loaded session from C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\tests\\resources\\../../.auth/admin_state.json","*viewport={'width': 1280, 'height': 720}","*Starting fresh context (Session loaded: ${load_session}, Exists: ${session_exists})","*New Page","*<p>Open a new Page.\x3c/p>","*${url}","*Successfully initialized new page object and opened url: <a href=\"http://localhost:8001\">http://localhost:8001\x3c/a>","*Login To Application","*Go To","*<p>Navigates to the given <code>url\x3c/code>.\x3c/p>","*${URL}/login","*Successfully opened URL <a href=\"http://localhost:8001/login\">http://localhost:8001/login\x3c/a>","*Get Url","*<p>Returns the current URL.\x3c/p>","*Assertion, Getter, PageContent","*${url} = <a href=\"http://localhost:8001/dashboard\">http://localhost:8001/dashboard\x3c/a>","*Should Contain    ${url}    /dashboard","*${is_dashboard}","*Should Contain","*<p>Fails if <code>container\x3c/code> does not contain <code>item\x3c/code> one or more times.\x3c/p>","*${url}    /dashboard","*${is_dashboard} = True","*not ${is_dashboard}","*Wait For Elements State","*<p>Waits for the element found by <code>selector\x3c/code> to satisfy state option.\x3c/p>","*id=login-email    visible    timeout=30s","*PageContent, Wait","*Fill Text","*<p>Clears and fills the given <code>txt\x3c/code> into the text field found by <code>selector\x3c/code>.\x3c/p>","*id=login-email    ${LOGIN_EMAIL}","*PageContent, Setter","*id=login-password    ${LOGIN_PASSWORD}","*xpath=//button[@type='submit']    enabled    timeout=30s","*Click","*<p>Simulates mouse click on the element found by <code>selector\x3c/code>.\x3c/p>","*xpath=//button[@type='submit']","*Wait Until Keyword Succeeds","*<p>Runs the specified keyword and retries if it fails.\x3c/p>","*60s    1s    Check Url    /dashboard","*Save Current Session","*<p>Saves the current browser context state (cookies, local storage) to a file.\x3c/p>","*Already logged in via session.","*Go To Employees Page","*employees_page","*${URL}/employees","*Successfully opened URL <a href=\"http://localhost:8001/employees\">http://localhost:8001/employees\x3c/a>","*css=[data-testid=\"employees.toolbar.add\"]    visible    timeout=30s","*Waited for Element with selector css=[data-testid=\"employees.toolbar.add\"] at state visible","*10s    1s    Check Url    /employees","*Check Url","*/employees","*${url} = <a href=\"http://localhost:8001/employees\">http://localhost:8001/employees\x3c/a>","*${url}    ${expected_path}","*Search Employee","*AutoUser","*css=[data-testid=\"employees.filter.search\"]    visible    timeout=30s","*Waited for Element with selector css=[data-testid=\"employees.filter.search\"] at state visible","*css=[data-testid=\"employees.filter.search\"]    ${name}","*Fills the text 'AutoUser' in the given field.","*Press Keys","*<p>Types the given key combination into element found by <code>selector\x3c/code>.\x3c/p>","*css=[data-testid=\"employees.filter.search\"]    Enter","*Sleep","*<p>Pauses the test executed for the given time.\x3c/p>","*3s","*Slept 3 seconds.","*Get Element Count","*<p>Returns the count of elements found with <code>selector\x3c/code>.\x3c/p>","*css=tr[data-testid^=\"employees.table.row\"]","*${count_after}","*${count_after} = 4","*Rows after search: ${count_after}","*Rows after search: 4","*css=tr[data-testid^=\"employees.table.row\"] &gt;&gt; nth=0    visible    timeout=10s","*Waited for Element with selector css=tr[data-testid^=\"employees.table.row\"] &gt;&gt; nth=0 at state visible","*${count}","*${count} = 4","*Should Be True","*<p>Fails if the given condition is not true.\x3c/p>","*${count} &gt;= 1    No employees found matching 'AutoUser'","*Click Edit Customer By Name","*css=[data-testid=\"employees.table.row.0.action.view\"]    visible    timeout=10s","*Waited for Element with selector css=[data-testid=\"employees.table.row.0.action.view\"] at state visible","*1s","*Slept 1 second.","*css=[data-testid=\"employees.table.row.0.action.view\"]","*Clicks the element 'css=[data-testid=\"employees.table.row.0.action.view\"]'.","*15s    1s    Should Match Url Detail Page","*Should Match Url Detail Page","*Current URL: ${url}","*Current URL: <a href=\"http://localhost:8001/employees\">http://localhost:8001/employees\x3c/a>","*Should Match Regexp","*<p>Fails if <code>string\x3c/code> does not match <code>pattern\x3c/code> as a regular expression.\x3c/p>","*${url}    /employees/[a-f0-9\\\\-]+    URL should be a detail page","*URL should be a detail page: '<a href=\"http://localhost:8001/employees\">http://localhost:8001/employees\x3c/a>' does not match '/employees/[a-f0-9\\-]+'","eNqtzMENgCAMAMBViPFLSgUVibBL1RoeGIziwxh3dwlvgKuf60iv8GIkEQ9efRVL2R1AyjOlmM/irFIIvO0p38wn8DxoIpykabSRZkKWtusX2SGtSjV9azVW4Y9lBAofugEv0A==","eNpzLi0qSs0rUQgN8rFSsElUyChKTbNVyigpKbDS18/JT07MycgvLrGyMDAw1E/NLcjJr0xNLdZPTbY0Tkw0TNI1MTI20TVJMkzVtTAzT9E1M0xMMzAwMje1MDZUsqOGKTb6iXYAnZoxNA==","*Generate Random String","*String","*<p>Generates a string with a desired <code>length\x3c/code> from the given <code>chars\x3c/code>.\x3c/p>","*6    [LETTERS]","*${rand_nick}","*${rand_nick} = HhNeoD","*8    [LETTERS][NUMBERS]","*${rand_user}","*${rand_user} = Z2kiykN3","*10    [LETTERS]","*${rand_emer_name}","*${rand_emer_name} = EavtXWMtCc","*10    [NUMBERS]","*${rand_emer_phone}","*${rand_emer_phone} = 9892510885","*12    [LETTERS]","*${rand_company}","*${rand_company} = JIbHINzWmpjm","*${rand_education}","*${rand_education} = NjczPXMNPunV","*${rand_hospital}","*${rand_hospital} = IqpGqXASoehU","*${rand_account}","*${rand_account} = 1900432269","*Edit Employee Detail","*<p>Edit employee personal info section\x3c/p>","*Log To Console","*<p>Logs the given message to the console.\x3c/p>","*\\n[SECTION] Starting Personal Info edit: ${nickname}","*Navigate To Employee Section","*<p>Navigate to a specific section in employee detail page\x3c/p>","*personalInfo","*css=[data-testid=\"employees.detail.sidebar.${section_id}\"]    visible    timeout=15s","*Waited for Element with selector css=[data-testid=\"employees.detail.sidebar.personalInfo\"] at state visible","*Scroll To Element","*<p>This method waits for actionability checks, then tries to scroll element into view, unless it is completely visible.\x3c/p>","*css=[data-testid=\"employees.detail.sidebar.${section_id}\"]","*Clicks the element 'css=[data-testid=\"employees.detail.sidebar.personalInfo\"]'.","*2s","*Slept 2 seconds.","*css=[data-testid=\"section-loader\"]","*${has_loader}","*${has_loader} = 0","*${has_loader} &gt; 0","*Waiting for section loader to disappear...","*css=[data-testid=\"section-loader\"]    hidden    timeout=30s","*css=[data-testid=\"employees.form.nickname\"]    visible    timeout=15s","*Waited for Element with selector css=[data-testid=\"employees.form.nickname\"] at state visible","*css=[data-testid=\"employees.form.nickname\"]    ${nickname}","*Fills the text 'HhNeoD' in the given field.","*Save Employee Section","*<p>Click save button and wait for overlay to disappear\x3c/p>","*css=[data-testid=\"common.section.footer.save\"]    visible    timeout=10s","*Waited for Element with selector css=[data-testid=\"common.section.footer.save\"] at state visible","*css=[data-testid=\"common.section.footer.save\"]","*Clicks the element 'css=[data-testid=\"common.section.footer.save\"]'.","*css=div[class*=\"fixed inset-0\"]    hidden    timeout=15s","*Waited for Element with selector css=div[class*=\"fixed inset-0\"] at state hidden","*[SUCCESS] Personal Info section edited successfully","*Edit Account Access Section","*<p>Edit employee account access section\x3c/p>","*[SECTION] Starting Account Access edit: ${username}","*accountAccess","*Waited for Element with selector css=[data-testid=\"employees.detail.sidebar.accountAccess\"] at state visible","*Clicks the element 'css=[data-testid=\"employees.detail.sidebar.accountAccess\"]'.","*${has_loader} = 1","*Waited for Element with selector css=[data-testid=\"section-loader\"] at state hidden","*Get Attribute","*<p>Returns the HTML <code>attribute\x3c/code> of the element found by <code>selector\x3c/code>.\x3c/p>","*css=[data-testid=\"employees.edit.accountAccess.username\"]    disabled","*${is_disabled}","*Attribute is: ''","*${is_disabled} = ","*&quot;${is_disabled}&quot; != &quot;None&quot;","*Account field is locked, clicking unlock...","*css=[data-testid=\"employees.edit.accountAccess.unlock\"]","*Clicks the element 'css=[data-testid=\"employees.edit.accountAccess.unlock\"]'.","*css=[data-testid=\"employees.edit.accountAccess.username\"]    attached    timeout=15s","*Waited for Element with selector css=[data-testid=\"employees.edit.accountAccess.username\"] at state attached","*css=[data-testid=\"employees.edit.accountAccess.username\"]    ${username}","*Fills the text 'Z2kiykN3' in the given field.","*[SUCCESS] Account Access section edited successfully","*Edit Emergency Contacts Section","*<p>Edit employee emergency contacts section\x3c/p>","*${rand_emer_name}    ${rand_emer_phone}","*[SECTION] Starting Emergency Contacts edit: ${name}","*emergencyContacts","*Waited for Element with selector css=[data-testid=\"employees.detail.sidebar.emergencyContacts\"] at state visible","*Clicks the element 'css=[data-testid=\"employees.detail.sidebar.emergencyContacts\"]'.","*css=[data-testid=\"employees.edit.emergency.0.name\"]","*${count} = 1","*${count} == 0","*No contacts found, adding new row...","*css=[data-testid=\"employees.edit.emergency.add\"]","*css=[data-testid=\"employees.edit.emergency.0.name\"]    visible    timeout=15s","*Waited for Element with selector css=[data-testid=\"employees.edit.emergency.0.name\"] at state visible","*css=[data-testid=\"employees.edit.emergency.0.name\"]    ${name}","*Fills the text 'EavtXWMtCc' in the given field.","*css=[data-testid=\"employees.edit.emergency.0.phone\"]    ${phone}","*Fills the text '9892510885' in the given field.","*[SUCCESS] Emergency Contacts section edited successfully","*Edit Work Experience Section","*<p>Edit employee work experience section\x3c/p>","*[SECTION] Starting Work Experience edit: ${company}","*workExperience","*Waited for Element with selector css=[data-testid=\"employees.detail.sidebar.workExperience\"] at state visible","*Clicks the element 'css=[data-testid=\"employees.detail.sidebar.workExperience\"]'.","*css=[data-testid=\"employees.edit.workExp.0.company\"]","*${count} = 0","*No work exp found, adding new row...","*css=[data-testid=\"employees.edit.workExp.add\"]","*Clicks the element 'css=[data-testid=\"employees.edit.workExp.add\"]'.","*css=[data-testid=\"employees.edit.workExp.0.company\"]    visible    timeout=15s","*Waited for Element with selector css=[data-testid=\"employees.edit.workExp.0.company\"] at state visible","*css=[data-testid=\"employees.edit.workExp.0.company\"]    ${company}","*Fills the text 'JIbHINzWmpjm' in the given field.","*[SUCCESS] Work Experience section edited successfully","*Edit Education Section","*<p>Edit employee education section\x3c/p>","*[SECTION] Starting Education edit: ${institution}","*education","*Waited for Element with selector css=[data-testid=\"employees.detail.sidebar.education\"] at state visible","*Clicks the element 'css=[data-testid=\"employees.detail.sidebar.education\"]'.","*css=[data-testid=\"employees.edit.education.0.institution\"]","*No education found, adding new row...","*css=[data-testid=\"employees.edit.education.add\"]","*css=[data-testid=\"employees.edit.education.0.institution\"]    visible    timeout=15s","*Waited for Element with selector css=[data-testid=\"employees.edit.education.0.institution\"] at state visible","*css=[data-testid=\"employees.edit.education.0.institution\"]    ${institution}","*Fills the text 'NjczPXMNPunV' in the given field.","*[SUCCESS] Education section edited successfully","*Edit Position Benefits Section","*<p>Edit employee position and benefits section\x3c/p>","*[SECTION] Starting Job Benefits edit: ${hospital}","*jobBenefits","*Waited for Element with selector css=[data-testid=\"employees.detail.sidebar.jobBenefits\"] at state visible","*Clicks the element 'css=[data-testid=\"employees.detail.sidebar.jobBenefits\"]'.","*Waiting for Job Benefits field to be visible...","*css=[data-testid=\"employees.edit.jobBenefits.socialSecurityHospital\"]    visible    timeout=45s","*Waited for Element with selector css=[data-testid=\"employees.edit.jobBenefits.socialSecurityHospital\"] at state visible","*css=[data-testid=\"employees.edit.jobBenefits.socialSecurityHospital\"]    ${hospital}","*Fills the text 'IqpGqXASoehU' in the given field.","*[SUCCESS] Job Benefits section edited successfully","*Edit Salary Section","*<p>Edit employee salary section\x3c/p>","*[SECTION] Starting Salary edit: ${account_number}","*salary","*Waited for Element with selector css=[data-testid=\"employees.detail.sidebar.salary\"] at state visible","*Clicks the element 'css=[data-testid=\"employees.detail.sidebar.salary\"]'.","*css=[data-testid=\"employees.edit.salary.accountNumber\"]    visible    timeout=20s","*Waited for Element with selector css=[data-testid=\"employees.edit.salary.accountNumber\"] at state visible","*css=[data-testid=\"employees.edit.salary.accountNumber\"]    ${account_number}","*Fills the text '1900432269' in the given field.","*[SUCCESS] Salary section edited successfully","*All 7 sections tested successfully","*Close Application","*Close Browser","*<p>Closes the current browser.\x3c/p>","*Closed browser","*Error in file 'C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\tests\\resources\\pages\\employees_page.resource' on line 2: Suite 'Hrplus.Tests.Test Suites.Employees Suite' has already imported library 'Browser' with different arguments. This import is ignored."]);
 </script>
 <script type="text/javascript">
-window.output["stats"] = [[{"elapsed":"00:00:08","fail":0,"label":"All Tests","pass":1,"skip":0}],[],[{"elapsed":"00:00:13","fail":0,"id":"s1","label":"News Suite","name":"News Suite","pass":1,"skip":0}]];
+window.output["stats"] = [[{"elapsed":"00:02:36","fail":0,"label":"All Tests","pass":1,"skip":0}],[{"elapsed":"00:02:36","fail":0,"label":"crud","pass":1,"skip":0},{"elapsed":"00:02:36","fail":0,"label":"edit","pass":1,"skip":0},{"elapsed":"00:02:36","fail":0,"label":"employees","pass":1,"skip":0}],[{"elapsed":"00:02:37","fail":0,"id":"s1","label":"Hrplus","name":"Hrplus","pass":1,"skip":0},{"elapsed":"00:02:37","fail":0,"id":"s1-s1","label":"Hrplus.Tests","name":"Tests","pass":1,"skip":0},{"elapsed":"00:02:37","fail":0,"id":"s1-s1-s1","label":"Hrplus.Tests.Test Suites","name":"Test Suites","pass":1,"skip":0},{"elapsed":"00:02:36","fail":0,"id":"s1-s1-s1-s1","label":"Hrplus.Tests.Test Suites.Employees Suite","name":"Employees Suite","pass":1,"skip":0}]];
 </script>
 <script type="text/javascript">
-window.output["errors"] = [];
+window.output["errors"] = [[420,3,320]];
 </script>
 <script type="text/javascript">
-window.output["baseMillis"] = 1769142236200;
+window.output["baseMillis"] = 1770627941473;
 </script>
 <script type="text/javascript">
-window.output["generated"] = 13026;
+window.output["generated"] = 156833;
 </script>
 <script type="text/javascript">
 window.output["expand_keywords"] = null;
@@ -2154,8 +2153,9 @@ function addErrors() {
     var errors = window.testdata.errorIterator();
     if (errors.hasNext()) {
         $.tmpl('errorHeaderTemplate').appendTo($('body'));
-        drawErrorsRecursively(errors, $('#errors'));
+        drawErrorsRecursively(errors, $('#errors .messages'));
     }
+    toggleElement('errors');
 }
 
 function drawErrorsRecursively(errors, target) {
@@ -2189,7 +2189,7 @@ function makeElementVisible(id) {
 }
 
 function addExecutionLog(main) {
-    $('body').append($(testOrTask('<h2>{Test} Execution Log</h2>')),
+    $('body').append('<h2>Execution Log</h2>',
                      $.tmpl('suiteTemplate', main));
 }
 </script>
@@ -2234,20 +2234,31 @@ function addExecutionLog(main) {
 </script>
 
 <script type="text/x-jquery-tmpl" id="errorHeaderTemplate">
-  <h2>{{= testOrTask('{Test}')}} Execution Errors</h2>
-  <table id="errors"></table>
+  <h2>Execution Errors</h2>
+  <div id="errors">
+    <div class="element-header closed" onclick="toggleElement('errors')">
+      <div class="element-header-toggle" title="Toggle visibility"></div>
+      <div class="label error">ERRORS</div>
+      <div class="name">Errors and warnings during execution</div>
+    </div>
+    <div class="children">
+      <table class="messages"></table>
+    </div>
+  </div>
 </script>
 
 <script type="text/x-jquery-tmpl" id="errorTemplate">
   <tr id="${id}" class="message-row">
-    <td class="error-time">
+    <td class="time">
       {{if link}}
       <a onclick="makeElementVisible('${link}')" href="#${link}" title="Link to details">${date} ${time}</a>
       {{else}}
       ${date} ${time}
       {{/if}}
     </td>
-    <td class="${level.toLowerCase()} level"><span class="label ${level.toLowerCase()}">${level}</span></td>
+    <td class="${level.toLowerCase()} level">
+      <span class="label ${level.toLowerCase()}">${level}</span>
+    </td>
     <td class="message">{{html text}}</td>
     <td class="select-message" onclick="javascript:selectMessage('${id}')" title="Select message text">
       <div></div>
@@ -2257,18 +2268,18 @@ function addExecutionLog(main) {
 
 <script type="text/x-jquery-tmpl" id="suiteTemplate">
   <div id="${id}" class="suite">
-    <div class="element-header closed" onclick="toggleSuite('${id}')">
-      <div class="element-header-left" title="SUITE  {{html name}}  [${status}]">
-        <span class="elapsed" title="Elapsed time">${times.elapsedTime}</span>
-        <span class="label ${status.toLowerCase()}">SUITE</span>
-        <span class="name">{{html name}}</span>
-      </div>
-      <div class="element-header-right" onclick="stopPropagation(event)" title="">
+    <div class="element-header closed" onclick="toggleSuite('${id}')"
+         title="SUITE  {{html name}}  [${status}]">
+      <div class="element-header-toggle" title="Toggle visibility"></div>
+      <div class="label ${status.toLowerCase()}">SUITE</div>
+      <div class="name">{{html name}}</div>
+      <div class="elapsed" title="Elapsed time">${times.elapsedTime}</div>
+      <div class="element-header-menu" onclick="stopPropagation(event)" title="">
         <a class="expand" title="Expand all" href="javascript:expandAll('${id}')"></a>
         <a class="collapse" title="Collapse all" href="javascript:collapseAll('${id}')"></a>
-        <a class="link" title="Link to this suite" href="#${id}" onclick="makeElementVisible('${id}')"></a>
+        <a class="link" onclick="makeElementVisible('${id}')"
+           title="Link to this suite" href="#${id}"></a>
       </div>
-      <div class="element-header-toggle" title="Toggle visibility"></div>
     </div>
     <div class="children">
       <table class="metadata">
@@ -2319,18 +2330,18 @@ function addExecutionLog(main) {
 
 <script type="text/x-jquery-tmpl" id="testTemplate">
   <div id="${id}" class="test">
-    <div class="element-header closed" onclick="toggleTest('${id}')">
-      <div class="element-header-left" title="{{= testOrTask('{TEST}')}}  {{html name}}  [${status}]">
-        <span class="elapsed" title="Elapsed time">${times.elapsedTime}</span>
-        <span class="label ${status.toLowerCase()}">{{= testOrTask('{TEST}')}}</span>
-        <span class="name">{{html name}}</span>
-      </div>
-      <div class="element-header-right" onclick="stopPropagation(event)" title="">
+    <div class="element-header closed" onclick="toggleTest('${id}')"
+         title="{{= testOrTask('{TEST}')}}  {{html name}}  [${status}]">
+      <div class="element-header-toggle" title="Toggle visibility"></div>
+      <div class="label ${status.toLowerCase()}">{{= testOrTask('{TEST}')}}</div>
+      <div class="name">{{html name}}</div>
+      <div class="elapsed" title="Elapsed time">${times.elapsedTime}</div>
+      <div class="element-header-menu" onclick="stopPropagation(event)" title="">
         <a class="expand" title="Expand all" href="javascript:expandAll('${id}')"></a>
         <a class="collapse" title="Collapse all" href="javascript:collapseAll('${id}')"></a>
-        <a class="link" title="Link to this {{= testOrTask('{test}')}}" href="#${id}" onclick="makeElementVisible('${id}')"></a>
+        <a class="link" href="#${id}" onclick="makeElementVisible('${id}')"
+           title="Link to this {{= testOrTask('{test}')}}"></a>
       </div>
-      <div class="element-header-toggle" title="Toggle visibility"></div>
     </div>
     <div class="children">
       <table class="metadata">
@@ -2377,21 +2388,20 @@ function addExecutionLog(main) {
 
 <script type="text/x-jquery-tmpl" id="keywordTemplate">
   <div id="${id}" class="keyword">
-    <div class="element-header closed" onclick="toggleKeyword('${id}')">
-      <div class="element-header-left" title="${type}  {{if name}}{{html fullName}}  {{/if}}[${status}]">
-        <span class="elapsed" title="Elapsed time">${times.elapsedTime}</span>
-        <span class="label ${status.toLowerCase()}">${type}</span>
-        <span class="assign">{{html assign}}</span>
-        <span class="name"><span class="parent-name">{{html libname}}{{if libname}} . {{/if}}</span>{{html name}}</span>
-        &nbsp;
-        <span class="arg">{{html arguments}}</span>
-      </div>
-      <div class="element-header-right" onclick="stopPropagation(event)">
+    <div class="element-header closed" onclick="toggleKeyword('${id}')"
+         title="${type}  {{if name}}{{html fullName}}  {{/if}}[${status}]">
+      <div class="element-header-toggle" title="Toggle visibility"></div>
+      <div class="label ${status.toLowerCase()}">${type}</div>
+      {{if assign}}<div class="assign">{{html assign}}&nbsp;=</div>{{/if}}
+      <div class="name">{{if libname}}<span class="parent-name">{{html libname}} . </span>{{/if}}{{html name}}</div>
+      <div class="arg">{{html arguments}}</div>
+      <div class="elapsed" title="Elapsed time">${times.elapsedTime}</div>
+      <div class="element-header-menu" onclick="stopPropagation(event)">
         <a class="expand" title="Expand all" href="javascript:expandAll('${id}')"></a>
         <a class="collapse" title="Collapse all" href="javascript:collapseAll('${id}')"></a>
-        <a class="link" title="Link to this item" href="#${id}" onclick="makeElementVisible('${id}')"></a>
+        <a class="link" onclick="makeElementVisible('${id}')"
+           title="Link to this item" href="#${id}"></a>
       </div>
-      <div class="element-header-toggle" title="Toggle visibility"></div>
     </div>
     <div class="children">
       <table class="metadata keyword-metadata">

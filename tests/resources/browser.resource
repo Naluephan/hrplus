@@ -23,6 +23,7 @@ Start Browser
         Log    Starting fresh context (Session loaded: ${load_session}, Exists: ${session_exists})
     END
     
+    Set Browser Timeout    120s
     New Page    ${url}
 
 Save Current Session

@@ -1,147 +1,1798 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.12.10 on win32)" generated="2026-01-23T11:23:56.198217" rpa="false" schemaversion="5">
-<suite id="s1" name="News Suite" source="C:\Users\User\Desktop\Naluephan1\saas\hrplus\tests\test_suites\news_suite.robot">
-<kw name="Open HR Plus Application" owner="common" type="SETUP">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-01-23T11:23:56.365758" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:8001'.</msg>
-<arg>${URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-01-23T11:23:56.365758" elapsed="2.927298"/>
+<robot generator="Robot 7.4.1 (Python 3.12.10 on win32)" generated="2026-02-09T16:05:41.467844" rpa="false" schemaversion="5">
+<suite id="s1" name="Hrplus" source="C:\Users\User\Desktop\Naluephan1\saas\hrplus">
+<suite id="s1-s1" name="Tests" source="C:\Users\User\Desktop\Naluephan1\saas\hrplus\tests">
+<suite id="s1-s1-s1" name="Test Suites" source="C:\Users\User\Desktop\Naluephan1\saas\hrplus\tests\test_suites">
+<suite id="s1-s1-s1-s1" name="Employees Suite" source="C:\Users\User\Desktop\Naluephan1\saas\hrplus\tests\test_suites\employees_suite.robot">
+<test id="s1-s1-s1-s1-t1" name="Edit Employee" line="69">
+<kw name="Run Keywords" owner="BuiltIn" type="SETUP">
+<kw name="Open HR Plus Application" owner="common">
+<kw name="Start Browser" owner="browser">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-02-09T16:05:41.926551" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\results\\browser\\traces\\temp\\2cbab440-4ed3-4e2c-8243-de221b7b0bfe"}</msg>
+<msg time="2026-02-09T16:05:41.959096" level="INFO">Starting Browser process C:\Users\User\Desktop\Naluephan1\saas\hrplus\.venv\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:57989</msg>
+<msg time="2026-02-09T16:05:43.592691" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\results\\browser\\traces\\temp\\2cbab440-4ed3-4e2c-8243-de221b7b0bfe"}</msg>
+<arg>browser=${BROWSER}</arg>
+<arg>headless=${headless}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-02-09T16:05:41.925048" elapsed="1.669148"/>
 </kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2026-01-23T11:23:59.293056" elapsed="0.058035"/>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-02-09T16:05:43.596263" level="INFO">${session_dir} = C:\Users\User\Desktop\Naluephan1\saas\hrplus\tests\resources\../../.auth</msg>
+<var>${session_dir}</var>
+<arg>os.path.dirname(r"${SESSION_PATH}")</arg>
+<arg>modules=os</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-02-09T16:05:43.594196" elapsed="0.002715"/>
 </kw>
-<status status="PASS" start="2026-01-23T11:23:56.364938" elapsed="2.986921"/>
-</kw>
-<test id="s1-t1" name="Verify News Page Elements" line="7">
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2026-01-23T11:23:59.353016" level="INFO">Opening url 'http://localhost:8001/login'</msg>
-<arg>${URL}/login</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2026-01-23T11:23:59.353016" elapsed="1.202749"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2026-01-23T11:24:02.557697" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-01-23T11:24:00.556181" elapsed="2.001516"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>id:login-email</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2026-01-23T11:24:02.557697" elapsed="0.034562"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-23T11:24:02.593314" level="INFO">Typing text 'ops@central.local' into text field 'id:login-email'.</msg>
-<arg>id:login-email</arg>
-<arg>${LOGIN_EMAIL}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-23T11:24:02.593314" elapsed="0.121760"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-23T11:24:02.716452" level="INFO">Typing text 'ChangeMe123!' into text field 'id:login-password'.</msg>
-<arg>id:login-password</arg>
-<arg>${LOGIN_PASSWORD}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-23T11:24:02.716452" elapsed="0.063446"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-01-23T11:24:02.780996" level="INFO">Clicking button 'xpath://button[@type='submit']'.</msg>
-<arg>xpath://button[@type='submit']</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-23T11:24:02.780996" elapsed="0.056990"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
-<arg>/dashboard</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the current URL contains ``expected``.</doc>
-<status status="PASS" start="2026-01-23T11:24:02.839492" elapsed="1.256239"/>
-</kw>
-<arg>Wait Until Location Contains</arg>
-<arg>/dashboard</arg>
-<arg>timeout=10s</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2026-01-23T11:24:02.839492" elapsed="1.256239"/>
-</kw>
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2026-01-23T11:24:04.096758" level="INFO">Opening url 'http://localhost:8001/news'</msg>
-<arg>${URL}/news</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2026-01-23T11:24:04.095731" elapsed="2.732461"/>
-</kw>
-<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
-<arg>/news</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the current URL contains ``expected``.</doc>
-<status status="PASS" start="2026-01-23T11:24:06.828192" elapsed="0.033822"/>
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2026-02-09T16:05:43.598925" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\User\Desktop\Naluephan1\saas\hrplus\.auth"&gt;C:\Users\User\Desktop\Naluephan1\saas\hrplus\.auth&lt;/a&gt;' already exists.</msg>
+<arg>${session_dir}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2026-02-09T16:05:43.597916" elapsed="0.001841"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
-<arg>tag:h1</arg>
-<arg>ประกาศ และข่าวสาร</arg>
-<arg>timeout=20s</arg>
-<doc>Waits until the element ``locator`` contains ``text``.</doc>
-<status status="PASS" start="2026-01-23T11:24:06.862014" elapsed="0.075750"/>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2026-02-09T16:05:43.603304" level="INFO" html="true">File '&lt;a href="file://C:\Users\User\Desktop\Naluephan1\saas\hrplus\.auth\admin_state.json"&gt;C:\Users\User\Desktop\Naluephan1\saas\hrplus\.auth\admin_state.json&lt;/a&gt;' exists.</msg>
+<arg>${SESSION_PATH}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2026-02-09T16:05:43.602784" elapsed="0.001525"/>
 </kw>
-<msg time="2026-01-23T11:24:06.937764" level="INFO">${status} = True</msg>
-<var>${status}</var>
-<arg>Wait Until Element Contains</arg>
-<arg>tag:h1</arg>
-<arg>ประกาศ และข่าวสาร</arg>
-<arg>timeout=20s</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-23T11:24:06.862014" elapsed="0.075750"/>
+<msg time="2026-02-09T16:05:43.604813" level="INFO">${session_exists} = True</msg>
+<var>${session_exists}</var>
+<arg>File Should Exist</arg>
+<arg>${SESSION_PATH}</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-02-09T16:05:43.599757" elapsed="0.005572"/>
 </kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>not ${status}</arg>
-<arg>Log Page Source</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2026-01-23T11:24:06.937764" elapsed="0.000000"/>
+<if>
+<branch type="IF" condition="${load_session} and ${session_exists}">
+<kw name="New Context" owner="Browser">
+<msg time="2026-02-09T16:05:43.612285" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "storageState": "C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\tests\\resources\\../../.auth/admin_state.json",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-02-09T16:05:44.324461" level="INFO">Successfully created context. </msg>
+<msg time="2026-02-09T16:05:44.325980" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'storageState': 'C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\tests\\resources\\../../.auth/admin_state.json', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<arg>viewport={'width': 1280, 'height': 720}</arg>
+<arg>storageState=${SESSION_PATH}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-02-09T16:05:43.607846" elapsed="0.718134"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-02-09T16:05:44.331228" level="INFO">Loaded session from C:\Users\User\Desktop\Naluephan1\saas\hrplus\tests\resources\../../.auth/admin_state.json</msg>
+<arg>Loaded session from ${SESSION_PATH}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-09T16:05:44.328008" elapsed="0.005228"/>
+</kw>
+<status status="PASS" start="2026-02-09T16:05:43.605329" elapsed="0.727907"/>
+</branch>
+<branch type="ELSE">
+<kw name="New Context" owner="Browser">
+<arg>viewport={'width': 1280, 'height': 720}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="NOT RUN" start="2026-02-09T16:05:44.333236" elapsed="0.002577"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Starting fresh context (Session loaded: ${load_session}, Exists: ${session_exists})</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-02-09T16:05:44.338362" elapsed="0.002016"/>
+</kw>
+<status status="NOT RUN" start="2026-02-09T16:05:44.333236" elapsed="0.007142"/>
+</branch>
+<status status="PASS" start="2026-02-09T16:05:43.605329" elapsed="0.735049"/>
+</if>
+<kw name="New Page" owner="Browser">
+<msg time="2026-02-09T16:06:01.640837" level="INFO">Successfully initialized new page object and opened url: http://localhost:8001</msg>
+<arg>${url}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-02-09T16:05:44.342398" elapsed="17.298439"/>
+</kw>
+<arg>${URL}</arg>
+<arg>load_session=${load_session}</arg>
+<status status="PASS" start="2026-02-09T16:05:41.925048" elapsed="19.716797"/>
+</kw>
+<status status="PASS" start="2026-02-09T16:05:41.924046" elapsed="19.717799"/>
+</kw>
+<kw name="Login To Application" owner="common">
+<kw name="Go To" owner="Browser">
+<msg time="2026-02-09T16:06:25.431223" level="INFO">Successfully opened URL http://localhost:8001/login</msg>
+<arg>${URL}/login</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-02-09T16:06:01.643168" elapsed="23.788813"/>
+</kw>
+<kw name="Get Url" owner="Browser">
+<msg time="2026-02-09T16:06:25.441378" level="INFO">${url} = http://localhost:8001/dashboard</msg>
+<var>${url}</var>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-02-09T16:06:25.432986" elapsed="0.008908"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${url}</arg>
+<arg>/dashboard</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-02-09T16:06:25.442916" elapsed="0.001003"/>
+</kw>
+<msg time="2026-02-09T16:06:25.443919" level="INFO">${is_dashboard} = True</msg>
+<var>${is_dashboard}</var>
+<arg>Should Contain</arg>
+<arg>${url}</arg>
+<arg>/dashboard</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-02-09T16:06:25.442403" elapsed="0.002516"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${is_dashboard}">
+<kw name="Wait For Elements State" owner="Browser">
+<arg>id=login-email</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="NOT RUN" start="2026-02-09T16:06:25.446585" elapsed="0.000000"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<arg>id=login-email</arg>
+<arg>${LOGIN_EMAIL}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-02-09T16:06:25.446585" elapsed="0.001016"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<arg>id=login-password</arg>
+<arg>${LOGIN_PASSWORD}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-02-09T16:06:25.448110" elapsed="0.000511"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<arg>xpath=//button[@type='submit']</arg>
+<arg>enabled</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="NOT RUN" start="2026-02-09T16:06:25.449137" elapsed="0.000512"/>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>xpath=//button[@type='submit']</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-02-09T16:06:25.450161" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<arg>60s</arg>
+<arg>1s</arg>
+<arg>Check Url</arg>
+<arg>/dashboard</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" start="2026-02-09T16:06:25.450161" elapsed="0.000000"/>
+</kw>
+<kw name="Save Current Session" owner="browser">
+<doc>Saves the current browser context state (cookies, local storage) to a file.</doc>
+<status status="NOT RUN" start="2026-02-09T16:06:25.451164" elapsed="0.000504"/>
+</kw>
+<status status="NOT RUN" start="2026-02-09T16:06:25.445424" elapsed="0.006244"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-02-09T16:06:25.452671" level="INFO">Already logged in via session.</msg>
+<arg>Already logged in via session.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-09T16:06:25.451668" elapsed="0.001003"/>
+</kw>
+<status status="PASS" start="2026-02-09T16:06:25.451668" elapsed="0.001003"/>
+</branch>
+<status status="PASS" start="2026-02-09T16:06:25.445424" elapsed="0.007247"/>
+</if>
+<status status="PASS" start="2026-02-09T16:06:01.642602" elapsed="23.810069"/>
+</kw>
+<arg>Open HR Plus Application</arg>
+<arg>AND</arg>
+<arg>Login To Application</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-02-09T16:05:41.923498" elapsed="43.529173"/>
+</kw>
+<kw name="Go To Employees Page" owner="employees_page">
+<kw name="Go To" owner="Browser">
+<msg time="2026-02-09T16:06:28.311198" level="INFO">Successfully opened URL http://localhost:8001/employees</msg>
+<arg>${URL}/employees</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-02-09T16:06:25.457567" elapsed="2.853631"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:06:28.384993" level="INFO">Waited for Element with selector css=[data-testid="employees.toolbar.add"] at state visible</msg>
+<arg>css=[data-testid="employees.toolbar.add"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:06:28.312294" elapsed="0.072699"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Check Url" owner="common">
+<kw name="Get Url" owner="Browser">
+<msg time="2026-02-09T16:06:28.395503" level="INFO">${url} = http://localhost:8001/employees</msg>
+<var>${url}</var>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-02-09T16:06:28.387253" elapsed="0.008761"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${url}</arg>
+<arg>${expected_path}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-02-09T16:06:28.396014" elapsed="0.002642"/>
+</kw>
+<arg>/employees</arg>
+<status status="PASS" start="2026-02-09T16:06:28.387253" elapsed="0.011965"/>
+</kw>
+<arg>10s</arg>
+<arg>1s</arg>
+<arg>Check Url</arg>
+<arg>/employees</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2026-02-09T16:06:28.384993" elapsed="0.014225"/>
+</kw>
+<status status="PASS" start="2026-02-09T16:06:25.455041" elapsed="2.944177"/>
+</kw>
+<kw name="Search Employee" owner="employees_page">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:06:28.473964" level="INFO">Waited for Element with selector css=[data-testid="employees.filter.search"] at state visible</msg>
+<arg>css=[data-testid="employees.filter.search"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:06:28.401940" elapsed="0.073029"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-02-09T16:06:28.477176" level="INFO">Fills the text 'AutoUser' in the given field.</msg>
+<arg>css=[data-testid="employees.filter.search"]</arg>
+<arg>${name}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:06:28.475972" elapsed="0.107554"/>
+</kw>
+<kw name="Press Keys" owner="Browser">
+<arg>css=[data-testid="employees.filter.search"]</arg>
+<arg>Enter</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:06:28.583526" elapsed="0.049405"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:06:31.635308" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:06:28.632931" elapsed="3.002377"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-02-09T16:06:31.640308" level="INFO">${count_after} = 4</msg>
+<var>${count_after}</var>
+<arg>css=tr[data-testid^="employees.table.row"]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:06:31.635308" elapsed="0.006663"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-02-09T16:06:31.642611" level="INFO">Rows after search: 4</msg>
+<arg>Rows after search: ${count_after}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-09T16:06:31.641971" elapsed="0.000640"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:06:31.648895" level="INFO">Waited for Element with selector css=tr[data-testid^="employees.table.row"] &gt;&gt; nth=0 at state visible</msg>
+<arg>css=tr[data-testid^="employees.table.row"] &gt;&gt; nth=0</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:06:31.642611" elapsed="0.006284"/>
+</kw>
+<arg>AutoUser</arg>
+<status status="PASS" start="2026-02-09T16:06:28.400734" elapsed="3.248667"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-02-09T16:06:31.653047" level="INFO">${count} = 4</msg>
+<var>${count}</var>
+<arg>css=tr[data-testid^="employees.table.row"]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:06:31.649953" elapsed="0.003094"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
-<arg>${status}</arg>
-<arg>msg=Failed to load News page content (Title not found)</arg>
+<arg>${count} &gt;= 1</arg>
+<arg>No employees found matching 'AutoUser'</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2026-01-23T11:24:06.938761" elapsed="0.000000"/>
+<status status="PASS" start="2026-02-09T16:06:31.653047" elapsed="0.001511"/>
 </kw>
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2026-01-23T11:24:06.951095" level="INFO">Current page contains element 'xpath://a[contains(text(), 'จัดการประกาศและข่าวสาร')]'.</msg>
-<arg>xpath://a[contains(text(), 'จัดการประกาศและข่าวสาร')]</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="PASS" start="2026-01-23T11:24:06.939264" elapsed="0.011831"/>
+<kw name="Click Edit Customer By Name" owner="employees_page">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:06:31.659176" level="INFO">Waited for Element with selector css=tr[data-testid^="employees.table.row"] &gt;&gt; nth=0 at state visible</msg>
+<arg>css=tr[data-testid^="employees.table.row"] &gt;&gt; nth=0</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:06:31.656065" elapsed="0.005019"/>
 </kw>
-<kw name="Page Should Contain Button" owner="SeleniumLibrary">
-<msg time="2026-01-23T11:24:07.031379" level="INFO">Current page contains button 'ค้นหา'.</msg>
-<arg>ค้นหา</arg>
-<doc>Verifies button ``locator`` is found from current page.</doc>
-<status status="PASS" start="2026-01-23T11:24:06.951095" elapsed="0.080284"/>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:06:31.665798" level="INFO">Waited for Element with selector css=[data-testid="employees.table.row.0.action.view"] at state visible</msg>
+<arg>css=[data-testid="employees.table.row.0.action.view"]</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:06:31.661084" elapsed="0.006220"/>
 </kw>
-<doc>Verify that the News page loads and displays key elements.</doc>
-<status status="PASS" start="2026-01-23T11:23:59.351859" elapsed="7.679520"/>
-</test>
-<kw name="Close Application" owner="common" type="TEARDOWN">
-<kw name="Close Browser" owner="SeleniumLibrary">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:06:32.668250" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:06:31.667304" elapsed="1.000946"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-02-09T16:06:32.668250" level="INFO">Clicks the element 'css=[data-testid="employees.table.row.0.action.view"]'.</msg>
+<arg>css=[data-testid="employees.table.row.0.action.view"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:06:32.668250" elapsed="0.052365"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Should Match Url Detail Page" owner="employees_page">
+<kw name="Get Url" owner="Browser">
+<msg time="2026-02-09T16:06:32.727819" level="INFO">${url} = http://localhost:8001/employees</msg>
+<var>${url}</var>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-02-09T16:06:32.723239" elapsed="0.005584"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-02-09T16:06:32.729922" level="INFO">Current URL: http://localhost:8001/employees</msg>
+<arg>Current URL: ${url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-09T16:06:32.729385" elapsed="0.000537"/>
+</kw>
+<kw name="Should Match Regexp" owner="BuiltIn">
+<msg time="2026-02-09T16:06:32.732174" level="FAIL">URL should be a detail page: 'http://localhost:8001/employees' does not match '/employees/[a-f0-9\-]+'</msg>
+<arg>${url}</arg>
+<arg>/employees/[a-f0-9\\-]+</arg>
+<arg>URL should be a detail page</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="FAIL" start="2026-02-09T16:06:32.729922" elapsed="0.006544">URL should be a detail page: 'http://localhost:8001/employees' does not match '/employees/[a-f0-9\-]+'</status>
+</kw>
+<status status="FAIL" start="2026-02-09T16:06:32.722238" elapsed="0.014228">URL should be a detail page: 'http://localhost:8001/employees' does not match '/employees/[a-f0-9\-]+'</status>
+</kw>
+<kw name="Should Match Url Detail Page" owner="employees_page">
+<kw name="Get Url" owner="Browser">
+<msg time="2026-02-09T16:06:33.746135" level="INFO">${url} = http://localhost:8001/employees/ec93aa1b-4234-4b1e-867d-61af00275831</msg>
+<var>${url}</var>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-02-09T16:06:33.738830" elapsed="0.007305"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-02-09T16:06:33.749284" level="INFO">Current URL: http://localhost:8001/employees/ec93aa1b-4234-4b1e-867d-61af00275831</msg>
+<arg>Current URL: ${url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-09T16:06:33.747656" elapsed="0.001628"/>
+</kw>
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${url}</arg>
+<arg>/employees/[a-f0-9\\-]+</arg>
+<arg>URL should be a detail page</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2026-02-09T16:06:33.750290" elapsed="0.002259"/>
+</kw>
+<status status="PASS" start="2026-02-09T16:06:33.737047" elapsed="0.016007"/>
+</kw>
+<arg>15s</arg>
+<arg>1s</arg>
+<arg>Should Match Url Detail Page</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2026-02-09T16:06:32.721234" elapsed="1.031820"/>
+</kw>
+<arg>AutoUser</arg>
+<status status="PASS" start="2026-02-09T16:06:31.654558" elapsed="2.098496"/>
+</kw>
+<kw name="Generate Random String" owner="String">
+<msg time="2026-02-09T16:06:33.756520" level="INFO">${rand_nick} = HhNeoD</msg>
+<var>${rand_nick}</var>
+<arg>6</arg>
+<arg>[LETTERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-02-09T16:06:33.754579" elapsed="0.002948"/>
+</kw>
+<kw name="Generate Random String" owner="String">
+<msg time="2026-02-09T16:06:33.759548" level="INFO">${rand_user} = Z2kiykN3</msg>
+<var>${rand_user}</var>
+<arg>8</arg>
+<arg>[LETTERS][NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-02-09T16:06:33.758033" elapsed="0.001515"/>
+</kw>
+<kw name="Generate Random String" owner="String">
+<msg time="2026-02-09T16:06:33.761072" level="INFO">${rand_emer_name} = EavtXWMtCc</msg>
+<var>${rand_emer_name}</var>
+<arg>10</arg>
+<arg>[LETTERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-02-09T16:06:33.760554" elapsed="0.000518"/>
+</kw>
+<kw name="Generate Random String" owner="String">
+<msg time="2026-02-09T16:06:33.765334" level="INFO">${rand_emer_phone} = 9892510885</msg>
+<var>${rand_emer_phone}</var>
+<arg>10</arg>
+<arg>[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-02-09T16:06:33.764326" elapsed="0.002006"/>
+</kw>
+<kw name="Generate Random String" owner="String">
+<msg time="2026-02-09T16:06:33.768562" level="INFO">${rand_company} = JIbHINzWmpjm</msg>
+<var>${rand_company}</var>
+<arg>12</arg>
+<arg>[LETTERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-02-09T16:06:33.767333" elapsed="0.002235"/>
+</kw>
+<kw name="Generate Random String" owner="String">
+<msg time="2026-02-09T16:06:33.771072" level="INFO">${rand_education} = NjczPXMNPunV</msg>
+<var>${rand_education}</var>
+<arg>12</arg>
+<arg>[LETTERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-02-09T16:06:33.770567" elapsed="0.001517"/>
+</kw>
+<kw name="Generate Random String" owner="String">
+<msg time="2026-02-09T16:06:33.774164" level="INFO">${rand_hospital} = IqpGqXASoehU</msg>
+<var>${rand_hospital}</var>
+<arg>12</arg>
+<arg>[LETTERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-02-09T16:06:33.773586" elapsed="0.002090"/>
+</kw>
+<kw name="Generate Random String" owner="String">
+<msg time="2026-02-09T16:06:33.777693" level="INFO">${rand_account} = 1900432269</msg>
+<var>${rand_account}</var>
+<arg>10</arg>
+<arg>[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-02-09T16:06:33.776187" elapsed="0.002016"/>
+</kw>
+<kw name="Edit Employee Detail" owner="employees_page">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n[SECTION] Starting Personal Info edit: ${nickname}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-09T16:06:33.781458" elapsed="0.005250"/>
+</kw>
+<kw name="Navigate To Employee Section" owner="employees_page">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:06:33.809035" level="INFO">Waited for Element with selector css=[data-testid="employees.detail.sidebar.personalInfo"] at state visible</msg>
+<arg>css=[data-testid="employees.detail.sidebar.${section_id}"]</arg>
+<arg>visible</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:06:33.789981" elapsed="0.020827"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>css=[data-testid="employees.detail.sidebar.${section_id}"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="PASS" start="2026-02-09T16:06:33.811331" elapsed="0.078602"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-02-09T16:06:33.891592" level="INFO">Clicks the element 'css=[data-testid="employees.detail.sidebar.personalInfo"]'.</msg>
+<arg>css=[data-testid="employees.detail.sidebar.${section_id}"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:06:33.890581" elapsed="0.073943"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:06:35.967901" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:06:33.965529" elapsed="2.002896"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-02-09T16:06:35.985031" level="INFO">${has_loader} = 0</msg>
+<var>${has_loader}</var>
+<arg>css=[data-testid="section-loader"]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:06:35.969432" elapsed="0.017114"/>
+</kw>
+<if>
+<branch type="IF" condition="${has_loader} &gt; 0">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Waiting for section loader to disappear...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2026-02-09T16:06:35.988407" elapsed="0.000000"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<arg>css=[data-testid="section-loader"]</arg>
+<arg>hidden</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="NOT RUN" start="2026-02-09T16:06:35.990739" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-09T16:06:35.986546" elapsed="0.005240"/>
+</branch>
+<status status="PASS" start="2026-02-09T16:06:35.986546" elapsed="0.005240"/>
+</if>
+<arg>personalInfo</arg>
+<doc>Navigate to a specific section in employee detail page</doc>
+<status status="PASS" start="2026-02-09T16:06:33.787722" elapsed="2.204649"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:06:36.011012" level="INFO">Waited for Element with selector css=[data-testid="employees.form.nickname"] at state visible</msg>
+<arg>css=[data-testid="employees.form.nickname"]</arg>
+<arg>visible</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:06:35.992883" elapsed="0.019739"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-02-09T16:06:36.016268" level="INFO">Fills the text 'HhNeoD' in the given field.</msg>
+<arg>css=[data-testid="employees.form.nickname"]</arg>
+<arg>${nickname}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:06:36.012622" elapsed="0.081842"/>
+</kw>
+<kw name="Save Employee Section" owner="employees_page">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:06:36.117639" level="INFO">Waited for Element with selector css=[data-testid="common.section.footer.save"] at state visible</msg>
+<arg>css=[data-testid="common.section.footer.save"]</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:06:36.099013" elapsed="0.019174"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>css=[data-testid="common.section.footer.save"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="PASS" start="2026-02-09T16:06:36.119193" elapsed="0.049981"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-02-09T16:06:36.172326" level="INFO">Clicks the element 'css=[data-testid="common.section.footer.save"]'.</msg>
+<arg>css=[data-testid="common.section.footer.save"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:06:36.170681" elapsed="0.148509"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:06:37.321498" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:06:36.319190" elapsed="1.004314"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:06:37.451202" level="INFO">Waited for Element with selector css=div[class*="fixed inset-0"] at state hidden</msg>
+<arg>css=div[class*="fixed inset-0"]</arg>
+<arg>hidden</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:06:37.324503" elapsed="0.128237"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:06:39.454623" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:06:37.452740" elapsed="2.001883"/>
+</kw>
+<doc>Click save button and wait for overlay to disappear</doc>
+<status status="PASS" start="2026-02-09T16:06:36.094981" elapsed="3.361189"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[SUCCESS] Personal Info section edited successfully</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-09T16:06:39.456170" elapsed="0.003327"/>
+</kw>
+<arg>${rand_nick}</arg>
+<doc>Edit employee personal info section</doc>
+<status status="PASS" start="2026-02-09T16:06:33.779339" elapsed="5.680158"/>
+</kw>
+<kw name="Edit Account Access Section" owner="employees_page">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[SECTION] Starting Account Access edit: ${username}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-09T16:06:39.462122" elapsed="0.003615"/>
+</kw>
+<kw name="Navigate To Employee Section" owner="employees_page">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:06:39.493179" level="INFO">Waited for Element with selector css=[data-testid="employees.detail.sidebar.accountAccess"] at state visible</msg>
+<arg>css=[data-testid="employees.detail.sidebar.${section_id}"]</arg>
+<arg>visible</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:06:39.468770" elapsed="0.026129"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>css=[data-testid="employees.detail.sidebar.${section_id}"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="PASS" start="2026-02-09T16:06:39.495587" elapsed="0.058901"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-02-09T16:06:39.559159" level="INFO">Clicks the element 'css=[data-testid="employees.detail.sidebar.accountAccess"]'.</msg>
+<arg>css=[data-testid="employees.detail.sidebar.${section_id}"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:06:39.557018" elapsed="0.092615"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:06:41.651966" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:06:39.649633" elapsed="2.002930"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-02-09T16:06:41.662599" level="INFO">${has_loader} = 1</msg>
+<var>${has_loader}</var>
+<arg>css=[data-testid="section-loader"]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:06:41.652563" elapsed="0.011556"/>
+</kw>
+<if>
+<branch type="IF" condition="${has_loader} &gt; 0">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Waiting for section loader to disappear...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-09T16:06:41.665643" elapsed="0.001519"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:07:01.143129" level="INFO">Waited for Element with selector css=[data-testid="section-loader"] at state hidden</msg>
+<arg>css=[data-testid="section-loader"]</arg>
+<arg>hidden</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:06:41.667162" elapsed="19.476976"/>
+</kw>
+<status status="PASS" start="2026-02-09T16:06:41.664637" elapsed="19.479501"/>
+</branch>
+<status status="PASS" start="2026-02-09T16:06:41.664637" elapsed="19.479501"/>
+</if>
+<arg>accountAccess</arg>
+<doc>Navigate to a specific section in employee detail page</doc>
+<status status="PASS" start="2026-02-09T16:06:39.467579" elapsed="21.676559"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:07:04.146641" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:07:01.144138" elapsed="3.003899"/>
+</kw>
+<kw name="Get Attribute" owner="Browser">
+<msg time="2026-02-09T16:07:04.177001" level="INFO">Attribute is: ''</msg>
+<msg time="2026-02-09T16:07:04.177507" level="INFO">${is_disabled} = </msg>
+<var>${is_disabled}</var>
+<arg>css=[data-testid="employees.edit.accountAccess.username"]</arg>
+<arg>disabled</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the HTML ``attribute`` of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:04.148543" elapsed="0.028964"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${is_disabled}&quot; != &quot;None&quot;">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Account field is locked, clicking unlock...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-09T16:07:04.179377" elapsed="0.002044"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-02-09T16:07:04.183103" level="INFO">Clicks the element 'css=[data-testid="employees.edit.accountAccess.unlock"]'.</msg>
+<arg>css=[data-testid="employees.edit.accountAccess.unlock"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:04.182476" elapsed="0.097554"/>
+</kw>
+<status status="PASS" start="2026-02-09T16:07:04.177507" elapsed="0.103140"/>
+</branch>
+<status status="PASS" start="2026-02-09T16:07:04.177507" elapsed="0.103687"/>
+</if>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:07:04.301342" level="INFO">Waited for Element with selector css=[data-testid="employees.edit.accountAccess.username"] at state attached</msg>
+<arg>css=[data-testid="employees.edit.accountAccess.username"]</arg>
+<arg>attached</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:07:04.281194" elapsed="0.022553"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-02-09T16:07:04.308220" level="INFO">Fills the text 'Z2kiykN3' in the given field.</msg>
+<arg>css=[data-testid="employees.edit.accountAccess.username"]</arg>
+<arg>${username}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:04.304639" elapsed="0.054985"/>
+</kw>
+<kw name="Save Employee Section" owner="employees_page">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:07:04.392522" level="INFO">Waited for Element with selector css=[data-testid="common.section.footer.save"] at state visible</msg>
+<arg>css=[data-testid="common.section.footer.save"]</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:07:04.362822" elapsed="0.030207"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>css=[data-testid="common.section.footer.save"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="PASS" start="2026-02-09T16:07:04.394034" elapsed="0.052072"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-02-09T16:07:04.450422" level="INFO">Clicks the element 'css=[data-testid="common.section.footer.save"]'.</msg>
+<arg>css=[data-testid="common.section.footer.save"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:04.447525" elapsed="0.080076"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:07:05.530106" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:07:04.528186" elapsed="1.003446"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:07:05.552532" level="INFO">Waited for Element with selector css=div[class*="fixed inset-0"] at state hidden</msg>
+<arg>css=div[class*="fixed inset-0"]</arg>
+<arg>hidden</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:07:05.532920" elapsed="0.019612"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:07:07.558068" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:07:05.554590" elapsed="2.003478"/>
+</kw>
+<doc>Click save button and wait for overlay to disappear</doc>
+<status status="PASS" start="2026-02-09T16:07:04.361142" elapsed="3.196926"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[SUCCESS] Account Access section edited successfully</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-09T16:07:07.558068" elapsed="0.001118"/>
+</kw>
+<arg>${rand_user}</arg>
+<doc>Edit employee account access section</doc>
+<status status="PASS" start="2026-02-09T16:06:39.461028" elapsed="28.098158"/>
+</kw>
+<kw name="Edit Emergency Contacts Section" owner="employees_page">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[SECTION] Starting Emergency Contacts edit: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-09T16:07:07.559186" elapsed="0.001923"/>
+</kw>
+<kw name="Navigate To Employee Section" owner="employees_page">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:07:07.567915" level="INFO">Waited for Element with selector css=[data-testid="employees.detail.sidebar.emergencyContacts"] at state visible</msg>
+<arg>css=[data-testid="employees.detail.sidebar.${section_id}"]</arg>
+<arg>visible</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:07:07.561109" elapsed="0.007809"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>css=[data-testid="employees.detail.sidebar.${section_id}"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="PASS" start="2026-02-09T16:07:07.568918" elapsed="0.031609"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-02-09T16:07:07.601537" level="INFO">Clicks the element 'css=[data-testid="employees.detail.sidebar.emergencyContacts"]'.</msg>
+<arg>css=[data-testid="employees.detail.sidebar.${section_id}"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:07.601032" elapsed="0.042867"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:07:09.645605" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:07:07.643899" elapsed="2.002186"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-02-09T16:07:09.652652" level="INFO">${has_loader} = 0</msg>
+<var>${has_loader}</var>
+<arg>css=[data-testid="section-loader"]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:09.646591" elapsed="0.006061"/>
+</kw>
+<if>
+<branch type="IF" condition="${has_loader} &gt; 0">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Waiting for section loader to disappear...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2026-02-09T16:07:09.652652" elapsed="0.000000"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<arg>css=[data-testid="section-loader"]</arg>
+<arg>hidden</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="NOT RUN" start="2026-02-09T16:07:09.654325" elapsed="0.000508"/>
+</kw>
+<status status="NOT RUN" start="2026-02-09T16:07:09.652652" elapsed="0.002181"/>
+</branch>
+<status status="PASS" start="2026-02-09T16:07:09.652652" elapsed="0.002181"/>
+</if>
+<arg>emergencyContacts</arg>
+<doc>Navigate to a specific section in employee detail page</doc>
+<status status="PASS" start="2026-02-09T16:07:07.561109" elapsed="2.094728"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:07:12.656548" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:07:09.655837" elapsed="3.000711"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-02-09T16:07:12.661002" level="INFO">${count} = 1</msg>
+<var>${count}</var>
+<arg>css=[data-testid="employees.edit.emergency.0.name"]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:12.656548" elapsed="0.004454"/>
+</kw>
+<if>
+<branch type="IF" condition="${count} == 0">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>No contacts found, adding new row...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2026-02-09T16:07:12.661002" elapsed="0.001009"/>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>css=[data-testid="employees.edit.emergency.add"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-02-09T16:07:12.662011" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-02-09T16:07:12.661002" elapsed="0.001009"/>
+</branch>
+<status status="PASS" start="2026-02-09T16:07:12.661002" elapsed="0.001009"/>
+</if>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:07:12.668437" level="INFO">Waited for Element with selector css=[data-testid="employees.edit.emergency.0.name"] at state visible</msg>
+<arg>css=[data-testid="employees.edit.emergency.0.name"]</arg>
+<arg>visible</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:07:12.662011" elapsed="0.006426"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-02-09T16:07:12.669456" level="INFO">Fills the text 'EavtXWMtCc' in the given field.</msg>
+<arg>css=[data-testid="employees.edit.emergency.0.name"]</arg>
+<arg>${name}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:12.669456" elapsed="0.013268"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-02-09T16:07:12.684235" level="INFO">Fills the text '9892510885' in the given field.</msg>
+<arg>css=[data-testid="employees.edit.emergency.0.phone"]</arg>
+<arg>${phone}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:12.682724" elapsed="0.021540"/>
+</kw>
+<kw name="Save Employee Section" owner="employees_page">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:07:12.710900" level="INFO">Waited for Element with selector css=[data-testid="common.section.footer.save"] at state visible</msg>
+<arg>css=[data-testid="common.section.footer.save"]</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:07:12.706295" elapsed="0.005665"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>css=[data-testid="common.section.footer.save"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="PASS" start="2026-02-09T16:07:12.711960" elapsed="0.020743"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-02-09T16:07:12.732703" level="INFO">Clicks the element 'css=[data-testid="common.section.footer.save"]'.</msg>
+<arg>css=[data-testid="common.section.footer.save"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:12.732703" elapsed="0.039603"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:07:13.774225" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:07:12.773365" elapsed="1.000860"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:07:15.635002" level="INFO">Waited for Element with selector css=div[class*="fixed inset-0"] at state hidden</msg>
+<arg>css=div[class*="fixed inset-0"]</arg>
+<arg>hidden</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:07:13.774225" elapsed="1.860777"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:07:17.636635" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:07:15.635002" elapsed="2.001633"/>
+</kw>
+<doc>Click save button and wait for overlay to disappear</doc>
+<status status="PASS" start="2026-02-09T16:07:12.704264" elapsed="4.932371"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[SUCCESS] Emergency Contacts section edited successfully</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-09T16:07:17.637144" elapsed="0.001985"/>
+</kw>
+<arg>${rand_emer_name}</arg>
+<arg>${rand_emer_phone}</arg>
+<doc>Edit employee emergency contacts section</doc>
+<status status="PASS" start="2026-02-09T16:07:07.559186" elapsed="10.079943"/>
+</kw>
+<kw name="Edit Work Experience Section" owner="employees_page">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[SECTION] Starting Work Experience edit: ${company}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-09T16:07:17.640689" elapsed="0.001048"/>
+</kw>
+<kw name="Navigate To Employee Section" owner="employees_page">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:07:17.649424" level="INFO">Waited for Element with selector css=[data-testid="employees.detail.sidebar.workExperience"] at state visible</msg>
+<arg>css=[data-testid="employees.detail.sidebar.${section_id}"]</arg>
+<arg>visible</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:07:17.642454" elapsed="0.006970"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>css=[data-testid="employees.detail.sidebar.${section_id}"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="PASS" start="2026-02-09T16:07:17.649424" elapsed="0.024876"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-02-09T16:07:17.675314" level="INFO">Clicks the element 'css=[data-testid="employees.detail.sidebar.workExperience"]'.</msg>
+<arg>css=[data-testid="employees.detail.sidebar.${section_id}"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:17.674300" elapsed="0.038105"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:07:19.714558" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:07:17.712405" elapsed="2.002153"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-02-09T16:07:19.718738" level="INFO">${has_loader} = 0</msg>
+<var>${has_loader}</var>
+<arg>css=[data-testid="section-loader"]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:19.714558" elapsed="0.005298"/>
+</kw>
+<if>
+<branch type="IF" condition="${has_loader} &gt; 0">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Waiting for section loader to disappear...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2026-02-09T16:07:19.720420" elapsed="0.000000"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<arg>css=[data-testid="section-loader"]</arg>
+<arg>hidden</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="NOT RUN" start="2026-02-09T16:07:19.720420" elapsed="0.001518"/>
+</kw>
+<status status="NOT RUN" start="2026-02-09T16:07:19.719856" elapsed="0.002082"/>
+</branch>
+<status status="PASS" start="2026-02-09T16:07:19.719856" elapsed="0.002082"/>
+</if>
+<arg>workExperience</arg>
+<doc>Navigate to a specific section in employee detail page</doc>
+<status status="PASS" start="2026-02-09T16:07:17.641737" elapsed="2.080201"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:07:22.724280" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:07:19.722944" elapsed="3.001336"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-02-09T16:07:22.733010" level="INFO">${count} = 0</msg>
+<var>${count}</var>
+<arg>css=[data-testid="employees.edit.workExp.0.company"]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:22.724280" elapsed="0.008730"/>
+</kw>
+<if>
+<branch type="IF" condition="${count} == 0">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>No work exp found, adding new row...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-09T16:07:22.734517" elapsed="0.001071"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-02-09T16:07:22.735588" level="INFO">Clicks the element 'css=[data-testid="employees.edit.workExp.add"]'.</msg>
+<arg>css=[data-testid="employees.edit.workExp.add"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:22.735588" elapsed="0.038426"/>
+</kw>
+<status status="PASS" start="2026-02-09T16:07:22.733010" elapsed="0.043015"/>
+</branch>
+<status status="PASS" start="2026-02-09T16:07:22.733010" elapsed="0.043015"/>
+</if>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:07:22.786584" level="INFO">Waited for Element with selector css=[data-testid="employees.edit.workExp.0.company"] at state visible</msg>
+<arg>css=[data-testid="employees.edit.workExp.0.company"]</arg>
+<arg>visible</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:07:22.776025" elapsed="0.012421"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-02-09T16:07:22.790306" level="INFO">Fills the text 'JIbHINzWmpjm' in the given field.</msg>
+<arg>css=[data-testid="employees.edit.workExp.0.company"]</arg>
+<arg>${company}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:22.788446" elapsed="0.025893"/>
+</kw>
+<kw name="Save Employee Section" owner="employees_page">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:07:22.834204" level="INFO">Waited for Element with selector css=[data-testid="common.section.footer.save"] at state visible</msg>
+<arg>css=[data-testid="common.section.footer.save"]</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:07:22.815853" elapsed="0.019354"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>css=[data-testid="common.section.footer.save"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="PASS" start="2026-02-09T16:07:22.835721" elapsed="0.032331"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-02-09T16:07:22.869056" level="INFO">Clicks the element 'css=[data-testid="common.section.footer.save"]'.</msg>
+<arg>css=[data-testid="common.section.footer.save"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:22.868052" elapsed="0.053680"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:07:23.925382" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:07:22.923238" elapsed="1.002144"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:07:25.771905" level="INFO">Waited for Element with selector css=div[class*="fixed inset-0"] at state hidden</msg>
+<arg>css=div[class*="fixed inset-0"]</arg>
+<arg>hidden</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:07:23.925894" elapsed="1.847524"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:07:27.774551" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:07:25.773418" elapsed="2.001133"/>
+</kw>
+<doc>Click save button and wait for overlay to disappear</doc>
+<status status="PASS" start="2026-02-09T16:07:22.815344" elapsed="4.959207"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[SUCCESS] Work Experience section edited successfully</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-09T16:07:27.774551" elapsed="0.001002"/>
+</kw>
+<arg>${rand_company}</arg>
+<doc>Edit employee work experience section</doc>
+<status status="PASS" start="2026-02-09T16:07:17.640132" elapsed="10.135421"/>
+</kw>
+<kw name="Edit Education Section" owner="employees_page">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[SECTION] Starting Education edit: ${institution}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-09T16:07:27.776056" elapsed="0.001004"/>
+</kw>
+<kw name="Navigate To Employee Section" owner="employees_page">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:07:27.782786" level="INFO">Waited for Element with selector css=[data-testid="employees.detail.sidebar.education"] at state visible</msg>
+<arg>css=[data-testid="employees.detail.sidebar.${section_id}"]</arg>
+<arg>visible</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:07:27.777563" elapsed="0.005223"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>css=[data-testid="employees.detail.sidebar.${section_id}"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="PASS" start="2026-02-09T16:07:27.784318" elapsed="0.024679"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-02-09T16:07:27.810002" level="INFO">Clicks the element 'css=[data-testid="employees.detail.sidebar.education"]'.</msg>
+<arg>css=[data-testid="employees.detail.sidebar.${section_id}"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:27.808997" elapsed="0.040584"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:07:29.851352" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:07:27.849581" elapsed="2.002329"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-02-09T16:07:29.866372" level="INFO">${has_loader} = 1</msg>
+<var>${has_loader}</var>
+<arg>css=[data-testid="section-loader"]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:29.852455" elapsed="0.013917"/>
+</kw>
+<if>
+<branch type="IF" condition="${has_loader} &gt; 0">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Waiting for section loader to disappear...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-09T16:07:29.867870" elapsed="0.001007"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:07:33.799548" level="INFO">Waited for Element with selector css=[data-testid="section-loader"] at state hidden</msg>
+<arg>css=[data-testid="section-loader"]</arg>
+<arg>hidden</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:07:29.868877" elapsed="3.931676"/>
+</kw>
+<status status="PASS" start="2026-02-09T16:07:29.867360" elapsed="3.933193"/>
+</branch>
+<status status="PASS" start="2026-02-09T16:07:29.867360" elapsed="3.933698"/>
+</if>
+<arg>education</arg>
+<doc>Navigate to a specific section in employee detail page</doc>
+<status status="PASS" start="2026-02-09T16:07:27.777563" elapsed="6.023495"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:07:36.803744" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:07:33.801561" elapsed="3.003195"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-02-09T16:07:36.808970" level="INFO">${count} = 1</msg>
+<var>${count}</var>
+<arg>css=[data-testid="employees.edit.education.0.institution"]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:36.804756" elapsed="0.005270"/>
+</kw>
+<if>
+<branch type="IF" condition="${count} == 0">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>No education found, adding new row...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2026-02-09T16:07:36.810534" elapsed="0.000000"/>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>css=[data-testid="employees.edit.education.add"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-02-09T16:07:36.810534" elapsed="0.000509"/>
+</kw>
+<status status="NOT RUN" start="2026-02-09T16:07:36.810026" elapsed="0.001017"/>
+</branch>
+<status status="PASS" start="2026-02-09T16:07:36.810026" elapsed="0.001017"/>
+</if>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:07:36.816171" level="INFO">Waited for Element with selector css=[data-testid="employees.edit.education.0.institution"] at state visible</msg>
+<arg>css=[data-testid="employees.edit.education.0.institution"]</arg>
+<arg>visible</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:07:36.811043" elapsed="0.006637"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-02-09T16:07:36.818201" level="INFO">Fills the text 'NjczPXMNPunV' in the given field.</msg>
+<arg>css=[data-testid="employees.edit.education.0.institution"]</arg>
+<arg>${institution}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:36.817680" elapsed="0.021799"/>
+</kw>
+<kw name="Save Employee Section" owner="employees_page">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:07:36.848871" level="INFO">Waited for Element with selector css=[data-testid="common.section.footer.save"] at state visible</msg>
+<arg>css=[data-testid="common.section.footer.save"]</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:07:36.840509" elapsed="0.008951"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>css=[data-testid="common.section.footer.save"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="PASS" start="2026-02-09T16:07:36.849460" elapsed="0.032479"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-02-09T16:07:36.882961" level="INFO">Clicks the element 'css=[data-testid="common.section.footer.save"]'.</msg>
+<arg>css=[data-testid="common.section.footer.save"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:36.881939" elapsed="0.043977"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:07:37.927595" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:07:36.925916" elapsed="1.001679"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:07:39.279074" level="INFO">Waited for Element with selector css=div[class*="fixed inset-0"] at state hidden</msg>
+<arg>css=div[class*="fixed inset-0"]</arg>
+<arg>hidden</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:07:37.927595" elapsed="1.351479"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:07:41.282136" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:07:39.280293" elapsed="2.001843"/>
+</kw>
+<doc>Click save button and wait for overlay to disappear</doc>
+<status status="PASS" start="2026-02-09T16:07:36.839991" elapsed="4.442145"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[SUCCESS] Education section edited successfully</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-09T16:07:41.283234" elapsed="0.000000"/>
+</kw>
+<arg>${rand_education}</arg>
+<doc>Edit employee education section</doc>
+<status status="PASS" start="2026-02-09T16:07:27.776056" elapsed="13.507178"/>
+</kw>
+<kw name="Edit Position Benefits Section" owner="employees_page">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[SECTION] Starting Job Benefits edit: ${hospital}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-09T16:07:41.284914" elapsed="0.000000"/>
+</kw>
+<kw name="Navigate To Employee Section" owner="employees_page">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:07:41.296502" level="INFO">Waited for Element with selector css=[data-testid="employees.detail.sidebar.jobBenefits"] at state visible</msg>
+<arg>css=[data-testid="employees.detail.sidebar.${section_id}"]</arg>
+<arg>visible</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:07:41.286434" elapsed="0.010572"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>css=[data-testid="employees.detail.sidebar.${section_id}"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="PASS" start="2026-02-09T16:07:41.297515" elapsed="0.026907"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-02-09T16:07:41.325963" level="INFO">Clicks the element 'css=[data-testid="employees.detail.sidebar.jobBenefits"]'.</msg>
+<arg>css=[data-testid="employees.detail.sidebar.${section_id}"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:41.324422" elapsed="0.044545"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:07:43.372074" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:07:41.370472" elapsed="2.001602"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-02-09T16:07:43.382623" level="INFO">${has_loader} = 1</msg>
+<var>${has_loader}</var>
+<arg>css=[data-testid="section-loader"]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:43.373079" elapsed="0.009544"/>
+</kw>
+<if>
+<branch type="IF" condition="${has_loader} &gt; 0">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Waiting for section loader to disappear...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-09T16:07:43.383151" elapsed="0.001557"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:07:53.968217" level="INFO">Waited for Element with selector css=[data-testid="section-loader"] at state hidden</msg>
+<arg>css=[data-testid="section-loader"]</arg>
+<arg>hidden</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:07:43.385222" elapsed="10.584097"/>
+</kw>
+<status status="PASS" start="2026-02-09T16:07:43.383151" elapsed="10.586168"/>
+</branch>
+<status status="PASS" start="2026-02-09T16:07:43.383151" elapsed="10.586168"/>
+</if>
+<arg>jobBenefits</arg>
+<doc>Navigate to a specific section in employee detail page</doc>
+<status status="PASS" start="2026-02-09T16:07:41.286434" elapsed="12.682885"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Waiting for Job Benefits field to be visible...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-09T16:07:53.969319" elapsed="0.002772"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:07:53.984912" level="INFO">Waited for Element with selector css=[data-testid="employees.edit.jobBenefits.socialSecurityHospital"] at state visible</msg>
+<arg>css=[data-testid="employees.edit.jobBenefits.socialSecurityHospital"]</arg>
+<arg>visible</arg>
+<arg>timeout=45s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:07:53.972091" elapsed="0.012821"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-02-09T16:07:53.987553" level="INFO">Fills the text 'IqpGqXASoehU' in the given field.</msg>
+<arg>css=[data-testid="employees.edit.jobBenefits.socialSecurityHospital"]</arg>
+<arg>${hospital}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:53.984912" elapsed="0.037070"/>
+</kw>
+<kw name="Save Employee Section" owner="employees_page">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:07:54.043316" level="INFO">Waited for Element with selector css=[data-testid="common.section.footer.save"] at state visible</msg>
+<arg>css=[data-testid="common.section.footer.save"]</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:07:54.025005" elapsed="0.018311"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>css=[data-testid="common.section.footer.save"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="PASS" start="2026-02-09T16:07:54.044851" elapsed="0.051750"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-02-09T16:07:54.099572" level="INFO">Clicks the element 'css=[data-testid="common.section.footer.save"]'.</msg>
+<arg>css=[data-testid="common.section.footer.save"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:54.098111" elapsed="0.084183"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:07:55.183087" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:07:54.182967" elapsed="1.000626"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:07:56.111146" level="INFO">Waited for Element with selector css=div[class*="fixed inset-0"] at state hidden</msg>
+<arg>css=div[class*="fixed inset-0"]</arg>
+<arg>hidden</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:07:55.184596" elapsed="0.928121"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:07:58.115820" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:07:56.114730" elapsed="2.002159"/>
+</kw>
+<doc>Click save button and wait for overlay to disappear</doc>
+<status status="PASS" start="2026-02-09T16:07:54.023489" elapsed="4.093914"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[SUCCESS] Job Benefits section edited successfully</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-09T16:07:58.117928" elapsed="0.001659"/>
+</kw>
+<arg>${rand_hospital}</arg>
+<doc>Edit employee position and benefits section</doc>
+<status status="PASS" start="2026-02-09T16:07:41.283234" elapsed="16.836884"/>
+</kw>
+<kw name="Edit Salary Section" owner="employees_page">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[SECTION] Starting Salary edit: ${account_number}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-09T16:07:58.123938" elapsed="0.000506"/>
+</kw>
+<kw name="Navigate To Employee Section" owner="employees_page">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:07:58.149037" level="INFO">Waited for Element with selector css=[data-testid="employees.detail.sidebar.salary"] at state visible</msg>
+<arg>css=[data-testid="employees.detail.sidebar.${section_id}"]</arg>
+<arg>visible</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:07:58.127555" elapsed="0.023074"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>css=[data-testid="employees.detail.sidebar.${section_id}"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="PASS" start="2026-02-09T16:07:58.151136" elapsed="0.051382"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-02-09T16:07:58.206547" level="INFO">Clicks the element 'css=[data-testid="employees.detail.sidebar.salary"]'.</msg>
+<arg>css=[data-testid="employees.detail.sidebar.${section_id}"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:07:58.203524" elapsed="0.081526"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:08:00.289425" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:07:58.287384" elapsed="2.002041"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-02-09T16:08:00.304289" level="INFO">${has_loader} = 1</msg>
+<var>${has_loader}</var>
+<arg>css=[data-testid="section-loader"]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:08:00.290431" elapsed="0.015394"/>
+</kw>
+<if>
+<branch type="IF" condition="${has_loader} &gt; 0">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Waiting for section loader to disappear...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-09T16:08:00.308346" elapsed="0.002010"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:08:08.557903" level="INFO">Waited for Element with selector css=[data-testid="section-loader"] at state hidden</msg>
+<arg>css=[data-testid="section-loader"]</arg>
+<arg>hidden</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:08:00.310873" elapsed="8.248048"/>
+</kw>
+<status status="PASS" start="2026-02-09T16:08:00.306830" elapsed="8.252091"/>
+</branch>
+<status status="PASS" start="2026-02-09T16:08:00.306830" elapsed="8.252091"/>
+</if>
+<arg>salary</arg>
+<doc>Navigate to a specific section in employee detail page</doc>
+<status status="PASS" start="2026-02-09T16:07:58.126550" elapsed="10.433520"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:08:11.562908" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:08:08.560578" elapsed="3.002330"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:08:11.579800" level="INFO">Waited for Element with selector css=[data-testid="employees.edit.salary.accountNumber"] at state visible</msg>
+<arg>css=[data-testid="employees.edit.salary.accountNumber"]</arg>
+<arg>visible</arg>
+<arg>timeout=20s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:08:11.564202" elapsed="0.017232"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-02-09T16:08:11.583275" level="INFO">Fills the text '1900432269' in the given field.</msg>
+<arg>css=[data-testid="employees.edit.salary.accountNumber"]</arg>
+<arg>${account_number}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:08:11.582198" elapsed="0.034236"/>
+</kw>
+<kw name="Save Employee Section" owner="employees_page">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:08:11.635377" level="INFO">Waited for Element with selector css=[data-testid="common.section.footer.save"] at state visible</msg>
+<arg>css=[data-testid="common.section.footer.save"]</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:08:11.618485" elapsed="0.018544"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>css=[data-testid="common.section.footer.save"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="PASS" start="2026-02-09T16:08:11.638041" elapsed="0.045291"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-02-09T16:08:11.685615" level="INFO">Clicks the element 'css=[data-testid="common.section.footer.save"]'.</msg>
+<arg>css=[data-testid="common.section.footer.save"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-02-09T16:08:11.684347" elapsed="0.079031"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:08:12.765810" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:08:11.763378" elapsed="1.002432"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-02-09T16:08:14.146159" level="INFO">Waited for Element with selector css=div[class*="fixed inset-0"] at state hidden</msg>
+<arg>css=div[class*="fixed inset-0"]</arg>
+<arg>hidden</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-02-09T16:08:12.767342" elapsed="1.380613"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-09T16:08:16.150167" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-09T16:08:14.148530" elapsed="2.003697"/>
+</kw>
+<doc>Click save button and wait for overlay to disappear</doc>
+<status status="PASS" start="2026-02-09T16:08:11.616968" elapsed="4.535773"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[SUCCESS] Salary section edited successfully</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-09T16:08:16.153690" elapsed="0.006123"/>
+</kw>
+<arg>${rand_account}</arg>
+<doc>Edit employee salary section</doc>
+<status status="PASS" start="2026-02-09T16:07:58.121242" elapsed="18.038571"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-02-09T16:08:16.163407" level="INFO">All 7 sections tested successfully</msg>
+<arg>All 7 sections tested successfully</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-09T16:08:16.163407" elapsed="0.002032"/>
+</kw>
+<kw name="Close Application" owner="browser" type="TEARDOWN">
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-02-09T16:08:17.843492" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2026-01-23T11:24:07.033842" elapsed="2.188733"/>
+<status status="PASS" start="2026-02-09T16:08:16.167450" elapsed="1.678146"/>
 </kw>
-<status status="PASS" start="2026-01-23T11:24:07.033314" elapsed="2.189261"/>
+<status status="PASS" start="2026-02-09T16:08:16.167450" elapsed="1.678759"/>
 </kw>
-<status status="PASS" start="2026-01-23T11:23:56.200079" elapsed="13.023005"/>
+<doc>Verify editing an employee across all sections.</doc>
+<tag>crud</tag>
+<tag>edit</tag>
+<tag>employees</tag>
+<status status="PASS" start="2026-02-09T16:05:41.916060" elapsed="155.931057"/>
+</test>
+<doc>A test suite for the Employees module.</doc>
+<status status="PASS" start="2026-02-09T16:05:41.542786" elapsed="156.487163"/>
+</suite>
+<status status="PASS" start="2026-02-09T16:05:41.538419" elapsed="156.514353"/>
+</suite>
+<status status="PASS" start="2026-02-09T16:05:41.506129" elapsed="156.658390"/>
+</suite>
+<status status="PASS" start="2026-02-09T16:05:41.473065" elapsed="156.710207"/>
 </suite>
 <statistics>
 <total>
 <stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="1" fail="0" skip="0">crud</stat>
+<stat pass="1" fail="0" skip="0">edit</stat>
+<stat pass="1" fail="0" skip="0">employees</stat>
 </tag>
 <suite>
-<stat name="News Suite" id="s1" pass="1" fail="0" skip="0">News Suite</stat>
+<stat name="Hrplus" id="s1" pass="1" fail="0" skip="0">Hrplus</stat>
+<stat name="Tests" id="s1-s1" pass="1" fail="0" skip="0">Hrplus.Tests</stat>
+<stat name="Test Suites" id="s1-s1-s1" pass="1" fail="0" skip="0">Hrplus.Tests.Test Suites</stat>
+<stat name="Employees Suite" id="s1-s1-s1-s1" pass="1" fail="0" skip="0">Hrplus.Tests.Test Suites.Employees Suite</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2026-02-09T16:05:41.893117" level="WARN">Error in file 'C:\Users\User\Desktop\Naluephan1\saas\hrplus\tests\resources\pages\employees_page.resource' on line 2: Suite 'Hrplus.Tests.Test Suites.Employees Suite' has already imported library 'Browser' with different arguments. This import is ignored.</msg>
 </errors>
 </robot>

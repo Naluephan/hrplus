@@ -13,7 +13,7 @@ Login Success
     Fill Text    id=login-password    ${LOGIN_PASSWORD}
     Click    xpath=//button[@type='submit']
     # Add assertions for success if needed, e.g. URL check
-    Wait Until Keyword Succeeds    10s    1s    Check Url    /dashboard
+    Wait Until Keyword Succeeds    10s    1s    Check Url    /employees/dashboard
 
 Login Fail
     [Documentation]    Verifies that login fails with incorrect credentials.

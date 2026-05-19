@@ -11,7 +11,7 @@ Verify Dashboard Access
     [Tags]    smoke    hr
     # Login To Application is already in Test Setup
     ${url}=    Get Url
-    Should Contain    ${url}    /dashboard
+    Should Contain    ${url}    /employees/dashboard
 
 # Create Employee Flow
 #     [Documentation]    Example flow that requires login.

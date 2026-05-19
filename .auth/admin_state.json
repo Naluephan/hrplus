@@ -1,41 +1,41 @@
 {
   "cookies": [
     {
-      "name": "hr-tenant-id",
-      "value": "3",
+      "name": "hr-frontend-session",
+      "value": "%7B%22id%22%3A%224%22%2C%22email%22%3A%22ops%40central.local%22%2C%22name%22%3A%22Operations%20Lead%22%2C%22phoneNumber%22%3A%22%2B66900000004%22%2C%22tokenType%22%3A%22Bearer%22%2C%22accessTokenExpiresAt%22%3A1777436358000%2C%22expiresAt%22%3A1778037558447%2C%22status%22%3A%22active%22%2C%22roles%22%3A%5B%22Admin%22%2C%7B%22id%22%3A%224%22%2C%22roleId%22%3A%221%22%2C%22roleName%22%3A%22Admin%22%2C%22moduleCode%22%3A%22accounting%22%2C%22moduleName%22%3A%22Account%22%2C%22tenantId%22%3Anull%7D%2C%7B%22id%22%3A%223%22%2C%22roleId%22%3A%225%22%2C%22roleName%22%3A%22Admin%22%2C%22moduleCode%22%3A%22hr%22%2C%22moduleName%22%3A%22HR%22%2C%22tenantId%22%3Anull%7D%2C%7B%22id%22%3A%225%22%2C%22roleId%22%3A%229%22%2C%22roleName%22%3A%22Admin%22%2C%22moduleCode%22%3A%22salary%22%2C%22moduleName%22%3A%22Organics%20Salary%22%2C%22tenantId%22%3Anull%7D%2C%22HR_ADMIN%22%2C%22ACCOUNTING_ADMIN%22%2C%22SALARY_ADMIN%22%5D%2C%22role%22%3A%22Admin%22%2C%22moduleRoles%22%3A%5B%22HR_ADMIN%22%2C%22ACCOUNTING_ADMIN%22%2C%22SALARY_ADMIN%22%5D%2C%22access%22%3A%7B%22tenants%22%3A%5B%7B%22id%22%3A%223%22%2C%22name%22%3A%22Ops%20Shared%20Tenant%22%2C%22domain%22%3A%22ops.central.local%22%2C%22plan%22%3A%22enterprise%22%2C%22status%22%3A%22active%22%2C%22subscriptionExpired%22%3Afalse%7D%2C%7B%22id%22%3A%224%22%2C%22name%22%3A%22Ops%20Secondary%20Tenant%22%2C%22domain%22%3A%22ops2.central.local%22%2C%22plan%22%3A%22professional%22%2C%22status%22%3A%22active%22%2C%22subscriptionExpired%22%3Afalse%7D%5D%2C%22modules%22%3A%5B%7B%22code%22%3A%22hr%22%2C%22name%22%3A%22HR%22%2C%22endpoint%22%3A%22http%3A%2F%2Flocalhost%3A8001%22%2C%22packages%22%3A%5B%7B%22code%22%3A%22series1_professional%22%2C%22name%22%3A%22professional%22%2C%22description%22%3A%22Professional%20plan%22%2C%22tenantId%22%3A%224%22%2C%22tenantName%22%3A%22Ops%20Secondary%20Tenant%22%2C%22subscriptionPlan%22%3A%22professional%22%2C%22subscriptionStartDate%22%3A%222024-03-31T17%3A00%3A00.000Z%22%2C%22subscriptionEndDate%22%3Anull%7D%2C%7B%22code%22%3A%22series1_enterprise%22%2C%22name%22%3A%22enterprise%22%2C%22description%22%3A%22Enterprise%20plan%22%2C%22tenantId%22%3A%223%22%2C%22tenantName%22%3A%22Ops%20Shared%20Tenant%22%2C%22subscriptionPlan%22%3A%22enterprise%22%2C%22subscriptionStartDate%22%3A%222024-02-29T17%3A00%3A00.000Z%22%2C%22subscriptionEndDate%22%3Anull%7D%5D%2C%22packageCount%22%3A2%7D%5D%2C%22integrations%22%3A%7B%22hr%22%3A%22http%3A%2F%2Flocalhost%3A8001%22%7D%7D%2C%22authMode%22%3A%22central%22%2C%22tenantId%22%3A%223%22%7D",
       "domain": "localhost",
       "path": "/",
-      "expires": 1801126081.038377,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "__next_hmr_refresh_hash__",
-      "value": "86f58315b22b6d7396081b4229b54a60633457081244afec",
-      "domain": "localhost",
-      "path": "/",
-      "expires": -1,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "central_access_token_sub_module",
-      "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0IiwidXNlcl9pZCI6IjQiLCJlbWFpbCI6Im9wc0BjZW50cmFsLmxvY2FsIiwibmFtZSI6Ik9wZXJhdGlvbnMgTGVhZCIsInBob25lTnVtYmVyIjoiKzY2OTAwMDAwMDA0Iiwic3RhdHVzIjoiYWN0aXZlIiwicm9sZSI6IkFkbWluIiwibW9kdWxlcyI6WyJociJdLCJ0ZW5hbnRzX3N1YnNjcmlwdGlvbl91c2VycyI6W3siaWQiOiIzIiwidGVuYW50X2lkIjoiMyIsInN1YnNjcmlwdGlvbl91c2VyX2lkIjoiNCIsImlzX293bmVyIjp0cnVlLCJjcmVhdGVkX2F0IjoiMjAyNi0wMS0yOFQwMTo0MzoxNS4wMDBaIiwidXBkYXRlZF9hdCI6IjIwMjYtMDEtMjhUMDE6NDM6MTUuMDAwWiIsInRlbmFudCI6eyJpZCI6IjMiLCJuYW1lIjoiT3BzIFNoYXJlZCBUZW5hbnQiLCJkb21haW4iOiJvcHMuY2VudHJhbC5sb2NhbCIsInBsYW4iOiJlbnRlcnByaXNlIiwic3RhdHVzIjoiYWN0aXZlIn19LHsiaWQiOiI0IiwidGVuYW50X2lkIjoiNCIsInN1YnNjcmlwdGlvbl91c2VyX2lkIjoiNCIsImlzX293bmVyIjp0cnVlLCJjcmVhdGVkX2F0IjoiMjAyNi0wMS0yOFQwMTo0MzoxNS4wMDBaIiwidXBkYXRlZF9hdCI6IjIwMjYtMDEtMjhUMDE6NDM6MTUuMDAwWiIsInRlbmFudCI6eyJpZCI6IjQiLCJuYW1lIjoiT3BzIFNlY29uZGFyeSBUZW5hbnQiLCJkb21haW4iOiJvcHMyLmNlbnRyYWwubG9jYWwiLCJwbGFuIjoicHJvZmVzc2lvbmFsIiwic3RhdHVzIjoiYWN0aXZlIn19XSwibW9kdWxlc19yb2xlcyI6W3siaWQiOiI1IiwiY29kZSI6IkhSX0FETUlOIiwibmFtZSI6IkFkbWluIn1dLCJqdGkiOiIzNzgzMDVjYy04OWU4LTRlODUtOTFkZS00YzZiZjY4OTExMzEiLCJpYXQiOjE3Njk1OTAwNzksImV4cCI6MTc2OTU5MzY3OSwiYXVkIjoiY2VudHJhbC1jbGllbnRzIiwiaXNzIjoiY2VudHJhbC1hcGkifQ.ByxA2iBrmrUbrSj57qj6dJAyXN6-SyL6oH8OCeB1j9sYXOJFguYMNyDZDaJGg1Z5fgT7xJbIAaTHBsWj-NC2A4x-V_dp-0YhIrIUGYVzk-PK4n1vj5uzZOpws5vo-qSrZLhStEFEhX-KotV916YCj7gf7Ba18XF9Ygma_mhE1uROhf79CCm74h3qNWIaUV7z0PDvjbOOp4g3Hk71-Yd4DTRtdhOghJc4ZIFMNx2EqC93m6syEuTYA2IgWmZ_JcxKscaOuJPJcxLrvmFxz89t9jk-2cQ_9zSwWOfhwzE8h8WKvn1O0Kb38So0ItwL5bcLeLZeM40GHByhIpGe4VdhfQ",
-      "domain": "localhost",
-      "path": "/",
-      "expires": 1770194878.887618,
+      "expires": 1778037558.513518,
       "httpOnly": true,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "hr_access_token",
-      "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0IiwidXNlcl9pZCI6IjQiLCJlbWFpbCI6Im9wc0BjZW50cmFsLmxvY2FsIiwibmFtZSI6Ik9wZXJhdGlvbnMgTGVhZCIsInBob25lTnVtYmVyIjoiKzY2OTAwMDAwMDA0Iiwic3RhdHVzIjoiYWN0aXZlIiwicm9sZSI6IkFkbWluIiwibW9kdWxlcyI6WyJociJdLCJ0ZW5hbnRzX3N1YnNjcmlwdGlvbl91c2VycyI6W3siaWQiOiIzIiwidGVuYW50X2lkIjoiMyIsInN1YnNjcmlwdGlvbl91c2VyX2lkIjoiNCIsImlzX293bmVyIjp0cnVlLCJjcmVhdGVkX2F0IjoiMjAyNi0wMS0yOFQwMTo0MzoxNS4wMDBaIiwidXBkYXRlZF9hdCI6IjIwMjYtMDEtMjhUMDE6NDM6MTUuMDAwWiIsInRlbmFudCI6eyJpZCI6IjMiLCJuYW1lIjoiT3BzIFNoYXJlZCBUZW5hbnQiLCJkb21haW4iOiJvcHMuY2VudHJhbC5sb2NhbCIsInBsYW4iOiJlbnRlcnByaXNlIiwic3RhdHVzIjoiYWN0aXZlIn19LHsiaWQiOiI0IiwidGVuYW50X2lkIjoiNCIsInN1YnNjcmlwdGlvbl91c2VyX2lkIjoiNCIsImlzX293bmVyIjp0cnVlLCJjcmVhdGVkX2F0IjoiMjAyNi0wMS0yOFQwMTo0MzoxNS4wMDBaIiwidXBkYXRlZF9hdCI6IjIwMjYtMDEtMjhUMDE6NDM6MTUuMDAwWiIsInRlbmFudCI6eyJpZCI6IjQiLCJuYW1lIjoiT3BzIFNlY29uZGFyeSBUZW5hbnQiLCJkb21haW4iOiJvcHMyLmNlbnRyYWwubG9jYWwiLCJwbGFuIjoicHJvZmVzc2lvbmFsIiwic3RhdHVzIjoiYWN0aXZlIn19XSwibW9kdWxlc19yb2xlcyI6W3siaWQiOiI1IiwiY29kZSI6IkhSX0FETUlOIiwibmFtZSI6IkFkbWluIn1dLCJqdGkiOiIzNzgzMDVjYy04OWU4LTRlODUtOTFkZS00YzZiZjY4OTExMzEiLCJpYXQiOjE3Njk1OTAwNzksImV4cCI6MTc2OTU5MzY3OSwiYXVkIjoiY2VudHJhbC1jbGllbnRzIiwiaXNzIjoiY2VudHJhbC1hcGkifQ.ByxA2iBrmrUbrSj57qj6dJAyXN6-SyL6oH8OCeB1j9sYXOJFguYMNyDZDaJGg1Z5fgT7xJbIAaTHBsWj-NC2A4x-V_dp-0YhIrIUGYVzk-PK4n1vj5uzZOpws5vo-qSrZLhStEFEhX-KotV916YCj7gf7Ba18XF9Ygma_mhE1uROhf79CCm74h3qNWIaUV7z0PDvjbOOp4g3Hk71-Yd4DTRtdhOghJc4ZIFMNx2EqC93m6syEuTYA2IgWmZ_JcxKscaOuJPJcxLrvmFxz89t9jk-2cQ_9zSwWOfhwzE8h8WKvn1O0Kb38So0ItwL5bcLeLZeM40GHByhIpGe4VdhfQ",
+      "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0IiwidXNlcl9pZCI6IjQiLCJlbWFpbCI6Im9wc0BjZW50cmFsLmxvY2FsIiwibmFtZSI6Ik9wZXJhdGlvbnMgTGVhZCIsInBob25lTnVtYmVyIjoiKzY2OTAwMDAwMDA0Iiwic3RhdHVzIjoiYWN0aXZlIiwicm9sZSI6IkFkbWluIiwibW9kdWxlcyI6WyJociJdLCJ0ZW5hbnRzX3N1YnNjcmlwdGlvbl91c2VycyI6W3siaWQiOiIzIiwidGVuYW50X2lkIjoiMyIsInN1YnNjcmlwdGlvbl91c2VyX2lkIjoiNCIsImlzX293bmVyIjp0cnVlLCJjcmVhdGVkX2F0IjoiMjAyNi0wNC0xMFQwMTo1MzoxNi4wMDBaIiwidXBkYXRlZF9hdCI6IjIwMjYtMDQtMTBUMDE6NTM6MTYuMDAwWiIsInRlbmFudCI6eyJpZCI6IjMiLCJuYW1lIjoiT3BzIFNoYXJlZCBUZW5hbnQiLCJkb21haW4iOiJvcHMuY2VudHJhbC5sb2NhbCIsInBsYW4iOiJlbnRlcnByaXNlIiwic3RhdHVzIjoiYWN0aXZlIn19LHsiaWQiOiI0IiwidGVuYW50X2lkIjoiNCIsInN1YnNjcmlwdGlvbl91c2VyX2lkIjoiNCIsImlzX293bmVyIjp0cnVlLCJjcmVhdGVkX2F0IjoiMjAyNi0wNC0xMFQwMTo1MzoxNi4wMDBaIiwidXBkYXRlZF9hdCI6IjIwMjYtMDQtMTBUMDE6NTM6MTYuMDAwWiIsInRlbmFudCI6eyJpZCI6IjQiLCJuYW1lIjoiT3BzIFNlY29uZGFyeSBUZW5hbnQiLCJkb21haW4iOiJvcHMyLmNlbnRyYWwubG9jYWwiLCJwbGFuIjoicHJvZmVzc2lvbmFsIiwic3RhdHVzIjoiYWN0aXZlIn19XSwibW9kdWxlc19yb2xlcyI6W3siaWQiOiI1IiwiY29kZSI6IkhSX0FETUlOIiwibmFtZSI6IkFkbWluIn1dLCJqdGkiOiIyZDM5YWNkZS0yZTI0LTQ1OTEtYWU0Ny1jOTIwNWQ1MjI4N2UiLCJpYXQiOjE3Nzc0MzI3NTgsImV4cCI6MTc3NzQzNjM1OCwiYXVkIjoiY2VudHJhbC1jbGllbnRzIiwiaXNzIjoiY2VudHJhbC1hcGkifQ.hnXyXNvmXyYGYJlH2ORFPwpMBH2-3xa4KJUToA1Xuc-WNwhqeroUlKnA6etUwqh4Xir7PrguRLJIuKsFwv89VWeXS6lV3XvvIOjwS7Q5p-HOHWJfqAttKK-TbFSHlixoLKa8P5LeIyJFdsCpKWydo5wBsz-KTqUwB-dYWVlL1a1EzfuVcWEeGPPhsQuKQW3QwMkd4ogzVCXGXbrAFQDs9N_8dVGRtMzlejL61SRDwr2h6gD-eE1HuAGF0f29Y7_PqIsHefb-sPcO2Ih9t7Y_SuHOSk8wLsgQsc0bbgTho9z-lDsN_3IEKUJiSAYeVAEXLYXo5cOXOIBffhbFxHooNQ",
       "domain": "localhost",
       "path": "/",
-      "expires": 1769593678.888047,
+      "expires": 1777436357.514251,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "hr-tenant-id",
+      "value": "3",
+      "domain": "localhost",
+      "path": "/",
+      "expires": 1778037557.514446,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "central_access_token_sub_module",
+      "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0IiwidXNlcl9pZCI6IjQiLCJlbWFpbCI6Im9wc0BjZW50cmFsLmxvY2FsIiwibmFtZSI6Ik9wZXJhdGlvbnMgTGVhZCIsInBob25lTnVtYmVyIjoiKzY2OTAwMDAwMDA0Iiwic3RhdHVzIjoiYWN0aXZlIiwicm9sZSI6IkFkbWluIiwibW9kdWxlcyI6WyJociJdLCJ0ZW5hbnRzX3N1YnNjcmlwdGlvbl91c2VycyI6W3siaWQiOiIzIiwidGVuYW50X2lkIjoiMyIsInN1YnNjcmlwdGlvbl91c2VyX2lkIjoiNCIsImlzX293bmVyIjp0cnVlLCJjcmVhdGVkX2F0IjoiMjAyNi0wNC0xMFQwMTo1MzoxNi4wMDBaIiwidXBkYXRlZF9hdCI6IjIwMjYtMDQtMTBUMDE6NTM6MTYuMDAwWiIsInRlbmFudCI6eyJpZCI6IjMiLCJuYW1lIjoiT3BzIFNoYXJlZCBUZW5hbnQiLCJkb21haW4iOiJvcHMuY2VudHJhbC5sb2NhbCIsInBsYW4iOiJlbnRlcnByaXNlIiwic3RhdHVzIjoiYWN0aXZlIn19LHsiaWQiOiI0IiwidGVuYW50X2lkIjoiNCIsInN1YnNjcmlwdGlvbl91c2VyX2lkIjoiNCIsImlzX293bmVyIjp0cnVlLCJjcmVhdGVkX2F0IjoiMjAyNi0wNC0xMFQwMTo1MzoxNi4wMDBaIiwidXBkYXRlZF9hdCI6IjIwMjYtMDQtMTBUMDE6NTM6MTYuMDAwWiIsInRlbmFudCI6eyJpZCI6IjQiLCJuYW1lIjoiT3BzIFNlY29uZGFyeSBUZW5hbnQiLCJkb21haW4iOiJvcHMyLmNlbnRyYWwubG9jYWwiLCJwbGFuIjoicHJvZmVzc2lvbmFsIiwic3RhdHVzIjoiYWN0aXZlIn19XSwibW9kdWxlc19yb2xlcyI6W3siaWQiOiI1IiwiY29kZSI6IkhSX0FETUlOIiwibmFtZSI6IkFkbWluIn1dLCJqdGkiOiIyZDM5YWNkZS0yZTI0LTQ1OTEtYWU0Ny1jOTIwNWQ1MjI4N2UiLCJpYXQiOjE3Nzc0MzI3NTgsImV4cCI6MTc3NzQzNjM1OCwiYXVkIjoiY2VudHJhbC1jbGllbnRzIiwiaXNzIjoiY2VudHJhbC1hcGkifQ.hnXyXNvmXyYGYJlH2ORFPwpMBH2-3xa4KJUToA1Xuc-WNwhqeroUlKnA6etUwqh4Xir7PrguRLJIuKsFwv89VWeXS6lV3XvvIOjwS7Q5p-HOHWJfqAttKK-TbFSHlixoLKa8P5LeIyJFdsCpKWydo5wBsz-KTqUwB-dYWVlL1a1EzfuVcWEeGPPhsQuKQW3QwMkd4ogzVCXGXbrAFQDs9N_8dVGRtMzlejL61SRDwr2h6gD-eE1HuAGF0f29Y7_PqIsHefb-sPcO2Ih9t7Y_SuHOSk8wLsgQsc0bbgTho9z-lDsN_3IEKUJiSAYeVAEXLYXo5cOXOIBffhbFxHooNQ",
+      "domain": "localhost",
+      "path": "/",
+      "expires": 1778037557.514518,
       "httpOnly": true,
       "secure": false,
       "sameSite": "Lax"
@@ -48,10 +48,6 @@
         {
           "name": "theme",
           "value": "light"
-        },
-        {
-          "name": "hr-tenant-id",
-          "value": "3"
         },
         {
           "name": "hr:locale",
@@ -67,7 +63,7 @@
         },
         {
           "name": "hr-accent",
-          "value": "blue"
+          "value": "emerald"
         }
       ]
     }

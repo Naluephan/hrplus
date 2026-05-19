@@ -1,0 +1,105 @@
+{"level":30,"time":"2026-04-10T06:28:40.532Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Listening on 127.0.0.1:62002"}
+{"level":30,"time":"2026-04-10T06:28:40.776Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-04-10T06:28:41.596Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Adding browser to stack: chromium, version: 143.0.7499.4"}
+{"level":30,"time":"2026-04-10T06:28:41.599Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-04-10T06:28:41.600Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-04-10T06:28:41.710Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method newContext"}
+{"level":30,"time":"2026-04-10T06:28:41.710Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Creating new context with options: {\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":false,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"storageState\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\tests\\\\resources\\\\../../.auth/admin_state.json\",\"viewport\":{\"width\":1280,\"height\":720}}"}
+{"level":30,"time":"2026-04-10T06:28:41.710Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@3f3b3a041a1652693be6ea36a67d9cae\"},\"headless\":false,\"_contextStack\":[],\"id\":\"browser=dd5fd8a1-209d-479a-a815-cb0360b4c5a1\"}"}
+{"level":30,"time":"2026-04-10T06:28:41.710Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Trace file: "}
+{"level":30,"time":"2026-04-10T06:28:42.661Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Setting default timeout for context context=32105b1a-edd2-4852-89ec-1b6af221c701 to 60000"}
+{"level":30,"time":"2026-04-10T06:28:42.662Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Changed active context: context=32105b1a-edd2-4852-89ec-1b6af221c701"}
+{"level":30,"time":"2026-04-10T06:28:42.663Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"End of node method newContext"}
+{"level":30,"time":"2026-04-10T06:28:42.684Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-04-10T06:28:42.685Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@3f3b3a041a1652693be6ea36a67d9cae\"},\"headless\":false,\"_contextStack\":[{\"id\":\"context=32105b1a-edd2-4852-89ec-1b6af221c701\",\"c\":{\"_type\":\"BrowserContext\",\"_guid\":\"browser-context@e8e70d49b4b1f04d562632ceb33b5467\"},\"pageStack\":[],\"options\":{\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":false,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"storageState\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\tests\\\\resources\\\\../../.auth/admin_state.json\",\"viewport\":{\"width\":1280,\"height\":720}},\"traceFile\":\"\"}],\"id\":\"browser=dd5fd8a1-209d-479a-a815-cb0360b4c5a1\"}"}
+{"level":30,"time":"2026-04-10T06:28:43.107Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Video path: undefined"}
+{"level":30,"time":"2026-04-10T06:28:43.107Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Changed active page"}
+{"level":30,"time":"2026-04-10T06:28:53.270Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"End of node method newPage"}
+{"level":30,"time":"2026-04-10T06:28:53.284Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method goTo"}
+{"level":30,"time":"2026-04-10T06:29:39.521Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"End of node method goTo"}
+{"level":30,"time":"2026-04-10T06:29:39.674Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method goTo"}
+{"level":30,"time":"2026-04-10T06:30:39.715Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Error of node method goTo"}
+================= Original suppressed error =================
+page.goto: Timeout 60000ms exceeded.
+Call log:
+[2m  - navigating to "http://localhost:8001/news", waiting until "domcontentloaded"[22m
+
+    at goTo (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:11143:31)
+    at PlaywrightServer.goTo (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:13663:34)
+    at Object.onReceiveHalfClose (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1464:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:595:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:635:14)
+    at ServerHttp2Stream.<anonymous> (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:394:18) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-04-10T06:30:39.806Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T06:30:39.813Z","pid":6548,"hostname":"DESKTOP-B25KPJK","Take screenshot with options: ":{"path":"C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\reports\\browser\\screenshot\\fail-screenshot-4.png","fileType":"png","fullPage":false,"timeout":60000,"omitBackground":false}}
+{"level":30,"time":"2026-04-10T06:31:25.691Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T06:31:25.725Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method closeBrowser"}
+{"level":30,"time":"2026-04-10T06:31:25.782Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Removed page=0907a8e5-847e-4bbc-91dc-2a28d30e82fe from context=32105b1a-edd2-4852-89ec-1b6af221c701 page stack"}
+{"level":30,"time":"2026-04-10T06:31:29.230Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"End of node method closeBrowser"}
+{"level":30,"time":"2026-04-10T06:31:29.243Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-10T06:31:29.244Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-10T06:31:29.257Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-10T06:31:29.257Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-10T06:31:29.273Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-04-10T06:31:29.793Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Adding browser to stack: chromium, version: 143.0.7499.4"}
+{"level":30,"time":"2026-04-10T06:31:29.793Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-04-10T06:31:29.793Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-04-10T06:31:29.827Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method newContext"}
+{"level":30,"time":"2026-04-10T06:31:29.827Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Creating new context with options: {\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":false,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"storageState\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\tests\\\\resources\\\\../../.auth/admin_state.json\",\"viewport\":{\"width\":1280,\"height\":720}}"}
+{"level":30,"time":"2026-04-10T06:31:29.827Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@b691daa5b407d6dedfe874d2f15fb174\"},\"headless\":false,\"_contextStack\":[],\"id\":\"browser=03566336-1cde-4bec-a549-132064bf5727\"}"}
+{"level":30,"time":"2026-04-10T06:31:29.828Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Trace file: "}
+{"level":30,"time":"2026-04-10T06:31:30.723Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Setting default timeout for context context=cfaca2fd-d9a0-4e7e-b996-e168e0fa91d5 to 60000"}
+{"level":30,"time":"2026-04-10T06:31:30.723Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Changed active context: context=cfaca2fd-d9a0-4e7e-b996-e168e0fa91d5"}
+{"level":30,"time":"2026-04-10T06:31:30.724Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"End of node method newContext"}
+{"level":30,"time":"2026-04-10T06:31:30.772Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-04-10T06:31:30.772Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@b691daa5b407d6dedfe874d2f15fb174\"},\"headless\":false,\"_contextStack\":[{\"id\":\"context=cfaca2fd-d9a0-4e7e-b996-e168e0fa91d5\",\"c\":{\"_type\":\"BrowserContext\",\"_guid\":\"browser-context@ae19212e1145ac378202b68dc2aecf4c\"},\"pageStack\":[],\"options\":{\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":false,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"storageState\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\tests\\\\resources\\\\../../.auth/admin_state.json\",\"viewport\":{\"width\":1280,\"height\":720}},\"traceFile\":\"\"}],\"id\":\"browser=03566336-1cde-4bec-a549-132064bf5727\"}"}
+{"level":30,"time":"2026-04-10T06:31:31.198Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Video path: undefined"}
+{"level":30,"time":"2026-04-10T06:31:31.198Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Changed active page"}
+{"level":30,"time":"2026-04-10T06:31:40.579Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"End of node method newPage"}
+{"level":30,"time":"2026-04-10T06:31:40.635Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method goTo"}
+{"level":30,"time":"2026-04-10T06:31:53.883Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"End of node method goTo"}
+{"level":30,"time":"2026-04-10T06:31:53.963Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method goTo"}
+{"level":30,"time":"2026-04-10T06:32:50.493Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"End of node method goTo"}
+{"level":30,"time":"2026-04-10T06:32:50.513Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-04-10T06:32:50.515Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Strict mode is enabled, find Locator with css=article h2 >> nth=0 in page."}
+{"level":30,"time":"2026-04-10T06:33:50.555Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Error of node method  waitForElementState"}
+================= Original suppressed error =================
+locator.waitFor: Timeout 60000ms exceeded.
+Call log:
+[2m  - waiting for locator('article h2').first() to be visible[22m
+
+    at waitForElementState (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:11721:19)
+    at async PlaywrightServer.waitForElementsState (C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:13635:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-04-10T06:33:50.731Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T06:33:50.731Z","pid":6548,"hostname":"DESKTOP-B25KPJK","Take screenshot with options: ":{"path":"C:\\Users\\User\\Desktop\\Naluephan1\\saas\\hrplus\\reports\\browser\\screenshot\\fail-screenshot-8.png","fileType":"png","fullPage":false,"timeout":60000,"omitBackground":false}}
+{"level":30,"time":"2026-04-10T06:33:51.412Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-04-10T06:33:51.582Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method closeBrowser"}
+{"level":30,"time":"2026-04-10T06:33:51.605Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Removed page=3eabf823-7004-46af-8c5d-830e5dcbbc55 from context=cfaca2fd-d9a0-4e7e-b996-e168e0fa91d5 page stack"}
+{"level":30,"time":"2026-04-10T06:35:14.171Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"End of node method closeBrowser"}
+{"level":30,"time":"2026-04-10T06:35:14.184Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-10T06:35:14.184Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-10T06:35:14.193Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-10T06:35:14.193Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-10T06:35:14.211Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-04-10T06:35:15.299Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Adding browser to stack: chromium, version: 143.0.7499.4"}
+{"level":30,"time":"2026-04-10T06:35:15.299Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-04-10T06:35:15.299Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-04-10T06:35:15.321Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method newContext"}
+{"level":30,"time":"2026-04-10T06:35:15.321Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Creating new context with options: {\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":false,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"storageState\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\tests\\\\resources\\\\../../.auth/admin_state.json\",\"viewport\":{\"width\":1280,\"height\":720}}"}
+{"level":30,"time":"2026-04-10T06:35:15.321Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@f9ddaf7890e72bdc7f7ad3b37defe1de\"},\"headless\":false,\"_contextStack\":[],\"id\":\"browser=23441bad-1e81-4f28-9c02-42edd8886343\"}"}
+{"level":30,"time":"2026-04-10T06:35:15.321Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Trace file: "}
+{"level":30,"time":"2026-04-10T06:35:16.766Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Setting default timeout for context context=ab2b476f-a3c4-4e53-841f-94c02831db97 to 60000"}
+{"level":30,"time":"2026-04-10T06:35:16.767Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Changed active context: context=ab2b476f-a3c4-4e53-841f-94c02831db97"}
+{"level":30,"time":"2026-04-10T06:35:16.767Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"End of node method newContext"}
+{"level":30,"time":"2026-04-10T06:35:16.786Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-04-10T06:35:16.787Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@f9ddaf7890e72bdc7f7ad3b37defe1de\"},\"headless\":false,\"_contextStack\":[{\"id\":\"context=ab2b476f-a3c4-4e53-841f-94c02831db97\",\"c\":{\"_type\":\"BrowserContext\",\"_guid\":\"browser-context@591a3644c0ec34860bf368b51b1e95f0\"},\"pageStack\":[],\"options\":{\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":false,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"storageState\":\"C:\\\\Users\\\\User\\\\Desktop\\\\Naluephan1\\\\saas\\\\hrplus\\\\tests\\\\resources\\\\../../.auth/admin_state.json\",\"viewport\":{\"width\":1280,\"height\":720}},\"traceFile\":\"\"}],\"id\":\"browser=23441bad-1e81-4f28-9c02-42edd8886343\"}"}
+{"level":30,"time":"2026-04-10T06:35:17.346Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Video path: undefined"}
+{"level":30,"time":"2026-04-10T06:35:17.347Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Changed active page"}
+{"level":30,"time":"2026-04-10T06:36:10.152Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"End of node method newPage"}
+{"level":30,"time":"2026-04-10T06:36:10.169Z","pid":6548,"hostname":"DESKTOP-B25KPJK","msg":"Start of node method goTo"}

@@ -3,3 +3,5 @@ robotframework-seleniumlibrary
 webdriver-manager
 python-dotenv
 robotframework-browser
+robotframework-requests
+robotframework-jsonlibrary

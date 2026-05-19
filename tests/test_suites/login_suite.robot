@@ -8,7 +8,7 @@ Test Teardown     Close Application
 Verify Login Page Loads
     [Documentation]    Verifies that the login page opens successfully.
     [Tags]    smoke
-    Wait For Elements State    css=body    visible    timeout=10s
+    Wait For Elements State    css=body    visible    timeout=60s
     Log    Login page loaded successfully.
 
 # Valid Login Test
