@@ -1,10 +1,13 @@
 *** Settings ***
 Documentation     A test suite for the Settings module including Departments, Organization, and Levels.
 Resource          ../resources/common.resource
+Resource          ../resources/session.resource
 Resource          ../resources/navigation.resource
 Resource          ../resources/settings_keywords.resource
-Test Setup        Run Keywords    Open HR Plus Application    AND    Login To Application
-Test Teardown     Close Application
+Suite Setup       Open Browser For Suite
+Suite Teardown    Close Browser    ALL
+Test Setup        Open Fresh Logged In Page
+Test Teardown     Close Test Page
 
 *** Variables ***
 ${DEPARTMENTS_URL}    ${URL}/settings/departments

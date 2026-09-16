@@ -1,13 +1,16 @@
 *** Settings ***
 Documentation       A test suite for the Employees module.
 Resource            ../resources/common.resource
+Resource            ../resources/session.resource
 Resource            ../resources/settings_keywords.resource
 Resource            ../resources/pages/employees_page.resource
 
 Library             String
 
-Test Setup        Run Keywords    Open HR Plus Application    AND    Login To Application
-Test Teardown     Close Application
+Suite Setup       Open Browser For Suite
+Suite Teardown    Close Browser    ALL
+Test Setup        Open Fresh Logged In Page
+Test Teardown     Close Test Page
 
 
 *** Variables ***

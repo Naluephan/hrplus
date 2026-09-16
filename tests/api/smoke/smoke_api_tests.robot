@@ -22,8 +22,9 @@ Verify Department CRUD Operations
     [Tags]             smoke    department    api
     Log To Console    \n------------------------------------------------------------
     Log To Console    [START] Testing Department CRUD Operations...
-    ${random_char}=    Evaluate    random.choice(['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'])    modules=random
-    ${dept_code}=      Set Variable    Q${random_char}
+    # รหัสแผนกเป็น varchar(2) และ unique ต่อเทนแนนต์ — เลือกจากรหัสที่ว่างจริง
+    # ไม่ใช่สุ่ม เพราะการสุ่มจากตัวอักษรตัวเดียวมีแค่ 26 ค่า และจะชนของค้างจากรันก่อน
+    ${dept_code}=      Allocate Unused Department Code    prefix=Q
     Log To Console    [STEP 1] Creating new department with code: ${dept_code}
     ${dept_id}    ${body}=    Create Department via API
     ...                       code=${dept_code}
@@ -153,12 +154,15 @@ Verify Leave Request and Workflow Operations
     Log To Console    [INFO] Resolved active Leave Type ID: ${leave_type_id}
     
     # Request leave (e.g. sick leave starting tomorrow)
+    # วันลาต้องเป็นวันในอนาคตเสมอ — วันที่ฮาร์ดโค้ดจะกลายเป็นอดีตเมื่อเวลาผ่านไป
+    # แล้วขั้นตอนยกเลิกจะถูกปฏิเสธด้วย "The leave date has already passed"
+    ${leave_date}=     Get Future Date    days=14
     Log To Console    [STEP 2] Submitting a new leave request for Employee ID: ${CREATED_EMP_ID}
     ${leave_id}    ${body}=   Create Leave Request via API
     ...                       emp_id=${CREATED_EMP_ID}
     ...                       leave_type_id=${leave_type_id}
-    ...                       start_date=2026-05-19
-    ...                       end_date=2026-05-19
+    ...                       start_date=${leave_date}
+    ...                       end_date=${leave_date}
     ...                       reason=ปวดหัว ตัวร้อน เป็นไข้ (API Test)
     ...                       total_days=1.0
     

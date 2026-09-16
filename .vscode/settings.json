@@ -1,0 +1,6 @@
+{
+  "robot.python.executable": "${workspaceFolder}/.venv/Scripts/python.exe",
+  "robot.pythonpath": [
+    "${workspaceFolder}/.venv/Lib/site-packages"
+  ]
+}

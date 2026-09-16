@@ -2,7 +2,7 @@
 Documentation    Core HTTP Session Helper and Request Wrapper Keywords for HR API Testing
 Library          RequestsLibrary
 Library          Collections
-Library          JSONLibrary
+Library          DateTime
 
 *** Variables ***
 ${API_BASE_URL}          http://localhost:3001/api/v1
@@ -45,6 +45,27 @@ Send PUT Request Wrapper
     Should Be Equal As Integers    ${response.status_code}    ${expected_status}
     RETURN             ${response}
 
+Send PATCH Request Wrapper
+    [Documentation]    Wraps PATCH request and asserts response status code.
+    [Arguments]        ${uri}    ${payload}    ${expected_status}=200    ${custom_headers}=${None}
+    ${response}=       PATCH On Session    hr_api    ${uri}    json=${payload}    headers=${custom_headers}    expected_status=any
+    Log                PATCH Response: ${response.status_code} - ${response.text}
+    Should Be Equal As Integers    ${response.status_code}    ${expected_status}
+    RETURN             ${response}
+
+Send Multipart POST Request Wrapper
+    [Documentation]    ส่ง POST แบบ multipart/form-data สำหรับปลายทางที่ต้องแนบไฟล์
+    ...
+    ...                เซสชันตั้ง Content-Type=application/json ไว้เป็นค่าเริ่มต้น จึงต้องสั่งลบทิ้ง
+    ...                (ส่งค่า None) เพื่อให้ requests ใส่ boundary ของ multipart ให้เอง
+    [Arguments]        ${uri}    ${fields}    ${files}    ${expected_status}=201
+    ${headers}=        Create Dictionary    Content-Type=${None}
+    ${response}=       POST On Session    hr_api    ${uri}
+    ...                data=${fields}    files=${files}    headers=${headers}    expected_status=any
+    Log                Multipart POST Response: ${response.status_code} - ${response.text}
+    Should Be Equal As Integers    ${response.status_code}    ${expected_status}
+    RETURN             ${response}
+
 Send DELETE Request Wrapper
     [Documentation]    Wraps DELETE request and asserts response status code.
     [Arguments]        ${uri}    ${expected_status}=200    ${custom_headers}=${None}
@@ -52,3 +73,12 @@ Send DELETE Request Wrapper
     Log                DELETE Response: ${response.status_code} - ${response.text}
     Should Be Equal As Integers    ${response.status_code}    ${expected_status}
     RETURN             ${response}
+
+Get Future Date
+    [Documentation]    คืนวันที่ในอนาคตรูปแบบ YYYY-MM-DD นับจากวันนี้
+    ...
+    ...                ใช้แทนการเขียนวันที่ตายตัวในเทส วันที่ตายตัวจะผ่านไปเป็นอดีต
+    ...                แล้วเทสจะพังเองโดยที่ระบบไม่ได้เสียอะไรเลย
+    [Arguments]        ${days}=1
+    ${date}=           Get Current Date    increment=${days} days    result_format=%Y-%m-%d
+    RETURN             ${date}

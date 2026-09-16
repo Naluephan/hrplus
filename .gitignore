@@ -1,0 +1,3 @@
+
+# API e2e environment (contains DB and JWT secrets)
+.env.test

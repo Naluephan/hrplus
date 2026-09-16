@@ -1,9 +1,12 @@
 *** Settings ***
 Documentation     A test suite for the News functionality of HR Plus.
 Resource          ../resources/common.resource
+Resource          ../resources/session.resource
 Library           String
-Test Setup        Open HR Plus Application
-Test Teardown     Close Application
+Suite Setup       Open Browser For Suite
+Suite Teardown    Close Browser    ALL
+Test Setup        Open Fresh Page
+Test Teardown     Close Test Page
 
 *** Variables ***
 ${NEWS_URL}          ${URL}/news

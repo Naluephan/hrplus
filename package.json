@@ -1,0 +1,20 @@
+{
+  "name": "hrplus-tests",
+  "private": true,
+  "description": "Automated tests for HR Plus â€” Robot Framework UI suites and NestJS API e2e suites.",
+  "scripts": {
+    "test": "npm run test:api:all",
+    "test:api": "node ../hr-api-dup/node_modules/jest/bin/jest.js --config api-e2e/jest.config.js",
+    "test:api:watch": "node ../hr-api-dup/node_modules/jest/bin/jest.js --config api-e2e/jest.config.js --watch",
+    "test:api:setup": "node api-e2e/setup-test-db.js",
+    "test:api:seed": "node api-e2e/seed-test-db.js",
+    "test:api:unit": "npm --prefix ../hr-api-dup run test",
+    "test:api:controller": "npm --prefix ../hr-api-dup run test:controller",
+    "test:api:all": "npm run test:api:unit && npm run test:api:controller && npm run test:api",
+    "test:ui": "robot -d results -V data/env/dev.yaml -V data/testdata/users.yaml tests/e2e tests/ui tests/test_suites",
+    "test:ui:smoke": "robot -d results -i smoke -V data/env/dev.yaml -V data/testdata/users.yaml tests/e2e tests/ui tests/test_suites",
+    "test:ui:headed": "robot -d results -v HEADLESS:false -V data/env/dev.yaml -V data/testdata/users.yaml tests/e2e tests/ui tests/test_suites",
+    "test:ui:parallel": "pabot --processes 4 --outputdir results -V data/env/dev.yaml -V data/testdata/users.yaml tests/e2e tests/ui tests/test_suites",
+    "test:ui:api": "robot -d results -V data/env/dev.yaml -V data/testdata/users.yaml tests/api"
+  }
+}

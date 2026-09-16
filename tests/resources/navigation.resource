@@ -7,6 +7,9 @@ Wait For Loading To Hide
     [Arguments]    ${timeout}=120s
     [Documentation]    รอให้ Loading Overlay (GlobalLoadingNavigator) หายไป
     ...    GlobalLoadingNavigator returns null when isLoading=false
+    # หมายเหตุ (2026-09-14): ห้ามตัด Sleep / ย่อ timeout ในคีย์เวิร์ดนี้จนกว่า frontend จะประกาศ
+    # page.ready — เคยลองย่อหน้าต่างจับ loader จาก ~1.3 วินาทีเหลือ 0.5 วินาที ผลคือ loader
+    # ยังคลุมหน้าจอตอนเทสไปคลิกเมนู คลิกไม่ติด 120 วินาที และเคสที่เคยผ่านพัง
     Sleep    0.3s
     
     # ตรวจสอบว่า element มีอยู่ใน DOM ไหม

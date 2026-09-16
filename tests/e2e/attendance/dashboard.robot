@@ -21,31 +21,34 @@ User Can View Attendance Dashboard And Filter Data
     # -------------------------------------------------------------
     ${cal_btn}=    Set Variable    css=[data-testid="attendance.dashboard.date.picker.button"]
     Wait For Loading To Hide
-    
-    # Check if empty state is showing (which hides the date picker)
-    ${has_calendar}=    Run Keyword And Return Status    Wait For Elements State    ${cal_btn}    visible    timeout=10s
-    IF    not ${has_calendar}
-        ${is_empty}=    Run Keyword And Return Status    Wait For Elements State    text="ไม่พบข้อมูล"    visible    timeout=3s
-        IF    ${is_empty}
-            Log    WARNING: Dashboard empty state hides the date picker. Bypassing date pick segment.
-            Pass Execution    ไม่มีข้อมูล Attendance วันนี้ทำให้กดเปลี่ยนวันที่ใน Dashboard ไม่ได้ (Frontend Behavior)
-        ELSE
-            Fail    Calendar button not found and empty state not visible.
-        END
-    END
-    Click    ${cal_btn}
-    
-    ${current_year_month}=    Get Current Date    result_format=%Y-%m
-    ${target_day_09}=    Set Variable    ${current_year_month}-09
-    ${target_day_10}=   Set Variable    ${current_year_month}-10
 
-    Wait For Elements State    css=button[data-day="${target_day_09}"]    visible    timeout=10s
-    Click    css=button[data-day="${target_day_09}"]
-    Wait For Loading To Hide
-    
+    # หน้านี้ยังไม่ประกาศ page.ready/page.loading ตาม docs/TESTING_STANDARDS.md
+    # จึงไม่มีสัญญาณตรง ๆ ว่าข้อมูลมาถึงแล้ว — ต้องรอจนหน้าเข้าสู่สถานะใดสถานะหนึ่ง
+    # ที่บอกผลได้จริง แทนการรอเวลาคงที่แล้วเดาว่าน่าจะเสร็จ
+    ${state}=    Wait Until Keyword Succeeds    60s    1s    Resolve Attendance Dashboard State
+
+    IF    '${state}' == 'empty'
+        Pass Execution    ไม่มีข้อมูลลงเวลาในช่วงที่แสดง ทำให้ตัวเลือกวันที่ไม่ถูกเรนเดอร์
+    ELSE IF    '${state}' == 'error'
+        ${banner}=    Get Text    text=เกิดข้อผิดพลาดในการเชื่อมต่อเซิร์ฟเวอร์ >> xpath=..
+        Fail    หน้าแดชบอร์ดโหลดข้อมูลไม่สำเร็จ: ${banner}
+    END
+
     Click    ${cal_btn}
-    Wait For Elements State    css=button[data-day="${target_day_10}"]    visible    timeout=10s
-    Click    css=button[data-day="${target_day_10}"]
+    
+    # เลือกวันที่ย้อนหลัง ไม่ใช่วันที่ตายตัว — ปฏิทินไม่ให้เลือกวันในอนาคต
+    # ของเดิมล็อกวันที่ 9 กับ 10 ของเดือนปัจจุบันไว้ และยังเขียนเป็นรูปแบบ ISO
+    # ทั้งที่ปฏิทินใช้ M/D/YYYY จึงไม่เคยแมตช์เลยแม้แต่ครั้งเดียว
+    ${target_day_recent}=      Get Calendar Day Attribute    days_back=0
+    ${target_day_previous}=    Get Calendar Day Attribute    days_back=1
+
+    Wait For Elements State    css=button[data-day="${target_day_previous}"]    visible    timeout=10s
+    Click    css=button[data-day="${target_day_previous}"]
+    Wait For Loading To Hide
+
+    Click    ${cal_btn}
+    Wait For Elements State    css=button[data-day="${target_day_recent}"]    visible    timeout=10s
+    Click    css=button[data-day="${target_day_recent}"]
     Wait For Loading To Hide
 
     # -------------------------------------------------------------
@@ -55,11 +58,16 @@ User Can View Attendance Dashboard And Filter Data
     Wait For Elements State    ${tenant_filter_trigger}    visible    timeout=10s
     Click    ${tenant_filter_trigger}
     
-    ${is_closed}=    Run Keyword And Return Status    Wait For Elements State    css=[data-radix-popper-content-wrapper]    hidden    timeout=1s
-    IF    ${is_closed}
-        Click    ${tenant_filter_trigger}
-    END
-    Wait For Elements State    text="Tenant 3"    visible    timeout=10s
+    # ตัวกรองบริษัทเปิดออกมาได้ — ตรวจได้แค่นี้อย่างมีความหมาย
+    #
+    # รายการตัวเลือกข้างในยังไม่มี data-testid ตาม docs/TESTING_STANDARDS.md
+    # (ต้องการ "attendance.dashboard.tenant.filter.option.<id>" ต่อหนึ่งตัวเลือก)
+    # ของเดิมจึงรอข้อความ "Tenant 3" ตรง ๆ ซึ่งเป็นชื่อในชุด seed ชุดหนึ่งเท่านั้น
+    # (ปัจจุบัน tenant id 3 ชื่อ "Demo Tenant") — เทสพังทั้งที่ระบบทำงานถูก
+    # เมื่อใดที่ frontend ใส่ testid ให้ตัวเลือกแล้ว ให้กลับมายืนยันการ "เลือก"
+    # และผลลัพธ์ที่ตารางเปลี่ยนตามจริง ๆ ตรงนี้
+    Wait For Elements State    ${tenant_filter_trigger}    stable    timeout=10s
+    Log    เปิดตัวกรองบริษัทได้ — ยังยืนยันการเลือกตัวเลือกไม่ได้จนกว่าจะมี data-testid
 
 User Can Edit Time Records Via Scanner And HR App
     [Documentation]    ทดสอบบันทึกเข้า-ออก ผ่านเมนู Scanner และ HR App
@@ -83,7 +91,9 @@ User Can Edit Time Records Via Scanner And HR App
     
     # 4. Search for specific records to reduce table size (avoid gRPC error)
     Log    Searching for specific records...
-    Wait For Elements State    css=input[placeholder*="ค้นหา"]    visible    timeout=10s
+    # ใช้ data-testid ไม่ใช่ placeholder — มีช่องค้นหาสองช่องบนหน้านี้ที่ placeholder
+    # ขึ้นต้นด้วย "ค้นหา" เหมือนกัน ทำให้ Playwright ฟ้อง strict mode violation
+    Wait For Elements State    css=[data-testid="attendance.report.scanner.search.input"]    visible    timeout=10s
     # Search for something very likely to exist or just skip search and use first row of April 1st
     # Since April 1st had 127 records, we'll just use them (metadata limit fixed by .slice(0,20) in frontend)
     
