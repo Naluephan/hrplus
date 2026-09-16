@@ -1,3 +1,8 @@
 
 # API e2e environment (contains DB and JWT secrets)
 .env.test
+
+# Python virtualenv for the Robot Framework suites: it carries the Playwright
+# browser binaries (one .dll alone is 254 MB, past the GitHub file size limit).
+# Recreate with: python -m venv .venv && pip install -r requirements.txt
+.venv/
